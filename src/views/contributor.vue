@@ -14,12 +14,6 @@ export default {
         thefullname(value) {
             return value.first + ' ' + value.last;
         }
-    },
-    methods: {
-        getImgUrl(member) {
-            return require('../assets/artists/'+artist);
-
-        }
     }
 }
 </script>
