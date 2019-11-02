@@ -1,17 +1,24 @@
 {
   "name": "crc30test",
-  "version": "0.1.0",
+  "version": "1.0.0", 
+  "description": "A blockchain test",
+  "author": "Andre <andregidoin@gmail.com>",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "now-build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "now-dev": "vue-cli-service serve  --port=$PORT"
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "font-awesome": "^4.7.0",
     "vue": "^2.6.10",
+    "vue-body-class": "^2.0.0-beta.2",
     "vue-router": "^3.0.3",
-    "vuex": "^3.0.1"
+    "vuex": "^3.1.1",
+    "web3": "^0.20.7"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.8.0",
@@ -21,6 +28,8 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.6.10"
   },
   "eslintConfig": {
