@@ -1,9 +1,9 @@
 <template>
 
-<div class="superRoot">
+<div class="cardRoot">
 
     <!-- HORIZONTAL SCROLLER -->
-    <div class="hs">
+    <div class="allCards">
         <div class="cards"><article1/></div>
         <div class="cards"><article2/></div>
         <div class="cards"><article3/></div>
@@ -99,18 +99,18 @@ export default {
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css?family=Comfortaa|Libre+Baskerville|Space+Mono&display=swap');
 
-.superRoot {
+.cardRoot {
     width: 100%;
-    height:100%;
+    height:auto;
     margin: 0 0 0 0;
     padding: 0 0 0 0;
 }
-.hs{
+.allCards{
     display:flex;
     flex-wrap: nowrap;
     overflow-x: auto;
     margin: 0 0 0 0;
-    height:100%;
+    height:auto;
     -webkit-overflow-scrolling: touch;
     .cards{
         flex: 0 0 auto;
@@ -162,7 +162,7 @@ export default {
 
 .beta{
     position: absolute;
-    top: 55apx;
+    top: 55px;
     left: 10px;
     z-index: 1;
     width:100px;

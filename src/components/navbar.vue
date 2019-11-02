@@ -64,6 +64,21 @@
   </svg>
   <!-- ARROWHEAD END -->
   </div></a></li>
+
+  <!-- SUBMIT ITEM -->
+  <li class="MenuItems"><a href="#submit"><div class="lineContainer" @click="openSubmit"><svg><line x1="0" y1="14"/></svg><p>Submit</p>
+  <!-- ARROWHEAD -->
+  <svg class="pageLineExtend" v-if="open5">
+      <defs>
+    <marker id="markerArrow" markerWidth="13" markerHeight="13" refX="8" refY="6.5"
+           orient="auto-start-reverse">
+        <path d="M2,2 L2,11 L10,6 L2,2" style="fill: #000000;" />
+    </marker>
+  </defs>
+  <line x1="0" y1="12" marker-start="url(#markerArrow)"/>
+  </svg>
+  <!-- ARROWHEAD END -->
+  </div></a></li>
 </ul>
 
 
@@ -91,6 +106,12 @@
       <button class="closeBTN" @click="openContact">Close</button>
       </div>
 
+  <!-- Submit PAGE -->
+<submitpage :openvariable5="open5" :closevariable5="close5"/>
+    <div class="close" v-if="open5">
+      <button class="closeBTN" @click="openSubmit">Close</button>
+      </div>
+
 
   </div>
 </template>
@@ -100,6 +121,7 @@ import Artists from '@/views/Artists.vue'
 import About from '@/views/About.vue'
 import Contact from '@/views/Contact.vue'
 import Blockchain from '@/views/Blockchain.vue'
+import Submit from '@/views/Submit.vue'
 
 
 
@@ -108,7 +130,8 @@ export default {
         'aboutpage': About,
         'artistspage': Artists,
         'contactpage': Contact,
-        'blockchainpage': Blockchain
+        'blockchainpage': Blockchain,
+        'submitpage': Submit
     },
     data() {
         return {
@@ -116,10 +139,12 @@ export default {
             open2: false,
             open3: false,
             open4: false,
+            open5: false,
             close1: false,
             close2: false,
             close3: false,
-            close4: false
+            close4: false,
+            close5: false
             }
         },
     methods: {
@@ -133,6 +158,10 @@ export default {
                 this.close2 = false;
                 this.open3 = false;
                 this.close3 = false;
+                this.open4 = false;
+                this.close4 = false;
+                this.open5 = false;
+                this.close5 = false;
             } else {
                 this.close1 = !this.close1;
                 this.open1 = !this.open1;
@@ -154,6 +183,10 @@ export default {
                 this.close1 = false;
                 this.open3 = false;
                 this.close3 = false;
+                this.open4 = false;
+                this.close4 = false;
+                this.open5 = false;
+                this.close5 = false;
             } else {
                 this.close2 = !this.close2;
                 this.open2 = !this.open2;
@@ -175,6 +208,10 @@ export default {
                 this.close1 = false;
                 this.open2 = false;
                 this.close2 = false;
+                this.open4 = false;
+                this.close4 = false;
+                this.open5 = false;
+                this.close5 = false;
             } else {
                 this.close3 = !this.close3;
                 this.open3 = !this.open3;
@@ -188,7 +225,7 @@ export default {
         },
         openContact: function() {
             if (this.open4 === false) {
-                this.open4 = !this.open3;
+                this.open4 = !this.open4;
                 this.close4 = false;
                 console.log('Contact is ' + this.open4);
                 // CLOSING OTHER PAGES
@@ -198,6 +235,8 @@ export default {
                 this.close2 = false;
                 this.open3 = false;
                 this.close3 = false;
+                this.open5 = false;
+                this.close5 = false;
             } else {
                 this.close4 = !this.close4;
                 this.open4 = !this.open4;
@@ -205,6 +244,31 @@ export default {
                 setTimeout(() => {
                     this.close4 = !this.close4;
                     console.log('resetting class - closed is ' + this.close4);
+                    history.pushState(null, null, ' ');
+                }, 400);
+            }
+        },
+      openSubmit: function() {
+            if (this.open5 === false) {
+                this.open5 = !this.open5;
+                this.close5 = false;
+                console.log('Submit is ' + this.open5);
+                // CLOSING OTHER PAGES
+                this.open1 = false;
+                this.close1 = false;
+                this.open2 = false;
+                this.close2 = false;
+                this.open3 = false;
+                this.close3 = false;
+                this.open4 = false;
+                this.close4 = false;
+            } else {
+                this.close5 = !this.close5;
+                this.open5 = !this.open5;
+                console.log('Submit is already ' + this.open5 + '. And now were closing it ' + this.close5);
+                setTimeout(() => {
+                    this.close5 = !this.close5;
+                    console.log('resetting class - closed is ' + this.close5);
                     history.pushState(null, null, ' ');
                 }, 400);
             }
