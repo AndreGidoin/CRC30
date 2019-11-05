@@ -323,6 +323,7 @@ export default {
             this.worthIsZero = false;
             console.log("This article is worth " + result);
             console.log(web3.fromWei(result) + " is the result in ETH")
+            this.$emit('current-worthsix', this.CurrentWorth)
             } 
           }
           resolve(result);

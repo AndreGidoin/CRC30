@@ -11,11 +11,19 @@
         v-on:current-worthone="article1value = $event" 
         v-on:current-worthtwo="article2value = $event" 
         v-on:current-worththree="article3value = $event" 
+        v-on:current-worthfour="article4value = $event" 
+        v-on:current-worthfive="article5value = $event" 
+        v-on:current-worthsix="article6value = $event" 
+        v-on:current-worthseven="article7value = $event" 
+        v-on:current-wortheight="article8value = $event" 
+        v-on:current-worthnine="article9value = $event" 
+        v-on:current-worthten="article10value = $event" 
         class="cards"/>
     </div>
 
-    <button v-on:click="test">Sort by Article number</button>
+    <button v-on:click="sortNumber">Sort by Article number</button>
     <button v-on:click="sortValue">Sort by Article value</button>
+    <button v-on:click="sortName">Sort by Artist name</button>
 
     <!-- SYSTEM INFO - METAMASK and web3 -->
     <div class="MetaMask"><hello-metamask/></div>
@@ -80,62 +88,62 @@ export default {
                 {
                     name: 'article1',
                     value: '',
-                    artistName: this.article1ArtistName,
+                    artistName: 'Z',
                     articleNumber: '1'
                 },
                 
                 {
                     name: 'article2',
                     value: '',
-                    artistName: this.article2ArtistName,
+                    artistName: 'Z',
                     articleNumber: '2'
                 },
                 {
                     name: 'article3',
                     value: '',
-                    artistName: this.article3ArtistName,
+                    artistName: 'Z',
                     articleNumber: '3'
                 },
                 {
                     name: 'article4',
                     value: '',
-                    artistName: this.article4ArtistName,
+                    artistName: 'Z',
                     articleNumber: '4'
                 },
                 {
                     name: 'article5',
                     value: '',
-                    artistName: this.article5ArtistName,
+                    artistName: 'Z',
                     articleNumber: '5'
                 },
                 {
                     name: 'article6',
                     value: '',
-                    artistName: this.article6ArtistName,
+                    artistName: 'Z',
                     articleNumber: '6'
                 },
                 {
                     name: 'article7',
                     value: '',
-                    artistName: this.article7ArtistName,
+                    artistName: 'Z',
                     articleNumber: '7'
                 },
                 {
                     name: 'article8',
                     value: '',
-                    artistName: this.article8ArtistName,
+                    artistName: 'Z',
                     articleNumber: '8'
                 },
                 {
                     name: 'article9',
                     value: '',
-                    artistName: this.article9ArtistName,
+                    artistName: 'Z',
                     articleNumber: '9'
                 },
                 {
                     name: 'article10',
                     value: '',
-                    artistName: this.article10ArtistName,
+                    artistName: 'Z',
                     articleNumber: '10'
                 }
             ]
@@ -168,27 +176,32 @@ export default {
 
             }
         },
-        test: function() {
-            console.log("tester" + ' ' + this.article1data);
-            console.log(this.ArticleComponents.sort(this.compareArticleNumber) + ' ' + 'sorting1');
+        sortNumber: function() {
+            console.log(this.ArticleComponents.sort(this.compareArticleNumber) + ' ' + 'sort by number');
+        },
+        compareArticleNumber: function(a,b) {
+            return a.articleNumber - b.articleNumber
         },
         sortValue: function() {
-            console.log(this.ArticleComponents.sort(this.compareArticleValue) + ' ' + 'sorting2');
+            console.log(this.ArticleComponents.sort(this.compareArticleValue) + ' ' + 'sort by value');
+        },
+        compareArticleValue: function(a,b) {
+            return b.value - a.value 
         },
         setValue: function() {
             console.log(this.ArticleComponents[0].value = (this.article1value));
             console.log(this.ArticleComponents[1].value = (this.article2value));
             console.log(this.ArticleComponents[2].value = (this.article3value));
+            console.log(this.ArticleComponents[3].value = (this.article4value));
+            console.log(this.ArticleComponents[4].value = (this.article5value));
+            console.log(this.ArticleComponents[5].value = (this.article6value));
+            console.log(this.ArticleComponents[6].value = (this.article7value));
+            console.log(this.ArticleComponents[7].value = (this.article8value));
+            console.log(this.ArticleComponents[8].value = (this.article9value));
+            console.log(this.ArticleComponents[9].value = (this.article10value));
         },
-        checkValue: function() {
-            console.log(JSON.stringify(this.article1value + ' ' + this.article2value + ' ' + this.article3value));
-
-        },
-        compareArticleNumber: function(a,b) {
-            return a.articleNumber - b.articleNumber
-        },
-        compareArticleValue: function(a,b) {
-            return b.value - a.value 
+        sortName: function() {
+            console.log(this.ArticleComponents.sort((a,b) => (a.artistName > b.artistName) ? 1 : -1) + ' ' + 'sort by name')
         }
     }
 }
