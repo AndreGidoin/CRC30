@@ -1,8 +1,11 @@
 <template>
   <div class="flex-grid artistMember">
       <div class="col artistImage">
-        placeholder img</div>
-      <div class="col2 artistInfo"><h2>Article {{artist.article}}</h2><p>{{artist.description}}</p><p>Artist: {{artist | thefullname}}</p><p>{{artist.bio}}</p></div>
+        <img v-bind:src="artist.imgURL"></div>
+      <div class="col2 artistColumn">
+          <div class="articleInfo"><h2>Article {{artist.article}} : {{artist | thefullname}}</h2><p>{{artist.description}}</p></div>
+            <div class="artistInfo"><p>{{artist.bio}}</p><p>{{artist.link}}</p></div>
+      </div>
   </div>
 </template>
 
@@ -40,10 +43,9 @@ export default {
 
 }
 .artistImage img {
-    height: 100%;
-    width: auto;
+    height: 150px;
 }
-.artistInfo {
+.artistColumn {
     margin: 0 30px 0 20px;
     max-height: 300px;
     width: 70%;
@@ -60,9 +62,17 @@ h2 {
     font-size: 1em;
 }
 p {
-    margin: 0;
+    margin: 0 0 0 0;
     padding: 0;
     font-size:0.75em;
+}
+.articleInfo p {
+    font-style: italic;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.artistInfo p {
+    margin-top: 5px;
 }
 
 </style>

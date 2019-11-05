@@ -4,17 +4,18 @@
 
     <!-- HORIZONTAL SCROLLER -->
     <div class="allCards">
-        <div class="cards"><article1/></div>
-        <div class="cards"><article2/></div>
-        <div class="cards"><article3/></div>
-        <div class="cards"><article4/></div>
-        <div class="cards"><article5/></div>
-        <div class="cards"><article6/></div>
-        <div class="cards"><article7/></div>
-        <div class="cards"><article8/></div>
-        <div class="cards"><article9/></div>
-        <div class="cards"><article10/></div>
+        <component 
+        v-for="component in ArticleComponents" 
+        v-bind:is="component.name" 
+        v-bind:key="component.id" 
+        v-on:current-worthone="article1value = $event" 
+        v-on:current-worthtwo="article2value = $event" 
+        v-on:current-worththree="article3value = $event" 
+        class="cards"/>
     </div>
+
+    <button v-on:click="test">Sort by Article number</button>
+    <button v-on:click="sortValue">Sort by Article value</button>
 
     <!-- SYSTEM INFO - METAMASK and web3 -->
     <div class="MetaMask"><hello-metamask/></div>
@@ -59,10 +60,85 @@ export default {
     },
     mounted() {
     setTimeout(this.checkMetaMask, 500);
+    setTimeout(this.setValue, 1300);
     },
     data() {
         return{
-            NoMetaMask: false
+            NoMetaMask: false,
+            article1value: null,
+            article2value: null,
+            article3value: null,
+            article4value: null,
+            article5value: null,
+            article6value: null,
+            article7value: null,
+            article8value: null,
+            article9value: null,
+            article10value: null,
+            article1ArtistName: null,
+            ArticleComponents: [
+                {
+                    name: 'article1',
+                    value: '',
+                    artistName: this.article1ArtistName,
+                    articleNumber: '1'
+                },
+                
+                {
+                    name: 'article2',
+                    value: '',
+                    artistName: this.article2ArtistName,
+                    articleNumber: '2'
+                },
+                {
+                    name: 'article3',
+                    value: '',
+                    artistName: this.article3ArtistName,
+                    articleNumber: '3'
+                },
+                {
+                    name: 'article4',
+                    value: '',
+                    artistName: this.article4ArtistName,
+                    articleNumber: '4'
+                },
+                {
+                    name: 'article5',
+                    value: '',
+                    artistName: this.article5ArtistName,
+                    articleNumber: '5'
+                },
+                {
+                    name: 'article6',
+                    value: '',
+                    artistName: this.article6ArtistName,
+                    articleNumber: '6'
+                },
+                {
+                    name: 'article7',
+                    value: '',
+                    artistName: this.article7ArtistName,
+                    articleNumber: '7'
+                },
+                {
+                    name: 'article8',
+                    value: '',
+                    artistName: this.article8ArtistName,
+                    articleNumber: '8'
+                },
+                {
+                    name: 'article9',
+                    value: '',
+                    artistName: this.article9ArtistName,
+                    articleNumber: '9'
+                },
+                {
+                    name: 'article10',
+                    value: '',
+                    artistName: this.article10ArtistName,
+                    articleNumber: '10'
+                }
+            ]
         }
     },
     components: {
@@ -91,6 +167,28 @@ export default {
                 console.log("check" + ' ' + window.ethereum.selectedAddress)
 
             }
+        },
+        test: function() {
+            console.log("tester" + ' ' + this.article1data);
+            console.log(this.ArticleComponents.sort(this.compareArticleNumber) + ' ' + 'sorting1');
+        },
+        sortValue: function() {
+            console.log(this.ArticleComponents.sort(this.compareArticleValue) + ' ' + 'sorting2');
+        },
+        setValue: function() {
+            console.log(this.ArticleComponents[0].value = (this.article1value));
+            console.log(this.ArticleComponents[1].value = (this.article2value));
+            console.log(this.ArticleComponents[2].value = (this.article3value));
+        },
+        checkValue: function() {
+            console.log(JSON.stringify(this.article1value + ' ' + this.article2value + ' ' + this.article3value));
+
+        },
+        compareArticleNumber: function(a,b) {
+            return a.articleNumber - b.articleNumber
+        },
+        compareArticleValue: function(a,b) {
+            return b.value - a.value 
         }
     }
 }
@@ -114,7 +212,7 @@ export default {
     -webkit-overflow-scrolling: touch;
     .cards{
         flex: 0 0 auto;
-        margin: -55px 0 0 0;
+        margin: 0 35px 0 35px;
         transform: scale3d(0.70, 0.70, 0.70);
     }
 }

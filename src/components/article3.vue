@@ -327,6 +327,7 @@ export default {
           }
           resolve(result);
           console.log(this.worth + " is that it's worth now" + this.worthIsZero + " is zero worth")
+          this.$emit('current-worththree', this.CurrentWorth)
         })
       })
     },

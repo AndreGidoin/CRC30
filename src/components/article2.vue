@@ -324,6 +324,8 @@ export default {
             } 
           }
           resolve(result);
+          this.$emit('current-worthtwo', this.CurrentWorth)
+
         })
       })
     },

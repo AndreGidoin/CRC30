@@ -28,7 +28,7 @@
         <h2 v-if="ArticleNameChecked"> {{ ArticleNameEvent }}</h2>
         </div>
       
-      <div class="theArtwork">
+      <div class="theArtwork" v-on:click="$emit('current-worth', 100)">
         <span v-if="ipfshHashChecked">
           <img id="IPFSImage1" />
         </span>
@@ -323,6 +323,8 @@ export default {
             } 
           }
           resolve(result);
+          this.$emit('current-worthone', this.CurrentWorth)
+
         })
       })
     },
