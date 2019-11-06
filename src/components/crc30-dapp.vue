@@ -108,7 +108,6 @@ export default {
                     value: '',
                     artistName: 'Z',
                     articleNumber: '1',
-                    id: 1
                 },
                 
                 {
@@ -116,7 +115,6 @@ export default {
                     value: '',
                     artistName: 'Z',
                     articleNumber: '2',
-                    id: 2
                 },
                 {
                     name: 'article3',
@@ -229,7 +227,6 @@ export default {
         },
         setName: function() {
             console.log('helloworldname');
-            console.log(this.ArticleComponents[0].name = (this.article1name));
         }
     }
 }
