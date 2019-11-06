@@ -65,7 +65,7 @@
          <!-- History of owners should go here, to the backside. -->
         <div class="ownerHistory" v-if="hasOwners">
           <h2 v-if="hasPreviousOwners">Thank you to all supporters:</h2>
-                    <ul id="ownerHistory7">
+                    <ul id="ownerHistory2">
                     </ul>
                   </div>
                   <div class="ownerHistory" v-if="!hasOwners">
@@ -97,7 +97,7 @@
     <!-- Controller for buying and stuff -->
     <div class="articleControls" v-bind:class="{ 'transparency' : isMouseOver }">
       <p class="gold" v-if="worth">Current worth: {{CurrentWorth}} ETH</p>
-          <p class="NoOwner" v-if="worthIsZero">This article has not been ratified by anyone yet. <i>Claim it for any price.</i></p>
+          <p class="NoOwner" v-if="!worth">This article has not been ratified by anyone yet. <i>Claim it for any price.</i></p>
       <!-- Buying form and button -->
       <div class="buying">
           <input type="text"
@@ -282,7 +282,6 @@ export default {
     crcArticleContentEvent(event) {
       console.log("Getting article content");
       this.$store.state.article7Instance().conventionArticleContent(
-        
         (error, result) => {
           if (!error) {
             let theArticleContent = this.$store.state
@@ -313,21 +312,20 @@ export default {
             console.log("Cant get currentWorth()");
             console.log(error);
           } else {
-            if (result == 0) {
+            if (result === 0) {
               console.log(result + " Current worth is ZERO");
               this.worthIsZero = true;
               this.worth = false;
             } else {
             this.CurrentWorth = web3.fromWei(result);
             this.worth = true;
-            this.worthIsZero = false;
             console.log("This article is worth " + result);
             console.log(web3.fromWei(result) + " is the result in ETH")
-            this.$emit('current-worthseven', this.CurrentWorth)
             } 
           }
           resolve(result);
-          console.log(this.worth + " is that it's worth now" + this.worthIsZero + " is zero worth")
+          this.$emit('current-worthseven', this.CurrentWorth)
+
         })
       })
     },
@@ -463,7 +461,7 @@ export default {
             })
             forPromise.then((result) => {
                 console.log('in the then promise')
-                document.getElementById("ownerHistory7").innerHTML = result;
+                document.getElementById("ownerHistory2").innerHTML = result;
                 console.log(result);
             })
         }
@@ -613,7 +611,7 @@ h4 {
   margin-left: 50%;
   transform: translateX(-50%);
 }
-#IPFSImage4 {
+#IPFSImage {
 }
 
 

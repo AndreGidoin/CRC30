@@ -24,11 +24,9 @@
 import MenuBar from '@/components/navbar'
 
 export default {
-  beforeCreate: function() {
-    document.body.className = 'SinglePage';
+  beforeCreate () {
     },
     created() {
-    document.html.className = 'HTMLRoot';
     },
     components: {
         'navbar': MenuBar

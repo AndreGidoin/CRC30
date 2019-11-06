@@ -18,12 +18,15 @@
         v-on:current-wortheight="article8value = $event" 
         v-on:current-worthnine="article9value = $event" 
         v-on:current-worthten="article10value = $event" 
+
         class="cards"/>
     </div>
 
     <button v-on:click="sortNumber">Sort by Article number</button>
     <button v-on:click="sortValue">Sort by Article value</button>
     <button v-on:click="sortName">Sort by Artist name</button>
+    <p>{{ArticleComponents}}</p>
+    <p id="testsort">{{ArticleComponents}}</p>
 
     <!-- SYSTEM INFO - METAMASK and web3 -->
     <div class="MetaMask"><hello-metamask/></div>
@@ -47,6 +50,8 @@
 
 
 <script>
+import { setTimeout } from "timers";
+
 import HelloMetamask from '@/components/hello-metamask'
 import Article1 from '@/components/article1'
 import Article2 from '@/components/article2'
@@ -68,7 +73,8 @@ export default {
     },
     mounted() {
     setTimeout(this.checkMetaMask, 500);
-    setTimeout(this.setValue, 1300);
+    setTimeout(this.setValue, 2300);
+    setTimeout(this.setName, 2300);
     },
     data() {
         return{
@@ -83,69 +89,84 @@ export default {
             article8value: null,
             article9value: null,
             article10value: null,
-            article1ArtistName: null,
+
+            article1name: '',
+            article2name: '',
+            article3name: '',
+            article4name: '',
+            article5name: '',
+            article6name: '',
+            article7name: '',
+            article8name: '',
+            article9name: '',
+            article10name: '',
+
+
             ArticleComponents: [
                 {
                     name: 'article1',
                     value: '',
                     artistName: 'Z',
-                    articleNumber: '1'
+                    articleNumber: '1',
+                    id: 1
                 },
-                
-                {
-                    name: 'article2',
-                    value: '',
-                    artistName: 'Z',
-                    articleNumber: '2'
-                },
-                {
-                    name: 'article3',
-                    value: '',
-                    artistName: 'Z',
-                    articleNumber: '3'
-                },
-                {
-                    name: 'article4',
-                    value: '',
-                    artistName: 'Z',
-                    articleNumber: '4'
-                },
-                {
-                    name: 'article5',
-                    value: '',
-                    artistName: 'Z',
-                    articleNumber: '5'
-                },
-                {
-                    name: 'article6',
-                    value: '',
-                    artistName: 'Z',
-                    articleNumber: '6'
-                },
-                {
-                    name: 'article7',
-                    value: '',
-                    artistName: 'Z',
-                    articleNumber: '7'
-                },
-                {
-                    name: 'article8',
-                    value: '',
-                    artistName: 'Z',
-                    articleNumber: '8'
-                },
-                {
-                    name: 'article9',
-                    value: '',
-                    artistName: 'Z',
-                    articleNumber: '9'
-                },
-                {
-                    name: 'article10',
-                    value: '',
-                    artistName: 'Z',
-                    articleNumber: '10'
-                }
+                
+                {
+                    name: 'article2',
+                    value: '',
+                    artistName: 'Z',
+                    articleNumber: '2',
+                    id: 2
+                },
+                {
+                    name: 'article3',
+                    value: '',
+                    artistName: 'Z',
+                    articleNumber: '3'
+                },
+                {
+                    name: 'article4',
+                    value: '',
+                    artistName: 'Z',
+                    articleNumber: '4'
+                },
+                {
+                    name: 'article5',
+                    value: '',
+                    artistName: 'Z',
+                    articleNumber: '5'
+                },
+                {
+                    name: 'article6',
+                    value: '',
+                    artistName: 'Z',
+                    articleNumber: '6'
+                },
+                {
+                    name: 'article7',
+                    value: '',
+                    artistName: 'Z',
+                    articleNumber: '7'
+                },
+                {
+                    name: 'article8',
+                    value: '',
+                    artistName: 'Z',
+                    articleNumber: '8'
+                },
+                {
+                    name: 'article9',
+                    value: '',
+                    artistName: 'Z',
+                    articleNumber: '9'
+                },
+                {
+                    name: 'article10',
+                    value: '',
+                    artistName: 'Z',
+                    articleNumber: '10'
+                }
+
             ]
         }
     },
@@ -173,7 +194,7 @@ export default {
                 this.NoMetaMask = true;
                 console.log("checkMetaMask is true");
                 console.log("check" + ' ' + window.ethereum.selectedAddress)
-
+            
             }
         },
         sortNumber: function() {
@@ -186,7 +207,7 @@ export default {
             console.log(this.ArticleComponents.sort(this.compareArticleValue) + ' ' + 'sort by value');
         },
         compareArticleValue: function(a,b) {
-            return b.value - a.value 
+            return b.value - a.value;
         },
         setValue: function() {
             console.log(this.ArticleComponents[0].value = (this.article1value));
@@ -201,7 +222,14 @@ export default {
             console.log(this.ArticleComponents[9].value = (this.article10value));
         },
         sortName: function() {
-            console.log(this.ArticleComponents.sort((a,b) => (a.artistName > b.artistName) ? 1 : -1) + ' ' + 'sort by name')
+            console.log(this.ArticleComponents.sort(this.compareArticleName) + ' ' + 'sort by Name');
+        },
+        compareArticleName: function(a,b) {
+            return b.name - a.name 
+        },
+        setName: function() {
+            console.log('helloworldname');
+            console.log(this.ArticleComponents[0].name = (this.article1name));
         }
     }
 }

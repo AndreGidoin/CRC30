@@ -28,7 +28,7 @@
         <h2 v-if="ArticleNameChecked"> {{ ArticleNameEvent }}</h2>
         </div>
       
-      <div class="theArtwork" v-on:click="$emit('current-worth', 100)">
+      <div class="theArtwork">
         <span v-if="ipfshHashChecked">
           <img id="IPFSImage1" />
         </span>
@@ -65,7 +65,7 @@
          <!-- History of owners should go here, to the backside. -->
         <div class="ownerHistory" v-if="hasOwners">
           <h2 v-if="hasPreviousOwners">Thank you to all supporters:</h2>
-                    <ul id="ownerHistory1">
+                    <ul id="ownerHistory2">
                     </ul>
                   </div>
                   <div class="ownerHistory" v-if="!hasOwners">
@@ -315,6 +315,7 @@ export default {
             if (result === 0) {
               console.log(result + " Current worth is ZERO");
               this.worthIsZero = true;
+              this.worth = false;
             } else {
             this.CurrentWorth = web3.fromWei(result);
             this.worth = true;
@@ -460,7 +461,7 @@ export default {
             })
             forPromise.then((result) => {
                 console.log('in the then promise')
-                document.getElementById("ownerHistory1").innerHTML = result;
+                document.getElementById("ownerHistory2").innerHTML = result;
                 console.log(result);
             })
         }
@@ -610,7 +611,7 @@ h4 {
   margin-left: 50%;
   transform: translateX(-50%);
 }
-#IPFSImage1 {
+#IPFSImage {
 }
 
 
