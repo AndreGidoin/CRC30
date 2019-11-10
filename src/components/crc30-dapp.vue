@@ -29,14 +29,12 @@
         v-on:current-worthnine="article9value = $event" 
         v-on:current-worthten="article10value = $event" 
 
+        v-on:artist-nameone="artistName1 = $event" 
+        v-on:artist-nameseven="artistName7 = $event" 
+
         class="cards"/>
     </div>
 
-    <button v-on:click="sortNumber">Sort by Article number</button>
-    <button v-on:click="sortValue">Sort by Article value</button>
-    <button v-on:click="sortName">Sort by Artist name</button>
-    <p>{{ArticleComponents}}</p>
-   
 
     <!-- SYSTEM INFO - METAMASK and web3 -->
     <div class="MetaMask"><hello-metamask/></div>
@@ -84,8 +82,8 @@ export default {
     },
     mounted() {
     setTimeout(this.checkMetaMask, 500);
-    setTimeout(this.setValue, 2300);
-    setTimeout(this.setName, 2300);
+    setTimeout(this.setValue, 1300);
+    setTimeout(this.setName, 1400);
     },
     data() {
         return{
@@ -111,6 +109,17 @@ export default {
             article8name: '',
             article9name: '',
             article10name: '',
+
+            artistName1: '',
+            artistName2: '',
+            artistName3: '',
+            artistName4: '',
+            artistName5: '',
+            artistName6: '',
+            artistName7: '',
+            artistName8: '',
+            artistName9: '',
+            artistName10: '',
 
             lastClicked: 'number',
 
@@ -250,13 +259,16 @@ export default {
             console.log(this.ArticleComponents[9].value = (this.article10value));
         },
         sortName: function() {
-            console.log(this.ArticleComponents.sort(this.compareArticleName) + ' ' + 'sort by Name');
+            console.log(this.ArticleComponents.sort(this.compareArtistName) + ' ' + 'sort by Name');
         },
-        compareArticleName: function(a,b) {
-            return b.name - a.name 
+        compareArtistName: function(a,b) {
+            if(a.artistName < b.artistName) { return -1; }
+            if(a.artistName > b.artistName) { return 1; }
+            return 0;
         },
         setName: function() {
-            console.log('helloworldname');
+            console.log(this.ArticleComponents[0].artistName = (this.artistName1));
+            console.log(this.ArticleComponents[6].artistName = (this.artistName7));
         },
         
         handleClick: function(e) {

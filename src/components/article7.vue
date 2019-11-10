@@ -153,6 +153,7 @@ export default {
     setTimeout(this.crcArticleContentEvent, 100);
     setTimeout(this.ownerPromise, 300);
     setTimeout(this.currentWorthOfArticle, 500);
+    setTimeout(this.getArtistName, 100);
   },
   data() {
     return {
@@ -179,7 +180,8 @@ export default {
       worth: false,
       worthIsZero: false,
       isMouseOver: false,
-      buyButton: true
+      buyButton: true,
+      artistName: null
     };
   },
   methods: {
@@ -469,7 +471,28 @@ export default {
     flip: function() {
       this.flipped = !this.flipped;
       console.log(this.flipped);
-    }
+    },
+    getArtistName(event) {
+      console.log("Getting artist name of this article");
+      const theArtistName = new Promise((resolve, reject) => {
+        this.$store.state.article7Instance().artistName((error, result) => {
+          if (error) {
+            console.log("Cant get artistName()");
+            console.log(error);
+          } else {
+            if (result === 0) {
+              console.log(result + " artistName is NULL");
+            } else {
+            this.artistName = result;
+            console.log("This article artwork is made by " + result);
+            } 
+          }
+          resolve(result);
+          this.$emit('artist-nameseven', this.artistName)
+
+        })
+      })
+    }
   }
 };
 </script>
