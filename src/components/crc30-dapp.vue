@@ -2,6 +2,16 @@
 
 <div class="cardRoot">
 
+    <!-- SORT BUTTON -->
+    <ul>
+        <li>Sort articles by: {{this.lastClicked}}
+            <ul>
+        <li v-for="item in menuItems" v-bind:key="item.id" @click="() => handleClick(item.id)">{{item.name}}
+        </li>
+            </ul>
+        </li>
+    </ul>
+
     <!-- HORIZONTAL SCROLLER -->
     <div class="allCards">
         <component 
@@ -26,7 +36,7 @@
     <button v-on:click="sortValue">Sort by Article value</button>
     <button v-on:click="sortName">Sort by Artist name</button>
     <p>{{ArticleComponents}}</p>
-    <p id="testsort">{{ArticleComponents}}</p>
+   
 
     <!-- SYSTEM INFO - METAMASK and web3 -->
     <div class="MetaMask"><hello-metamask/></div>
@@ -65,6 +75,7 @@ import Article9 from '@/components/article9'
 import Article10 from '@/components/article10'
 
 
+
 export default {
     name: 'crc30-dapp',
     beforeCreate () {
@@ -100,6 +111,8 @@ export default {
             article8name: '',
             article9name: '',
             article10name: '',
+
+            lastClicked: 'number',
 
 
             ArticleComponents: [
@@ -165,6 +178,23 @@ export default {
                     articleNumber: '10'
                 }
 
+            ],
+            menuItems: [
+                {
+                    name: 'Article number',
+                    url:'',
+                    id: 'number'
+                 },
+                {
+                    name: 'Article worth',
+                    url:'',
+                    id: 'value'
+                 },
+                {
+                    name: 'Artist name ',
+                    url:'',
+                    id: 'name'
+                 }
             ]
         }
     },
@@ -227,6 +257,25 @@ export default {
         },
         setName: function() {
             console.log('helloworldname');
+        },
+        
+        handleClick: function(e) {
+            console.log('hello ' + e);
+            if (e === 'number') {
+                this.sortNumber();
+                console.log('sortNumber IF');
+                this.lastClicked = 'number'
+            }
+            else if (e === 'value') {
+                this.sortValue();
+                console.log('sortValue IF');
+                this.lastClicked = 'value'
+            }
+            else if (e === 'name') {
+                this.sortName();
+                console.log('sortName IF');
+                this.lastClicked = 'name'
+            }
         }
     }
 }
@@ -245,7 +294,7 @@ export default {
     display:flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-    margin: 0 0 0 0;
+    margin: 15px 0 0 0;
     height:auto;
     -webkit-overflow-scrolling: touch;
     .cards{
@@ -312,5 +361,69 @@ export default {
 .check img {
     width: 70%;
 }
+
+
+
+ul {
+    list-style: none;
+    margin: auto;
+    margin-top: 15px;
+    width: 130px;
+    font-size: 0.5em;
+    font-family: 'Comfortaa', cursive;
+    text-align: center;
+    padding: auto;
+    height: auto;
+    outline:none;
+    background:none;
+}
+
+li {
+    color: black;
+    background: white;
+    display: block;
+    position: relative;
+    text-decoration: none;
+    transition-duration: 0.5s;
+    width:130px;
+    margin: auto;
+    padding:7px;
+
+}
+  
+li a {
+  color: #fff;
+}
+
+li:hover {
+    background: #F6D6F2;
+    cursor: pointer;
+    color: white;
+}
+
+ul li ul {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    transition: all 0.5s ease;
+    left: 0;
+    margin-top: 7px;
+    vertical-align: middle;
+}
+
+ul li:hover > ul,
+ul li ul:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+ul li ul li {
+    clear: both;
+    
+}
+
+
+
 </style>
 
