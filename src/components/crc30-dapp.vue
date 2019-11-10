@@ -13,7 +13,8 @@
     </ul>
 
     <!-- HORIZONTAL SCROLLER -->
-    <div class="allCards">
+
+    <div class="allCards" v-bind:class="{ 'nobackground': loader}">
         <component 
         v-for="component in ArticleComponents" 
         v-bind:is="component.name" 
@@ -32,8 +33,14 @@
         v-on:artist-nameone="artistName1 = $event" 
         v-on:artist-nameseven="artistName7 = $event" 
 
-        class="cards"/>
+        class="cards"
+        v-bind:class="{ 'fade-in': loader}"
+        />
     </div>
+
+
+        
+      
 
 
     <!-- SYSTEM INFO - METAMASK and web3 -->
@@ -44,9 +51,6 @@
          <br><button class="closeOnboarding" @click="NoMetaMask = true">Close</button>
         </div>
     </div>
-
-
-<div class="beta">This is only a prototype version of the website. All content is FPO!</div>
 
 </div>
 
@@ -84,9 +88,11 @@ export default {
     setTimeout(this.checkMetaMask, 500);
     setTimeout(this.setValue, 1300);
     setTimeout(this.setName, 1400);
+    setTimeout(this.setLoader, 900);
     },
     data() {
         return{
+            loader: false,
             NoMetaMask: false,
             article1value: null,
             article2value: null,
@@ -288,6 +294,9 @@ export default {
                 console.log('sortName IF');
                 this.lastClicked = 'name'
             }
+        },
+        setLoader: function() {
+            this.loader = true;
         }
     }
 }
@@ -309,10 +318,23 @@ export default {
     margin: 15px 0 0 0;
     height:auto;
     -webkit-overflow-scrolling: touch;
+    background-image: url("../assets/block-rotate-loading.gif");
+    background-repeat: no-repeat;
+    background-position:50% 30%;
+    background-size: 100px 100px;
+
+    &.nobackground {
+            background-image: none;
+    }
     .cards{
         flex: 0 0 auto;
         margin: 0 35px 0 35px;
         transform: scale3d(0.70, 0.70, 0.70);
+        opacity: 0;
+        transition: opacity .5s;
+        &.fade-in {
+            opacity: 1;
+        }
     }
 }
 
@@ -357,18 +379,6 @@ export default {
   color: black;
 }
 
-.beta{
-    position: absolute;
-    top: 55px;
-    left: 10px;
-    z-index: 1;
-    width:100px;
-    color:black;
-    background-color:#f9e784;
-    font-size:0.4em;
-    padding: 4px;
-    font-family: 'Space Mono', monospace;
-}
 
 .check img {
     width: 70%;

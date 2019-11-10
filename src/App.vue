@@ -7,15 +7,18 @@
         <div class="subhead"><h2>Personally ratify any article from the Convention on the Rights of the Child</h2></div>
       </div>
 
-
       <div id="container">
           <router-view />
       </div>
+
   <div class="infoContainer secondinfo">
         <div class="headline facts"><h1>30 years ago in 1989 the UN created the Convention on the Rights of the child.</h1></div>
         <div class="headline facts"><h1>The convention is a human rights treaty based on 42 articles which sets out the civil, political, economic, social, health and cultural rights of children.</h1></div>
         <div class="headline facts"><h1>Every UN country has ratified the convention and are bound to it by international law. <b>Every country except the USA.</b></h1></div>
       </div>
+
+  <div class="beta">This is only a prototype version of the website. All content is FPO!</div>
+
   
   </div>
 </template>
@@ -31,12 +34,40 @@ export default {
     components: {
         'navbar': MenuBar
     },
-  name: 'App'
+  name: 'App',
+  data() {
+        return{
+        }
+  }
 }
 </script>
 
 
 <style lang="scss">
+
+
+.beta{
+    position: absolute;
+    top: 55px;
+    left: 10px;
+    z-index: 1;
+    width:100px;
+    color:black;
+    background-color:#f9e784;
+    font-size:0.4em;
+    padding: 4px;
+    font-family: 'Space Mono', monospace;
+}
+.spinner{
+  margin: auto;
+  text-align: center;
+  height: 500px;
+}
+.spinner img {
+  width: 50px;
+  margin: auto;
+  padding: 200px;
+}
 
 #container {
   width: 100%;
@@ -99,6 +130,12 @@ export default {
     text-align: center;
     margin: auto;
     padding: 0 0 50px 0;
+  }
+  .fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+  }
+  .fade-enter /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
   }
 
 
