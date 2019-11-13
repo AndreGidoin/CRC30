@@ -57,7 +57,7 @@
         <!-- ArticleContainer STARTS -->
         <div class="ArticleContainer" v-if="crcArticleContentChecked">
           <h1>This article states that:</h1>
-          <p class="ArticleText">{{ crcArticleContentEvent }}</p>
+          <p class="ArticleText">{{ crcArticleContentEvent }} <a href="https://downloads.unicef.org.uk/wp-content/uploads/2019/10/UNCRC_summary-1_1.pdf" target="_blank">Read More</a></p>
         <span class="dot"></span>
         <span class="dot"></span>
         <span class="dot"></span>
@@ -107,7 +107,7 @@
           />
           <input type="number" v-model="amount" placeholder="Price in Ξ" />
           <button class="Button-Buy" v-on:click="buyConvention" v-if="!pending && buyButton">
-            Buy this article
+            Adopt this article
           </button>
                     <button class="Button-Buy Pending" v-if="pending">
                       <div class="pendingContainer"><div class="lds-dual-ring" v-if="pending"></div><div class="TransactionButtonText"><i>Transaction in process</i></div></div>
@@ -120,7 +120,7 @@
                               </button>
         <!-- Small text under form -->
     <div class="smallText">
-      <p>Buy this article and artwork for any amount above its current worth. The information entered into this form will be displayed with the article so please be thoughtful. Enter amount in Ether.
+      <p>Adopt this article and artwork for any amount above its current worth. The information entered into this form will be displayed with the article so please be thoughtful. Enter amount in Ether.
       </p>
       </div>
       <!-- END small text under form -->
@@ -153,12 +153,10 @@ export default {
     setTimeout(this.crcArticleContentEvent, 100);
     setTimeout(this.ownerPromise, 300);
     setTimeout(this.currentWorthOfArticle, 500);
+    setTimeout(this.getArtistName, 100);
   },
   data() {
     return {
-      WalletAddress: null,
-      theBalance: null,
-      Admin: null,
       amount: null,
       yourName: null,
       pending: false,
@@ -179,19 +177,25 @@ export default {
       worth: false,
       worthIsZero: false,
       isMouseOver: false,
-      buyButton: true
+      buyButton: true,
+      artistName:'none'
     };
   },
   methods: {
     buyConvention(event) {
-      // this is wrong
+      // Check if amount if bigger than current calue
+      if (this.amount < this.CurrentWorth) {
+        alert('To adopt this article please enter a value higher than the current value of the article');
+      } else {
+
+      // The call to the contract
       console.log(this.yourName, this.amount);
       this.failure = false;
       this.newOwnerEvent = null;
       this.$store.state.article2Instance().buyCRC(
         this.yourName,
         {
-          gas: 300000,
+          gas: 400000,
           value: this.$store.state.web3
             .web3Instance()
             .toWei(this.amount, "ether"),
@@ -202,6 +206,7 @@ export default {
             console.log(err);
             this.pending = false;
             this.failure = true;
+            setTimeout(this.buyButton = true, 2000);
           } else {
             this.pending = true;
             let newOwner = this.$store.state.article2Instance().newOwner();
@@ -220,6 +225,7 @@ export default {
           }
         }
       );
+    }
     },
     ArticleName(event) {
       console.log("Getting ArticleName");
@@ -281,12 +287,12 @@ export default {
     },
     crcArticleContentEvent(event) {
       console.log("Getting article content");
-      this.$store.state.article2Instance().contentionArticleContent(
+      this.$store.state.article2Instance().conventionArticleContent(
         (error, result) => {
           if (!error) {
             let theArticleContent = this.$store.state
               .article2Instance()
-              .contentionArticleContent((err, result) => {
+              .conventionArticleContent((err, result) => {
                 if (err) {
                   console.log(err);
                   console.log(
@@ -447,13 +453,13 @@ export default {
         for (let i = 0; i < (this.ownersarray2.length); i++) {
             const forPromise = new Promise ((resolve, reject) => {
                 console.log('were inside the for Promise')
-                if (i === this.ownersarray2.length-2) {
+                if (i === this.ownersarray2.length-1) {
                     this.listOfOwners2 += "<li>" + this.ownersarray2[i] + "</li>";
                     console.log('did we make it?')
                     this.hasOwners = true;
                     this.hasPreviousOwners = true;
                     resolve(this.listOfOwners2);
-                    console.log(this.listOfOwners2 + ' loggin the resolve')
+                    console.log(this.listOfOwners2 + ' logging the resolve')
                 } else {
                 this.listOfOwners2 += "<li>" + this.ownersarray2[i] + "</li>";
                 console.log(this.listOfOwners2 + ' – the owner loop');
@@ -469,7 +475,28 @@ export default {
     flip: function() {
       this.flipped = !this.flipped;
       console.log(this.flipped);
-    }
+    },
+    getArtistName(event) {
+      console.log("Getting artist name of this article");
+      const theArtistName = new Promise((resolve, reject) => {
+        this.$store.state.article2Instance().artistName((error, result) => {
+          if (error) {
+            console.log("Cant get artistName()");
+            console.log(error);
+          } else {
+            if (result === 0) {
+              console.log(result + " artistName is NULL");
+            } else {
+            this.artistName = result;
+            console.log("This article artwork is made by " + result);
+            } 
+          }
+          resolve(result);
+          this.$emit('artist-nametwo', this.artistName)
+
+        })
+      })
+    }
   }
 };
 </script>
@@ -506,7 +533,16 @@ h4 {
   height: auto; 
   transition: ease-out 300ms; 
   &:hover {
-    transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.07, 1.07, 1.07);
+  }
+}
+.ShadowContainer {
+  height: 100%;
+  width: auto;
+  filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.04));
+  transition: ease-out 300ms; 
+  &:hover {
+    filter: drop-shadow(14px 14px 10px rgba(0, 0, 0, 0.06));
   }
 }
 .flipcard {
@@ -755,6 +791,14 @@ input[type=number] {
   margin: 0 0 0 14px;
 }
 
+// LINKS
+a {
+  color: #FFB000;
+}
+a:hover {
+  color: black;
+}
+
 // loader stuff
 .lds-dual-ring {
   display: inline-block;
@@ -787,11 +831,7 @@ input[type=number] {
 #PlaqueShape {
   clip-path: polygon(75% 0, 82% 50%, 75% 100%, 25% 100%, 18% 50%, 25% 0%);
 }
-.ShadowContainer {
-  height: 100%;
-  width: auto;
-  filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.04));
-}
+
 
 
 // FALLBACK STYLES

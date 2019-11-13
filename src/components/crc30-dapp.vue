@@ -12,7 +12,7 @@
         </li>
     </ul>
 
-    <!-- HORIZONTAL SCROLLER -->
+    <!-- HORIZONTAL SCROLLER OF ARTICLES -->
 
     <div class="allCards" v-bind:class="{ 'nobackground': loader}">
         <component 
@@ -31,6 +31,7 @@
         v-on:current-worthten="article10value = $event" 
 
         v-on:artist-nameone="artistName1 = $event" 
+        v-on:artist-nametwo="artistName2 = $event" 
         v-on:artist-nameseven="artistName7 = $event" 
 
         class="cards"
@@ -38,12 +39,7 @@
         />
     </div>
 
-
-        
-      
-
-
-    <!-- SYSTEM INFO - METAMASK and web3 -->
+    <!-- SYSTEM INFO - METAMASK and WEB3 -->
     <div class="MetaMask"><hello-metamask/></div>
     <div v-if="NoMetaMask === false" class="check">            
         <div class="stepOne">
@@ -54,11 +50,7 @@
 
 </div>
 
-
-
 </template>
-
-
 
 
 <script>
@@ -274,6 +266,7 @@ export default {
         },
         setName: function() {
             console.log(this.ArticleComponents[0].artistName = (this.artistName1));
+            console.log(this.ArticleComponents[1].artistName = (this.artistName2));
             console.log(this.ArticleComponents[6].artistName = (this.artistName7));
         },
         
@@ -329,7 +322,7 @@ export default {
     .cards{
         flex: 0 0 auto;
         margin: 0 35px 0 35px;
-        transform: scale3d(0.70, 0.70, 0.70);
+        transform: scale3d(0.74, 0.74, 0.74);
         opacity: 0;
         transition: opacity .5s;
         &.fade-in {
