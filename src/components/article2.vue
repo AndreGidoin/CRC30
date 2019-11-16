@@ -324,7 +324,7 @@ export default {
             console.log("Cant get currentWorth()");
             console.log(error);
           } else {
-            if (result === 0) {
+            if (result == 0) {
               console.log(result + " Current worth is ZERO");
               this.worthIsZero = true;
               this.worth = false;

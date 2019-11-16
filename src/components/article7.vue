@@ -30,11 +30,7 @@
       
       <div class="theArtwork">
         <span v-if="ipfshHashChecked">
-          <video-player 
-            :options="videoOptions"
-            class="loopedVideo"
-            :src="this.ipfsVideoUrl"
-          />
+          <video :src="this.ipfsVideoUrl" class="video" autoplay />
           </span>
       </div>
       
@@ -151,7 +147,6 @@
 
 <script>
 import { setTimeout } from "timers";
-import videoplayer from './VideoPlayer'
 
 export default {
   name: "article7",
@@ -166,23 +161,8 @@ export default {
     setTimeout(this.currentWorthOfArticle, 500);
     setTimeout(this.getArtistName, 100);
   },
-  components: {
-    'VideoPlayer': videoplayer,
-  },
   data() {
     return {
-      videoOptions: {
-        autoplay: true,
-        loop: true,
-        height: '321.64px',
-				sources: [
-					{
-						src:'ipfsVideoUrl',
-						  type: "video/mp4"
-					}
-				]
-      },
-      
       amount: null,
       yourName: null,
       pending: false,
@@ -209,13 +189,6 @@ export default {
     };
   },
   methods: {
-    changeVideo(){
-      this.$data.src = newSrc;
-      //Force video load.
-      var vid = this.$refs.video;
-      vid.load();
-
-    },
     buyConvention(event) {
       // Check if amount if bigger than current calue
       if (this.amount < this.CurrentWorth) {
@@ -352,7 +325,7 @@ export default {
             console.log("Cant get currentWorth()");
             console.log(error);
           } else {
-            if (result === 0) {
+            if (result == 0) {
               console.log(result + " Current worth is ZERO");
               this.worthIsZero = true;
               this.worth = false;
@@ -743,6 +716,11 @@ h4 {
   background-color: #3F3F3F;
   border-radius: 50%;
   display: inline-block;}
+
+.video {
+  width: 100%;
+  height: 100%;
+}
 
 
 // CONTROLS
