@@ -128,6 +128,7 @@ h1 {
     font-size: 1em;
   }
   .subhead {
+    font-family: 'Comfortaa', cursive;
     font-size: 0.4em;
   }
   .infoContainer {

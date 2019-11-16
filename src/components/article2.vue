@@ -30,7 +30,15 @@
       
       <div class="theArtwork">
         <span v-if="ipfshHashChecked">
-          <img id="IPFSImage2" />
+          <img id="IPFSImage2_1" class="slideshow"/>
+          <img id="IPFSImage2_2" class="slideshow"/>
+          <img id="IPFSImage2_3" class="slideshow"/>
+          <img id="IPFSImage2_4" class="slideshow"/>
+          <img id="IPFSImage2_5" class="slideshow"/>
+          <img id="IPFSImage2_6" class="slideshow"/>
+          <img id="IPFSImage2_7" class="slideshow"/>
+          <img id="IPFSImage2_8" class="slideshow"/>
+          <img id="IPFSImage2_9" class="slideshow"/>
         </span>
       </div>
       
@@ -184,7 +192,8 @@ export default {
       worthIsZero: false,
       isMouseOver: false,
       buyButton: true,
-      artistName:'none'
+      artistName:'none',
+      imageSlideShow: 0
     };
   },
   methods: {
@@ -341,11 +350,11 @@ export default {
         })
       })
     },
-    // Maybe the constactInstances will have to be unique to each vue file? Or is there a way to automate this?
+    // GETTING ALL THE 9 IMAGES FROM THE CONTRACT
     ipfsNewEvent(event) {
-      console.log("Starting ipfsNewEvent function");
-      const theIPFSHash = new Promise((resolve, reject) => {
-        this.$store.state.article2Instance().ipfsImageHash((error, result) => {
+      console.log("Starting ipfsNewEvent function loop 1");
+      const theIPFSHash1 = new Promise((resolve, reject) => {
+        this.$store.state.article2Instance().ipfsImageHash1((error, result) => {
           if (error) {
             console.log("cant get the IPFS hash from the smart contract");
             console.log(err);
@@ -363,8 +372,224 @@ export default {
       }).then(result => {
         console.log("IPFS URL generation success");
         var myURLBitch = result;
-        document.getElementById("IPFSImage2").src = myURLBitch;
+        document.getElementById("IPFSImage2_1").src = myURLBitch;
       });
+      //
+      // NUMBER 2
+      //
+      console.log("Starting ipfsNewEvent function loop 2");
+      const theIPFSHash2 = new Promise((resolve, reject) => {
+        this.$store.state.article2Instance().ipfsImageHash2((error, result) => {
+          if (error) {
+            console.log("cant get the IPFS hash from the smart contract");
+            console.log(err);
+            reject(new Error("ipfsNewEvent function went wrong"));
+          } else {
+            this.ipfshHashChecked = true;
+            console.log(
+              "https://gateway.pinata.cloud/ipfs/" +
+                result +
+                " - this is to see if the result and resolve will render correctly"
+            );
+            resolve("https://gateway.pinata.cloud/ipfs/" + result);
+          }
+        });
+      }).then(result => {
+        console.log("IPFS URL generation success");
+        var myURLBitch = result;
+        document.getElementById("IPFSImage2_2").src = myURLBitch;
+      });
+      //
+      // NUMBER 3
+      //
+      console.log("Starting ipfsNewEvent function loop 3");
+      const theIPFSHash3 = new Promise((resolve, reject) => {
+        this.$store.state.article2Instance().ipfsImageHash3((error, result) => {
+          if (error) {
+            console.log("cant get the IPFS hash 3 from the smart contract");
+            console.log(err);
+            reject(new Error("ipfsNewEvent function went wrong"));
+          } else {
+            this.ipfshHashChecked = true;
+            console.log(
+              "https://gateway.pinata.cloud/ipfs/" +
+                result +
+                " - this is to see if the result and resolve will render correctly"
+            );
+            resolve("https://gateway.pinata.cloud/ipfs/" + result);
+          }
+        });
+      }).then(result => {
+        console.log("IPFS URL generation success");
+        var myURLBitch = result;
+        document.getElementById("IPFSImage2_3").src = myURLBitch;
+      });
+      //
+      // NUMBER 4
+      //
+      console.log("Starting ipfsNewEvent function loop 4");
+      const theIPFSHash4 = new Promise((resolve, reject) => {
+        this.$store.state.article2Instance().ipfsImageHash4((error, result) => {
+          if (error) {
+            console.log("cant get the IPFS hash 4 from the smart contract");
+            console.log(err);
+            reject(new Error("ipfsNewEvent function went wrong"));
+          } else {
+            this.ipfshHashChecked = true;
+            console.log(
+              "https://gateway.pinata.cloud/ipfs/" +
+                result +
+                " - this is to see if the result and resolve will render correctly"
+            );
+            resolve("https://gateway.pinata.cloud/ipfs/" + result);
+          }
+        });
+      }).then(result => {
+        console.log("IPFS URL generation success");
+        var myURLBitch = result;
+        document.getElementById("IPFSImage2_4").src = myURLBitch;
+      });
+      //
+      // NUMBER 5
+      //
+      console.log("Starting ipfsNewEvent function loop 5");
+      const theIPFSHash5 = new Promise((resolve, reject) => {
+        this.$store.state.article2Instance().ipfsImageHash5((error, result) => {
+          if (error) {
+            console.log("cant get the IPFS hash 5 from the smart contract");
+            console.log(err);
+            reject(new Error("ipfsNewEvent function went wrong"));
+          } else {
+            this.ipfshHashChecked = true;
+            console.log(
+              "https://gateway.pinata.cloud/ipfs/" +
+                result +
+                " - this is to see if the result and resolve will render correctly"
+            );
+            resolve("https://gateway.pinata.cloud/ipfs/" + result);
+          }
+        });
+      }).then(result => {
+        console.log("IPFS URL generation success");
+        var myURLBitch = result;
+        document.getElementById("IPFSImage2_5").src = myURLBitch;
+      });
+      //
+      // NUMBER 6
+      //
+      console.log("Starting ipfsNewEvent function loop 6");
+      const theIPFSHash6 = new Promise((resolve, reject) => {
+        this.$store.state.article2Instance().ipfsImageHash6((error, result) => {
+          if (error) {
+            console.log("cant get the IPFS hash 6 from the smart contract");
+            console.log(err);
+            reject(new Error("ipfsNewEvent function went wrong"));
+          } else {
+            this.ipfshHashChecked = true;
+            console.log(
+              "https://gateway.pinata.cloud/ipfs/" +
+                result +
+                " - this is to see if the result and resolve will render correctly"
+            );
+            resolve("https://gateway.pinata.cloud/ipfs/" + result);
+          }
+        });
+      }).then(result => {
+        console.log("IPFS URL generation success");
+        var myURLBitch = result;
+        document.getElementById("IPFSImage2_6").src = myURLBitch;
+      });
+      //
+      // NUMBER 7
+      //
+      console.log("Starting ipfsNewEvent function loop 7");
+      const theIPFSHash7 = new Promise((resolve, reject) => {
+        this.$store.state.article2Instance().ipfsImageHash7((error, result) => {
+          if (error) {
+            console.log("cant get the IPFS hash 7 from the smart contract");
+            console.log(err);
+            reject(new Error("ipfsNewEvent function went wrong"));
+          } else {
+            this.ipfshHashChecked = true;
+            console.log(
+              "https://gateway.pinata.cloud/ipfs/" +
+                result +
+                " - this is to see if the result and resolve will render correctly"
+            );
+            resolve("https://gateway.pinata.cloud/ipfs/" + result);
+          }
+        });
+      }).then(result => {
+        console.log("IPFS URL generation success");
+        var myURLBitch = result;
+        document.getElementById("IPFSImage2_7").src = myURLBitch;
+      });
+      //
+      // NUMBER 8
+      //
+      console.log("Starting ipfsNewEvent function loop 8");
+      const theIPFSHash8 = new Promise((resolve, reject) => {
+        this.$store.state.article2Instance().ipfsImageHash8((error, result) => {
+          if (error) {
+            console.log("cant get the IPFS hash 8 from the smart contract");
+            console.log(err);
+            reject(new Error("ipfsNewEvent function went wrong"));
+          } else {
+            this.ipfshHashChecked = true;
+            console.log(
+              "https://gateway.pinata.cloud/ipfs/" +
+                result +
+                " - this is to see if the result and resolve will render correctly"
+            );
+            resolve("https://gateway.pinata.cloud/ipfs/" + result);
+          }
+        });
+      }).then(result => {
+        console.log("IPFS URL generation success");
+        var myURLBitch = result;
+        document.getElementById("IPFSImage2_8").src = myURLBitch;
+      });
+      //
+      // NUMBER 9
+      //
+      console.log("Starting ipfsNewEvent function loop 9");
+      const theIPFSHash9 = new Promise((resolve, reject) => {
+        this.$store.state.article2Instance().ipfsImageHash9((error, result) => {
+          if (error) {
+            console.log("cant get the IPFS hash 9 from the smart contract");
+            console.log(err);
+            reject(new Error("ipfsNewEvent function went wrong"));
+          } else {
+            this.ipfshHashChecked = true;
+            console.log(
+              "https://gateway.pinata.cloud/ipfs/" +
+                result +
+                " - this is to see if the result and resolve will render correctly"
+            );
+            resolve("https://gateway.pinata.cloud/ipfs/" + result);
+          }
+        });
+      }).then(result => {
+        console.log("IPFS URL generation success");
+        var myURLBitch = result;
+        document.getElementById("IPFSImage2_9").src = myURLBitch;
+        this.imageCarousel();
+      });
+    
+    },
+    //
+    // ARTICLE SLIDESHOW
+    //
+    imageCarousel: function() {
+      var i;
+      var x = document.getElementsByClassName("slideshow");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+        }
+        this.imageSlideShow++;
+        if (this.imageSlideShow > x.length) {this.imageSlideShow = 1}
+        x[this.imageSlideShow-1].style.display = "block";
+        setTimeout(this.imageCarousel, 2000); // Change image every 2 seconds
     },
     ownerCount(event) {
       console.log("getting owner count");
@@ -539,7 +764,7 @@ h4 {
   height: auto; 
   transition: ease-out 300ms; 
   &:hover {
-    transform: scale3d(1.07, 1.07, 1.07);
+    transform: scale3d(1.09, 1.09, 1.09);
   }
 }
 .ShadowContainer {
@@ -654,6 +879,9 @@ h4 {
   transform: translateX(-50%);
 }
 #IPFSImage {
+}
+.slideshow {
+  display:none;
 }
 
 

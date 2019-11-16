@@ -1,5 +1,19 @@
-const address = '0x54ee8dd61d9904c4ea52c3fb33cc7a70e0c61262'
+const address = '0xB57eb9E06b2A6E4bDdc89608A099C04a47EE599f'
 const ABI = [
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "transferUNICEF",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
 	{
 		"constant": true,
 		"inputs": [],
@@ -73,29 +87,6 @@ const ABI = [
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_address2",
-				"type": "address"
-			},
-			{
-				"name": "_amount",
-				"type": "uint256"
-			}
-		],
-		"name": "transferSum",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
 		"constant": true,
 		"inputs": [],
 		"name": "checkContractBalance",
@@ -110,17 +101,17 @@ const ABI = [
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
+		"constant": true,
+		"inputs": [],
+		"name": "artistName",
+		"outputs": [
 			{
-				"name": "transferTo",
-				"type": "address"
+				"name": "",
+				"type": "string"
 			}
 		],
-		"name": "withdraw",
-		"outputs": [],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -145,20 +136,6 @@ const ABI = [
 			{
 				"name": "",
 				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "EscrowContract",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
 			}
 		],
 		"payable": false,

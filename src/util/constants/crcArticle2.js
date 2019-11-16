@@ -1,6 +1,19 @@
-// const address = '0x9fc0ecc9d691ca108daef1910b73eed7feae1faa'
-const address = '0x9e8a1A01f65C10E75E7821B71a1A5ed151320f31'
+const address = '0x4a49DffDE8f2c71c64767792a001185e20fCA4A1'
 const ABI = [
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "ipfsImageHash9",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
 	{
 		"constant": false,
 		"inputs": [],
@@ -13,6 +26,20 @@ const ABI = [
 		],
 		"payable": true,
 		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "ipfsImageHash4",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -32,7 +59,7 @@ const ABI = [
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "ipfsImageHash",
+		"name": "ipfsImageHash8",
 		"outputs": [
 			{
 				"name": "",
@@ -47,6 +74,20 @@ const ABI = [
 		"constant": true,
 		"inputs": [],
 		"name": "conventionArticleContent",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "ipfsImageHash5",
 		"outputs": [
 			{
 				"name": "",
@@ -99,6 +140,34 @@ const ABI = [
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "ipfsImageHash1",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "ipfsImageHash3",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -202,6 +271,20 @@ const ABI = [
 	{
 		"constant": true,
 		"inputs": [],
+		"name": "ipfsImageHash6",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
 		"name": "owners",
 		"outputs": [
 			{
@@ -293,6 +376,20 @@ const ABI = [
 		],
 		"payable": true,
 		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "ipfsImageHash7",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{

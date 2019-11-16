@@ -329,6 +329,11 @@ export default {
             opacity: 1;
         }
     }
+    .cards:last-child {
+        padding-right: 150px;
+        margin-left: 15px;
+    }
+
 }
 
 .MetaMask {

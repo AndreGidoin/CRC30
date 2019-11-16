@@ -337,7 +337,7 @@ export default {
             } 
           }
           resolve(result);
-          this.$emit('current-worthtwo', this.CurrentWorth)
+          this.$emit('current-worthseven', this.CurrentWorth)
 
         })
       })
@@ -500,7 +500,7 @@ export default {
             } 
           }
           resolve(result);
-          this.$emit('artist-nametwo', this.artistName)
+          this.$emit('artist-nameseven', this.artistName)
 
         })
       })
@@ -541,7 +541,7 @@ h4 {
   height: auto; 
   transition: ease-out 300ms; 
   &:hover {
-    transform: scale3d(1.07, 1.07, 1.07);
+    transform: scale3d(1.09, 1.09, 1.09);
   }
 }
 .ShadowContainer {
