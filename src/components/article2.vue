@@ -62,7 +62,13 @@
         <span class="dot"></span>
         <span class="dot"></span>
         <span class="dot"></span>
-         <!-- History of owners should go here, to the backside. -->
+        <!-- The artist who created the artwork for the article -->
+        <p>This article is illustrated by {{artistName}}</p>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+         <!-- History of owners should go here, on the backside. -->
         <div class="ownerHistory" v-if="hasOwners">
           <h2 v-if="hasPreviousOwners">Thank you to all supporters:</h2>
                     <ul id="ownerHistory2">

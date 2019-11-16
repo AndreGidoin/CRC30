@@ -1,5 +1,5 @@
 // const address = '0x127b73f8c36a64d18171075ac09cab5eba2177a6'
-const address = '0xb5d74f8195592E7A7238F964A3026c629790721b'
+const address = '0x40FE7A9425251A508fE093B28397c41C30e4E368'
 const ABI = [
 	{
 		"constant": false,
@@ -31,17 +31,8 @@ const ABI = [
 	},
 	{
 		"constant": false,
-		"inputs": [
-			{
-				"name": "_address2",
-				"type": "address"
-			},
-			{
-				"name": "_amount",
-				"type": "uint256"
-			}
-		],
-		"name": "transferSum",
+		"inputs": [],
+		"name": "transferUNICEF",
 		"outputs": [
 			{
 				"name": "",
@@ -50,20 +41,6 @@ const ABI = [
 		],
 		"payable": true,
 		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "transferTo",
-				"type": "address"
-			}
-		],
-		"name": "withdraw",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -247,20 +224,6 @@ const ABI = [
 			{
 				"name": "",
 				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "EscrowContract",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
 			}
 		],
 		"payable": false,

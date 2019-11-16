@@ -80,7 +80,7 @@ export default {
     setTimeout(this.checkMetaMask, 500);
     setTimeout(this.setValue, 1300);
     setTimeout(this.setName, 1400);
-    setTimeout(this.setLoader, 900);
+    setTimeout(this.setLoader, 1100);
     },
     data() {
         return{
