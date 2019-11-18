@@ -30,7 +30,7 @@
       
       <div class="theArtwork">
         <span v-if="ipfshHashChecked">
-          <img id="IPFSImage5" />
+          <img id="IPFSImage31" />
           </span>
       </div>
       
@@ -149,10 +149,10 @@
 import { setTimeout } from "timers";
 
 export default {
-  name: "article5",
+  name: "article31",
   mounted() {
-    console.log("dispatching getArticle5Instance");
-    this.$store.dispatch("getArticle5Instance");
+    console.log("dispatching getArticle31Instance");
+    this.$store.dispatch("getArticle31Instance");
     setTimeout(this.ipfsNewEvent, 100);
     setTimeout(this.ArticleName, 100);
     setTimeout(this.crcArticleNumber, 100);
@@ -198,7 +198,7 @@ export default {
       console.log(this.yourName, this.amount);
       this.failure = false;
       this.newOwnerEvent = null;
-      this.$store.state.article5Instance().buyCRC(
+      this.$store.state.article31Instance().buyCRC(
         this.yourName,
         {
           gas: 400000,
@@ -215,7 +215,7 @@ export default {
             setTimeout(this.buyButton = true, 2000);
           } else {
             this.pending = true;
-            let newOwner = this.$store.state.article5Instance().newOwner();
+            let newOwner = this.$store.state.article31Instance().newOwner();
             newOwner.watch((err, result) => {
               if (err) {
                 console.log("could not get event newOwner()");
@@ -235,7 +235,7 @@ export default {
     },
     ArticleName(event) {
       console.log("Getting ArticleName");
-      this.$store.state.article5Instance().conventionArticleName(
+      this.$store.state.article31Instance().conventionArticleName(
         {
           gas: 30000,
           from: this.$store.state.web3.coinbase
@@ -243,7 +243,7 @@ export default {
         (error, result) => {
           if (!error) {
             let theArticleName = this.$store.state
-              .article5Instance()
+              .article31Instance()
               .conventionArticleName((err, result) => {
                 if (err) {
                   console.log(err);
@@ -264,7 +264,7 @@ export default {
     },
     crcArticleNumber(event) {
       console.log("getting article number");
-      this.$store.state.article5Instance().conventionArticleNumber(
+      this.$store.state.article31Instance().conventionArticleNumber(
         {
           gas: 30000,
           from: this.$store.state.web3.coinbase
@@ -272,7 +272,7 @@ export default {
         (error, result) => {
           if (!error) {
             let theArticleNumber = this.$store.state
-              .article5Instance()
+              .article31Instance()
               .conventionArticleNumber((err, result) => {
                 if (err) {
                   console.log(err);
@@ -293,11 +293,11 @@ export default {
     },
     crcArticleContentEvent(event) {
       console.log("Getting article content");
-      this.$store.state.article5Instance().conventionArticleContent(
+      this.$store.state.article31Instance().conventionArticleContent(
         (error, result) => {
           if (!error) {
             let theArticleContent = this.$store.state
-              .article5Instance()
+              .article31Instance()
               .conventionArticleContent((err, result) => {
                 if (err) {
                   console.log(err);
@@ -319,7 +319,7 @@ export default {
     currentWorthOfArticle(event) {
       console.log("Getting current worth of this article");
       const theCurrentWorth = new Promise((resolve, reject) => {
-        this.$store.state.article5Instance().currentWorth((error, result) => {
+        this.$store.state.article31Instance().currentWorth((error, result) => {
           if (error) {
             console.log("Cant get currentWorth()");
             console.log(error);
@@ -336,7 +336,7 @@ export default {
             } 
           }
           resolve(result);
-          this.$emit('current-worthfive', this.CurrentWorth)
+          this.$emit('current-worththirtyone', this.CurrentWorth)
 
         })
       })
@@ -345,7 +345,7 @@ export default {
     ipfsNewEvent(event) {
       console.log("Starting ipfsNewEvent function");
       const theIPFSHash = new Promise((resolve, reject) => {
-        this.$store.state.article5Instance().ipfsImageHash((error, result) => {
+        this.$store.state.article31Instance().ipfsImageHash((error, result) => {
           if (error) {
             console.log("cant get the IPFS hash from the smart contract");
             console.log(err);
@@ -363,13 +363,13 @@ export default {
       }).then(result => {
         console.log("IPFS URL generation success");
         var myURLBitch = result;
-        document.getElementById("IPFSImage5").src = myURLBitch;
+        document.getElementById("IPFSImage31").src = myURLBitch;
       });
     },
     ownerCount(event) {
       console.log("getting owner count");
       const promise1 = new Promise((resolve, reject) => {
-        this.$store.state.article5Instance().owners((error, result) => {
+        this.$store.state.article31Instance().owners((error, result) => {
           if (error) {
             console.log(err);
             reject(new Error("ownerCount function went wrong"));
@@ -385,7 +385,7 @@ export default {
       console.log("running ownerPromise");
 
       const _ownerCount = new Promise((resolve, reject) => {
-        this.$store.state.article5Instance().getUsersCount((error, result) => {
+        this.$store.state.article31Instance().getUsersCount((error, result) => {
           if (error) {
             console.log(error);
             reject( new Error('stopping here'))
@@ -402,7 +402,7 @@ export default {
                 let ownerVariable = result;
               for (let i = 0; i < result; i++) {
                   const ownernames = new Promise((resolve, reject) => {
-                      this.$store.state.article5Instance().getUser(i, (error, result) => {
+                      this.$store.state.article31Instance().getUser(i, (error, result) => {
                           if (error) {
                               console.log(error + ' error in for loop');
                               reject(new Error('for loop stops here'))
@@ -485,7 +485,7 @@ export default {
     getArtistName(event) {
       console.log("Getting artist name of this article");
       const theArtistName = new Promise((resolve, reject) => {
-        this.$store.state.article5Instance().artistName((error, result) => {
+        this.$store.state.article31Instance().artistName((error, result) => {
           if (error) {
             console.log("Cant get artistName()");
             console.log(error);
@@ -498,7 +498,7 @@ export default {
             } 
           }
           resolve(result);
-          this.$emit('artist-namefive', this.artistName)
+          this.$emit('artist-namethirtyone', this.artistName)
 
         })
       })
@@ -711,7 +711,7 @@ h4 {
 .ArticleHeadline h2 {
   font-size: 0.65em;
   margin: 0 0 0 0;
-  padding: 12px 13px 0 13px;
+  padding: 25px 13px 0 13px;
   line-height: 1.5;
 }
 .dot {

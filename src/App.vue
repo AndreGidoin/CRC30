@@ -12,16 +12,14 @@
       </div>
 
   <div class="infoContainer">
-        <div class="infoItems"><span class="item"><h1>Every UN country has ratified the Convention on the Rights of the Child and are bound to it by international law. <br><b>Every country except the USA.</b></h1></span></div>
-            <div class="infoItems color"></div>
-            <div class="infoItems color"></div>
+        <div class="infoItems"><span class="item"><h1>Every UN country has ratified the Convention on the Rights of the Child and are bound to it by international law. <br><br><b>Every country except the USA.</b></h1></span></div>
+            <div class="infoItems color"><span class="imgItem"><img src="../public/graphics/crc_preso-1.png" ></span></div>
+            <div class="infoItems color"><span class="imgItem"><img src="../public/graphics/crc_preso-2b.png"></span></div>
         <div class="infoItems"><span class="item"><h1>Adopt the Rights of a Child is a project about democratizing the ratification of children's rights.</h1></span></div>
-        <div class="infoItems"><span class="item"><h1>30 years ago in 1989 the UN created the Convention on the Rights of the child.</h1></span></div>
+        <div class="infoItems"><span class="item"><h1>30 years ago the United Nations created the Convention which is a human rights treaty based on 42 articles which sets out the civil, political, economic, social, health and cultural rights of children.</h1></span></div>
             <div class="infoItems color"></div>
             <div class="infoItems color"></div>
-        <div class="infoItems"><span class="item"><h1>The convention is a human rights treaty based on 42 articles which sets out the civil, political, economic, social, health and cultural rights of children.</h1></span></div>
         <div class="infoItems"><span class="item"><h1>Governments should of course create laws meant to protect children, but it is up to us as individuals and part of society to make sure our children have a safe and nourishing place to live.</h1></span></div>
-            <div class="infoItems color"></div>
       </div>
 
   <div class="beta">This is only a prototype version of the website. All content is FPO!</div>
@@ -56,6 +54,9 @@ h1 {
     font-family: 'Comfortaa', cursive;
     margin: auto;
     padding: auto;
+}
+b {
+  color: #e44551;
 }
 .beta{
     position: absolute;
@@ -183,8 +184,19 @@ h1 {
     display: flex;
     height: 100%;
   }
+  .imgItem {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    height: 100%;
+  }
   .color {
-    background-color: #B1E3E1;
+    background-color: none;
+  }
+  .color img {
+    max-width: 90%;
+    max-height:100%;
+    margin: auto;
   }
   .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;

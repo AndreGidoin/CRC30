@@ -30,7 +30,7 @@
       
       <div class="theArtwork">
         <span v-if="ipfshHashChecked">
-          <video :src="this.ipfsVideoUrl" class="video" autoplay />
+          <video :src="this.ipfsVideoUrl" class="video" autoplay controls controlsList="nodownload nofullscreen noremoteplayback" loop />
           </span>
       </div>
       
@@ -75,7 +75,7 @@
                     </ul>
                   </div>
                   <div class="ownerHistory" v-if="!hasOwners">
-          <h2>Nobody has supported this article yet. Claim it yourself for any price.</h2>
+          <h2>Nobody has adopted this article yet. Claim it yourself for any price.</h2>
           </div>
        
         </div>
@@ -96,7 +96,7 @@
           
     </div>
     <!-- End Flipcard -->
-<div class="flipControls">
+<div class="flipControls" @click="flip">
       <li><div class="circle" v-bind:class="{ 'ring' : flipped }"></div></li>
       <li><div class="circle" v-bind:class="{ 'ring' : !flipped }"></div></li>
       </div>
@@ -116,7 +116,7 @@
             Adopt this article
           </button>
                     <button class="Button-Buy Pending" v-if="pending">
-                      <div class="pendingContainer"><div class="lds-dual-ring" v-if="pending"></div><div class="TransactionButtonText"><i>Transaction in process</i></div></div>
+                      <div class="pendingContainer"><div class="adoptionPending" v-if="pending"></div><div class="TransactionButtonText"><i>Transaction in progress</i></div></div>
                     </button>
                               <button class="Button-Buy Failure" v-on:click="buyConvention" v-if="failure">
                                 Transaction failed. Try again.
@@ -706,7 +706,7 @@ h4 {
 .ArticleContainer h1, h2 {
   font-size: 0.8em;
   margin: 0 0 0 0;
-  padding: 26px 0 0 0;
+  padding: 20px 0 0 0;
   line-height: 1.4;
 }
 .dot {
@@ -812,31 +812,18 @@ a:hover {
 }
 
 // loader stuff
-.lds-dual-ring {
+.adoptionPending {
   display: inline-block;
   width: 30px;
   height: 30px;
-  margin: 5px 0 0 0;
+  margin: -3px 0 0 -10px;
+  padding-right: 15px;
+  background-image: url("../assets/block-rotate-loading.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30px 30px;
 }
-.lds-dual-ring:after {
-  content: " ";
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin: 0 0 0 0;
-  border-radius: 50%;
-  border: 3px solid white;
-  border-color: white transparent white transparent;
-  animation: lds-dual-ring 1.2s linear infinite;
-}
-@keyframes lds-dual-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+
 #CardShape {
       clip-path: polygon(0% 5%, 9% 0%, 91% 0%, 100% 5%, 100% 100%, 0 100%);
 }

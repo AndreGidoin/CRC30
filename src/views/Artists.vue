@@ -2,11 +2,11 @@
   <div class="artistContainer" id="artistOverlay" v-bind:class="{ 'opened' : openvariable1, 'closed' : closevariable1}">
     <div class="artist" v-bind:class="{ 'opened' : openvariable1, 'closed' : closevariable1}">
       <div class="artistContent" v-bind:class="{ 'opened' : openvariable1, 'closed' : closevariable1}">
-        <h1>This is the Artists page</h1>
+        <h1>Every article has bespoke artwork created by an artist</h1>
         <div class="pagecontent">
-        <p>Each artist and their artwork will be featured here.</p>
-        <p>If you're an owner of an article you will get a code to order a print of that article for free.</p>
-        <p>... more to come...</p>
+        <p>We'd like to thank all the amazing artists who has donated their time and a custom made art piece to this project. Every artist chose an article and let it inspire them to create a work of art.</p>
+        <p>We're currently working on a system that will give every person who adopts an article the chance to order a print of the art piece inspired by that article free of charge.</p>
+        <p>Have a look at the art pieces and who made them below.</p>
         
         <div class="contributorComponentContainer">
         <contributor-component v-for="artist in artists" v-bind:key="artist.id" v-bind:artist="artist" class="artistchild"/>
@@ -166,6 +166,7 @@ transition: ease-out 300ms;
   height: 0%;
   background: white;
   display: inline-block;
+  overflow:scroll;
     &.opened {
     animation: slide 0.5s ease-out 0.2s forwards;
     }
@@ -186,18 +187,18 @@ transition: ease-out 300ms;
 .artistContent {
   margin: 20px;
   height: 0%;
+  width: 85%;
   opacity:0;
-  overflow:hidden;
   &.opened {
     animation: slide2 0.5s ease-out 0.3s forwards;
-    overflow: scroll;
   }
   &.closed {
       animation: slide2-reverse 0.4s ease-out forwards;
     }
 }
 .pagecontent {
-  margin-right: 22%;
+  padding-right: 12%;
+  box-sizing: border-box;
 }
 p {
   font-size: 0.8em;

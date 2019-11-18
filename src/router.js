@@ -10,6 +10,7 @@ export default new Router({
       path: "/",
       name: "crc30-dapp",
       component: crc30Dapp,
+      title: "Adopt The Rights Of A Child"
     }
   ]
 });

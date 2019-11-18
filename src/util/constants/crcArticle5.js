@@ -2,6 +2,34 @@ const address = '0xB57eb9E06b2A6E4bDdc89608A099C04a47EE599f'
 const ABI = [
 	{
 		"constant": false,
+		"inputs": [
+			{
+				"name": "_name",
+				"type": "string"
+			}
+		],
+		"name": "buyCRC",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "kill",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
 		"inputs": [],
 		"name": "transferUNICEF",
 		"outputs": [
@@ -15,62 +43,46 @@ const ABI = [
 		"type": "function"
 	},
 	{
-		"constant": true,
 		"inputs": [],
-		"name": "ipfsImageHash",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "constructor"
 	},
 	{
-		"constant": true,
-		"inputs": [],
-		"name": "conventionArticleContent",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
+		"anonymous": false,
 		"inputs": [
 			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "users",
-		"outputs": [
-			{
-				"name": "userNr",
-				"type": "uint256"
-			},
-			{
-				"name": "name",
+				"indexed": false,
+				"name": "currentOwner",
 				"type": "string"
 			},
 			{
-				"name": "userAddress",
+				"indexed": false,
+				"name": "currentAddress",
 				"type": "address"
 			},
 			{
-				"name": "amountPayed",
+				"indexed": false,
+				"name": "currentWorth",
 				"type": "uint256"
 			},
 			{
-				"name": "article",
-				"type": "string"
+				"indexed": false,
+				"name": "allTimeWorth",
+				"type": "uint256"
+			}
+		],
+		"name": "newOwner",
+		"type": "event"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "Admin",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
 			}
 		],
 		"payable": false,
@@ -78,18 +90,9 @@ const ABI = [
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [],
-		"name": "kill",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"constant": true,
 		"inputs": [],
-		"name": "checkContractBalance",
+		"name": "allTimeWorth",
 		"outputs": [
 			{
 				"name": "",
@@ -117,7 +120,7 @@ const ABI = [
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "conventionArticleNumber",
+		"name": "checkContractBalance",
 		"outputs": [
 			{
 				"name": "",
@@ -131,7 +134,35 @@ const ABI = [
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "allTimeWorth",
+		"name": "conventionArticleContent",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "conventionArticleName",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "conventionArticleNumber",
 		"outputs": [
 			{
 				"name": "",
@@ -159,6 +190,20 @@ const ABI = [
 	{
 		"constant": true,
 		"inputs": [],
+		"name": "currentOwner",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
 		"name": "currentWorth",
 		"outputs": [
 			{
@@ -173,21 +218,7 @@ const ABI = [
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "getUsersCount",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "owners",
+		"name": "donationPool",
 		"outputs": [
 			{
 				"name": "",
@@ -236,68 +267,7 @@ const ABI = [
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "currentOwner",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "conventionArticleName",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_name",
-				"type": "string"
-			}
-		],
-		"name": "buyCRC",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "Admin",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "donationPool",
+		"name": "getUsersCount",
 		"outputs": [
 			{
 				"name": "",
@@ -309,37 +279,67 @@ const ABI = [
 		"type": "function"
 	},
 	{
+		"constant": true,
 		"inputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "constructor"
+		"name": "ipfsImageHash",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
-		"anonymous": false,
+		"constant": true,
+		"inputs": [],
+		"name": "owners",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
 		"inputs": [
 			{
-				"indexed": false,
-				"name": "currentOwner",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "users",
+		"outputs": [
+			{
+				"name": "userNr",
+				"type": "uint256"
+			},
+			{
+				"name": "name",
 				"type": "string"
 			},
 			{
-				"indexed": false,
-				"name": "currentAddress",
+				"name": "userAddress",
 				"type": "address"
 			},
 			{
-				"indexed": false,
-				"name": "currentWorth",
+				"name": "amountPayed",
 				"type": "uint256"
 			},
 			{
-				"indexed": false,
-				"name": "allTimeWorth",
-				"type": "uint256"
+				"name": "article",
+				"type": "string"
 			}
 		],
-		"name": "newOwner",
-		"type": "event"
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
 	}
 ]
 
