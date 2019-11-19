@@ -4,7 +4,22 @@
       <div class="submitContent" v-bind:class="{ 'opened' : openvariable5, 'closed' : closevariable5}">
         <h1>Submit artwork for an article</h1>
         <div class="pagecontent">
-        <p>Contribute with your art...</p>
+        <p>Are you a visual artist and want to contribute with an art piece to the project? Choose one of the article below, create an art piece inspired by that child right, and submit to <a href="mailto:projects@blockchainclub.io">projects@blockchainclub.io</a></p>
+        <div class="articleimages">
+          <img src="../../public/Articles/Free_Article1.png" class="freeArticle">
+          <img src="../../public/Articles/Free_Article1.png" class="freeArticle">
+          <img src="../../public/Articles/Free_Article1.png" class="freeArticle">
+          <img src="../../public/Articles/Free_Article1.png" class="freeArticle">
+          <img src="../../public/Articles/Free_Article1.png" class="freeArticle">
+          <img src="../../public/Articles/Free_Article1.png" class="freeArticle">
+          <img src="../../public/Articles/Free_Article1.png" class="freeArticle">
+          <img src="../../public/Articles/Free_Article1.png" class="freeArticle">
+          <img src="../../public/Articles/Free_Article1.png" class="freeArticle">
+          <img src="../../public/Articles/Free_Article1.png" class="freeArticle">
+          <img src="../../public/Articles/Free_Article1.png" class="freeArticle">
+          <img src="../../public/Articles/Free_Article1.png" class="freeArticle">
+        </div>
+
         </div>
         </div>
     </div>
@@ -76,6 +91,7 @@ transition: ease-out 300ms;
   height: 0%;
   background: white;
   display: inline-block;
+  overflow:scroll;
     &.opened {
     animation: slide 0.5s ease-out 0.2s forwards;
     }
@@ -97,7 +113,6 @@ transition: ease-out 300ms;
   margin: 20px;
   height: 0%;
   opacity:0;
-  overflow:hidden;
   &.opened {
     animation: slide2 0.5s ease-out 0.3s forwards;
   }
@@ -107,7 +122,6 @@ transition: ease-out 300ms;
 }
 
 .pagecontent {
-  margin-right: 22%;
 }
 p {
   font-size: 0.8em;
@@ -125,7 +139,20 @@ p {
   to {height: 0%;
   opacity:0;}
 }
-
+.freeArticle {
+  height: 250px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.articleimages {
+  margin-top: 50px;
+}
+a {
+  color: #FFB000;
+}
+a:hover {
+  color: black;
+}
 
 
 </style>

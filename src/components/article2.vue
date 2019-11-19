@@ -47,11 +47,11 @@
 
           <!-- Owner Info -->
       <div class="ownerPlaque" id="PlaqueShape" v-if="!worthIsZero">
-        <p class="ownerPlaqueSmall">Current owner:</p>
+        <p class="ownerPlaqueSmall">Last adopted by:</p>
           <p class="ownerPlaqueBig">{{ theCurrentOwner }}</p>
         </div>
         <div class="ownerPlaque" id="PlaqueShape" v-if="worthIsZero">
-        <p class="ownerPlaqueSmall">Current owner:</p>
+        <p class="ownerPlaqueSmall">Last adopted by:</p>
         </div>
           <!-- END Owner Info -->
     </div>

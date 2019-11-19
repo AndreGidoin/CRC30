@@ -21,7 +21,7 @@
   </div></a></li>
   
   <!-- ABOUT ITEM -->
-  <li class="MenuItems"><a href="#about"><div class="lineContainer"  @click="openAbout"><svg><line x1="0" y1="14"/></svg><p>About</p>
+  <li class="MenuItems"><a href="#howitworks"><div class="lineContainer"  @click="openAbout"><svg><line x1="0" y1="14"/></svg><p>How It Works</p>
   <!-- ARROWHEAD -->
   <svg class="pageLineExtend" v-if="open2">
       <defs>

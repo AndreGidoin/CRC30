@@ -197,8 +197,6 @@ transition: ease-out 300ms;
     }
 }
 .pagecontent {
-  padding-right: 12%;
-  box-sizing: border-box;
 }
 p {
   font-size: 0.8em;

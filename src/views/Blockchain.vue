@@ -124,10 +124,10 @@ transition: ease-out 300ms;
     }
 }
 .pagecontent {
-  margin-right: 22%;
 }
 p {
   font-size: 0.8em;
+  line-height: 1.45em;
 }
 .bluecolor {
   color: #2AACE0;

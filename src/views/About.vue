@@ -110,7 +110,6 @@ transition: ease-out 300ms;
 }
 
 .pagecontent {
-  margin-right: 22%;
 }
 p {
   font-size: 0.8em;
