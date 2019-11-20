@@ -32,10 +32,11 @@
         v-on:current-worththirtyone="article31value = $event" 
         v-on:current-worththirtyfive="article35value = $event" 
 
-        v-on:artist-nameone="artistName1 = $event" 
         v-on:artist-nametwo="artistName2 = $event" 
+        v-on:artist-namefive="artistName5 = $event" 
         v-on:artist-nameseven="artistName7 = $event" 
         v-on:artist-nameeight="artistName8 = $event" 
+        v-on:artist-namenine="artistName9 = $event" 
         v-on:artist-namethirtyone="artistName31 = $event" 
         v-on:artist-namethirtyfive="artistName35 = $event" 
 
@@ -281,9 +282,11 @@ export default {
             return 0;
         },
         setName: function() {
-            console.log(this.ArticleComponents[0].artistName = (this.artistName1));
             console.log(this.ArticleComponents[1].artistName = (this.artistName2));
+            console.log(this.ArticleComponents[4].artistName = (this.artistName5));
             console.log(this.ArticleComponents[6].artistName = (this.artistName7));
+            console.log(this.ArticleComponents[7].artistName = (this.artistName8));
+            console.log(this.ArticleComponents[8].artistName = (this.artistName9));
             console.log(this.ArticleComponents[10].artistName = (this.artistName31));
             console.log(this.ArticleComponents[11].artistName = (this.artistName35));
         },

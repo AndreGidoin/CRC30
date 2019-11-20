@@ -1,8 +1,8 @@
 {
-  "name": "crc30test",
+  "name": "adoptthecrc",
   "version": "1.0.0",
-  "description": "A blockchain test",
-  "author": "Andre <andregidoin@gmail.com>",
+  "description": "A UNICEF Fundraiser",
+  "author": "Andre <contact@blockchainclub.io>",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",

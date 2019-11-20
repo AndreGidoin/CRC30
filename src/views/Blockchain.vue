@@ -6,8 +6,8 @@
         <div class="pagecontent">
         <p>We've chosen to create this platform on the Ethereum blockchain for a few different reasons. </p>
         
-        <p><span class="bluecolor">A non-corruptible record of the rights</span><br>
-        The core feature of all data being stored on the blockchain is that it is added to a permanent and immutable ledger. We love the idea that we can take something created by the United Nations and spread it across the web so that the rights of children are stored on the decentralized internet and can never be disputed. We just made sure the rights of children can never be deleted!
+        <p><span class="bluecolor">Democratizing the record of the rights.</span><br>
+        A core feature of all data stored on the blockchain is that it is added to and distributed on permanent, immutable ledgers to all that participate in the chain. When information is decentralized and owned by the people they are empowered to use it. This also means that not one single entity can ever delete the rights from existence as it is spread all over the decentralized web.
         </p>
 
         <p><span class="bluecolor">Ownership (and digital art)</span><br>

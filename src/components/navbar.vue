@@ -6,7 +6,7 @@
   <li class="HomeItem"><a href="#"><div class="homeContainer"><p>CRC 30th Anniversary</p></div></a></li>
   
   <!-- ARTISTS ITEM -->
-  <li class="MenuItems"><a href="#artists"><div class="lineContainer" @click="openArtists"><svg><line x1="0" y1="14"/></svg><p>The Artists</p>
+  <li class="MenuItems"><a href="#"><div class="lineContainer" @click="openArtists"><svg><line x1="0" y1="14"/></svg><p>The Artists</p>
   <!-- ARROWHEAD -->
   <svg class="pageLineExtend" v-if="open1">
       <defs>
@@ -18,10 +18,10 @@
   <line x1="0" y1="12" marker-start="url(#markerArrow)"/>
   </svg>
   <!-- ARROWHEAD END -->
-  </div></a></li>
+  </div></a></li> 
   
   <!-- ABOUT ITEM -->
-  <li class="MenuItems"><a href="#howitworks"><div class="lineContainer"  @click="openAbout"><svg><line x1="0" y1="14"/></svg><p>How It Works</p>
+  <li class="MenuItems"><a href="#"><div class="lineContainer"  @click="openAbout"><svg><line x1="0" y1="14"/></svg><p>How It Works</p>
   <!-- ARROWHEAD -->
   <svg class="pageLineExtend" v-if="open2">
       <defs>
@@ -36,7 +36,7 @@
   </div></a></li>
 
   <!-- BLOCKCHAIN ITEM -->
-  <li class="MenuItems"><a href="#blockchain"><div class="lineContainer" @click="openBlockchain"><svg><line x1="0" y1="14"/></svg><p>Why Blockchain?</p>
+  <li class="MenuItems"><a href="#"><div class="lineContainer" @click="openBlockchain"><svg><line x1="0" y1="14"/></svg><p>Why Blockchain?</p>
   <!-- ARROWHEAD -->
   <svg class="pageLineExtend" v-if="open3">
       <defs>
@@ -51,7 +51,7 @@
   </div></a></li>
 
   <!-- CONTACT ITEM -->
-  <li class="MenuItems"><a href="#contact"><div class="lineContainer" @click="openContact"><svg><line x1="0" y1="14"/></svg><p>Get in touch</p>
+  <li class="MenuItems"><a href="#"><div class="lineContainer" @click="openContact"><svg><line x1="0" y1="14"/></svg><p>Get in touch</p>
   <!-- ARROWHEAD -->
   <svg class="pageLineExtend" v-if="open4">
       <defs>
@@ -66,7 +66,7 @@
   </div></a></li>
 
   <!-- SUBMIT ITEM -->
-  <li class="MenuItems"><a href="#submit"><div class="lineContainer" @click="openSubmit"><svg><line x1="0" y1="14"/></svg><p>Submit</p>
+  <li class="MenuItems"><a href="#"><div class="lineContainer" @click="openSubmit"><svg><line x1="0" y1="14"/></svg><p>Submit</p>
   <!-- ARROWHEAD -->
   <svg class="pageLineExtend" v-if="open5">
       <defs>
