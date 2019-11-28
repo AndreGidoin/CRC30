@@ -19,12 +19,17 @@
   <div class="infoContainer nr2">
 
         <div class="infoItems color"><span class="imgItem"><img src="../public/graphics/Articles_CRC-2_2.gif"></span></div>
-        <div class="infoItems"><span class="item"><h1>Adopt the Rights of a Child is a project about democratizing the ratification of children’s rights, allowing people to support the convention regardless of what their government might say. </h1></span></div>
+        <div class="infoItems"><span class="item"><h1>Adopt the Rights of a Child is a project about democratizing the ratification of children’s rights, allowing people to support the convention regardless of what their government might say. So choose an article you want to support and ratify it yourself by adopting and donating money to that right. </h1></span></div>
   </div>
   <div class="infoContainer nr3">      
         <div class="infoItems color"><span class="imgItem"><img src="../public/graphics/42_Articles_Animation-2.gif"></span></div>
-        <div class="infoItems"><span class="item"><h1>The CRC is a human rights treaty based on 42 articles which sets out the civil, political, economic, social, health and cultural rights of children. It goes without saying that governments should of support it and create laws meant to protect children, but let's take some power into our own hands and make sure that all our children have a safe and nourishing place to live.</h1></span></div>
+        <div class="infoItems"><span class="item"><h1>The CRC is a human rights treaty based on 42 articles which sets out the civil, political, economic, social, health and cultural rights of children. It goes without saying that governments should support it and create laws meant to protect children. This project aims to let people take the power into our own hands and make sure that all our children have a safe and nourishing place to live and grow.</h1></span></div>
             
+  </div>
+
+  <div class="footer">
+    <div class="footerContent">This is a fundraiser for UNICEF. All proceeds are directly donated to them and their work to protect children's rights. This project was created pro-bono by <a href="http://blockchainclub.io" target="_blank">The Experimental Blockchain Club</a>. For any questions please send an email to <a href="mailto:contact@blockchainclub.io">contact@blockchainclub.io</a>
+    </div>
   </div>
 
   <div class="beta">This is only a prototype version of the website. WEBSITE LAUNCHING DECEMBER 1ST!</div>
@@ -74,6 +79,7 @@ b {
     font-size:0.4em;
     padding: 4px;
     font-family: 'Space Mono', monospace;
+    display: none;
 }
 .spinner{
   margin: auto;
@@ -142,6 +148,8 @@ b {
     padding: 0 0 0 0;
     display: block;
     width: 100%;
+    height: 90vh;
+    min-height: 650px;
     text-align: center;
   }
   .nr1 {
@@ -154,11 +162,11 @@ b {
   }
   .nr3 {
     background-color: rgb(222, 227, 177);
-  background: -webkit-linear-gradient(250deg, #fdeb97, #ffdd46);
+    background: -webkit-linear-gradient(-250deg, #f2b719, #ffdd46);
   }
   .infoItems {
     margin: auto;
-    font-size: 0.8em;
+    font-size: 0.6em;
     line-height: 2.7em;
     width:65%;
     height: 350px;
@@ -185,14 +193,34 @@ b {
   }
   .color img {
     width: auto;
-    height: 500px;
+    height: 400px;
     margin: auto;
+    padding-top: 20px;
   }
   .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
   }
   .fade-enter /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
+  }
+  .footer{
+    height: 400px;
+    margin: auto;
+    padding: auto;
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6em;
+    display: flex;
+    -webkit-flex-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+  }
+  .footerContent{
+    width:60%;
+
   }
 
 

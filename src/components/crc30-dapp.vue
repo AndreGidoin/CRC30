@@ -335,7 +335,8 @@ export default {
 
 .cardRoot {
     width: 100%;
-    height:auto;
+    height:92vh;
+    min-height: 650px;
     margin: 0 0 0 0;
     padding: 0 0 0 0;
 }

@@ -94,6 +94,7 @@ transition: ease-out 300ms;
   height: 0%;
   background: white;
   display: inline-block;
+  overflow:scroll;
     &.opened {
     animation: slide 0.5s ease-out 0.2s forwards;
     }
@@ -112,10 +113,12 @@ transition: ease-out 300ms;
 }
 
 .blockchainContent {
-  margin: 20px;
+  padding: 20px;
   height: 0%;
   opacity:0;
-  overflow:scroll;
+  width: 100vw;
+  box-sizing: border-box;
+  padding-top: 40px;
   &.opened {
     animation: slide2 0.5s ease-out 0.3s forwards;
   }
