@@ -31,7 +31,7 @@
       <div class="theArtwork">
         <span v-if="ipfshHashChecked">
           <img id="IPFSImage6" />
-        </span>
+          </span>
       </div>
       
           </div>
@@ -57,19 +57,25 @@
         <!-- ArticleContainer STARTS -->
         <div class="ArticleContainer" v-if="crcArticleContentChecked">
           <h1>This article states that:</h1>
-          <p class="ArticleText">{{ crcArticleContentEvent }}</p>
+          <p class="ArticleText">{{ crcArticleContentEvent }} <a href="https://downloads.unicef.org.uk/wp-content/uploads/2019/10/UNCRC_summary-1_1.pdf" target="_blank">Read More</a></p>
         <span class="dot"></span>
         <span class="dot"></span>
         <span class="dot"></span>
         <span class="dot"></span>
-         <!-- History of owners should go here, to the backside. -->
+        <!-- The artist who created the artwork for the article -->
+        <p>This article is illustrated by {{artistName}}</p>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+         <!-- History of owners should go here, on the backside. -->
         <div class="ownerHistory" v-if="hasOwners">
           <h2 v-if="hasPreviousOwners">Thank you to all supporters:</h2>
-                    <ul id="ownerHistory6">
+                    <ul id="ownerHistory2">
                     </ul>
                   </div>
                   <div class="ownerHistory" v-if="!hasOwners">
-          <h2>Nobody has supported this article yet. Claim it yourself for any price.</h2>
+          <h2>Nobody has adopted this article yet. Claim it yourself for any price.</h2>
           </div>
        
         </div>
@@ -90,14 +96,14 @@
           
     </div>
     <!-- End Flipcard -->
-<div class="flipControls">
+<div class="flipControls" @click="flip">
       <li><div class="circle" v-bind:class="{ 'ring' : flipped }"></div></li>
       <li><div class="circle" v-bind:class="{ 'ring' : !flipped }"></div></li>
       </div>
     <!-- Controller for buying and stuff -->
     <div class="articleControls" v-bind:class="{ 'transparency' : isMouseOver }">
       <p class="gold" v-if="worth">Current worth: {{CurrentWorth}} ETH</p>
-          <p class="NoOwner" v-if="worthIsZero">This article has not been ratified by anyone yet. <i>Claim it for any price.</i></p>
+          <p class="NoOwner" v-if="!worth">This article has not been ratified by anyone yet. <i>Claim it for any price.</i></p>
       <!-- Buying form and button -->
       <div class="buying">
           <input type="text"
@@ -107,10 +113,10 @@
           />
           <input type="number" v-model="amount" placeholder="Price in Ξ" />
           <button class="Button-Buy" v-on:click="buyConvention" v-if="!pending && buyButton">
-            Buy this article
+            Adopt this article
           </button>
                     <button class="Button-Buy Pending" v-if="pending">
-                      <div class="pendingContainer"><div class="lds-dual-ring" v-if="pending"></div><div class="TransactionButtonText"><i>Transaction in process</i></div></div>
+                      <div class="pendingContainer"><div class="adoptionPending" v-if="pending"></div><div class="TransactionButtonText"><i>Transaction in progress</i></div></div>
                     </button>
                               <button class="Button-Buy Failure" v-on:click="buyConvention" v-if="failure">
                                 Transaction failed. Try again.
@@ -120,7 +126,7 @@
                               </button>
         <!-- Small text under form -->
     <div class="smallText">
-      <p>Buy this article and artwork for any amount above its current worth. The information entered into this form will be displayed with the article so please be thoughtful. Enter amount in Ether.
+      <p>Adopt this article and artwork for any amount above its current worth. The information entered into this form will be displayed with the article so please be thoughtful. Enter amount in Ether.
       </p>
       </div>
       <!-- END small text under form -->
@@ -153,12 +159,10 @@ export default {
     setTimeout(this.crcArticleContentEvent, 100);
     setTimeout(this.ownerPromise, 300);
     setTimeout(this.currentWorthOfArticle, 500);
+    setTimeout(this.getArtistName, 100);
   },
   data() {
     return {
-      WalletAddress: null,
-      theBalance: null,
-      Admin: null,
       amount: null,
       yourName: null,
       pending: false,
@@ -179,19 +183,25 @@ export default {
       worth: false,
       worthIsZero: false,
       isMouseOver: false,
-      buyButton: true
+      buyButton: true,
+      artistName:'none'
     };
   },
   methods: {
     buyConvention(event) {
-      // this is wrong
+      // Check if amount if bigger than current calue
+      if (this.amount < this.CurrentWorth) {
+        alert('To adopt this article please enter a value higher than the current value of the article');
+      } else {
+
+      // The call to the contract
       console.log(this.yourName, this.amount);
       this.failure = false;
       this.newOwnerEvent = null;
       this.$store.state.article6Instance().buyCRC(
         this.yourName,
         {
-          gas: 300000,
+          gas: 400000,
           value: this.$store.state.web3
             .web3Instance()
             .toWei(this.amount, "ether"),
@@ -202,6 +212,7 @@ export default {
             console.log(err);
             this.pending = false;
             this.failure = true;
+            setTimeout(this.buyButton = true, 2000);
           } else {
             this.pending = true;
             let newOwner = this.$store.state.article6Instance().newOwner();
@@ -220,6 +231,7 @@ export default {
           }
         }
       );
+    }
     },
     ArticleName(event) {
       console.log("Getting ArticleName");
@@ -282,7 +294,6 @@ export default {
     crcArticleContentEvent(event) {
       console.log("Getting article content");
       this.$store.state.article6Instance().conventionArticleContent(
-        
         (error, result) => {
           if (!error) {
             let theArticleContent = this.$store.state
@@ -320,18 +331,17 @@ export default {
             } else {
             this.CurrentWorth = web3.fromWei(result);
             this.worth = true;
-            this.worthIsZero = false;
             console.log("This article is worth " + result);
             console.log(web3.fromWei(result) + " is the result in ETH")
-            this.$emit('current-worthsix', this.CurrentWorth)
             } 
           }
           resolve(result);
-          console.log(this.worth + " is that it's worth now" + this.worthIsZero + " is zero worth")
+          this.$emit('current-worthsix', this.CurrentWorth)
+
         })
       })
     },
-    // Maybe the constactInstances will have to be unique to each vue file? Or is there a way to automate this?
+    // GETTING THE ARTWORK WITH UNIQUE IDS
     ipfsNewEvent(event) {
       console.log("Starting ipfsNewEvent function");
       const theIPFSHash = new Promise((resolve, reject) => {
@@ -449,13 +459,13 @@ export default {
         for (let i = 0; i < (this.ownersarray2.length); i++) {
             const forPromise = new Promise ((resolve, reject) => {
                 console.log('were inside the for Promise')
-                if (i === this.ownersarray2.length-2) {
+                if (i === this.ownersarray2.length-1) {
                     this.listOfOwners2 += "<li>" + this.ownersarray2[i] + "</li>";
                     console.log('did we make it?')
                     this.hasOwners = true;
                     this.hasPreviousOwners = true;
                     resolve(this.listOfOwners2);
-                    console.log(this.listOfOwners2 + ' loggin the resolve')
+                    console.log(this.listOfOwners2 + ' logging the resolve')
                 } else {
                 this.listOfOwners2 += "<li>" + this.ownersarray2[i] + "</li>";
                 console.log(this.listOfOwners2 + ' – the owner loop');
@@ -463,7 +473,7 @@ export default {
             })
             forPromise.then((result) => {
                 console.log('in the then promise')
-                document.getElementById("ownerHistory6").innerHTML = result;
+                document.getElementById("ownerHistory2").innerHTML = result;
                 console.log(result);
             })
         }
@@ -471,7 +481,28 @@ export default {
     flip: function() {
       this.flipped = !this.flipped;
       console.log(this.flipped);
-    }
+    },
+    getArtistName(event) {
+      console.log("Getting artist name of this article");
+      const theArtistName = new Promise((resolve, reject) => {
+        this.$store.state.article6Instance().artistName((error, result) => {
+          if (error) {
+            console.log("Cant get artistName()");
+            console.log(error);
+          } else {
+            if (result === 0) {
+              console.log(result + " artistName is NULL");
+            } else {
+            this.artistName = result;
+            console.log("This article artwork is made by " + result);
+            } 
+          }
+          resolve(result);
+          this.$emit('artist-namesix', this.artistName)
+
+        })
+      })
+    }
   }
 };
 </script>
@@ -508,7 +539,16 @@ h4 {
   height: auto; 
   transition: ease-out 300ms; 
   &:hover {
-    transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.09, 1.09, 1.09);
+  }
+}
+.ShadowContainer {
+  height: 100%;
+  width: auto;
+  filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.04));
+  transition: ease-out 300ms; 
+  &:hover {
+    filter: drop-shadow(14px 14px 10px rgba(0, 0, 0, 0.06));
   }
 }
 .flipcard {
@@ -613,9 +653,8 @@ h4 {
   margin-left: 50%;
   transform: translateX(-50%);
 }
-#IPFSImage4 {
+#IPFSImage {
 }
-
 
 .currentOwner {
   color: #124588;
@@ -668,6 +707,13 @@ h4 {
   padding: 26px 0 0 0;
   line-height: 1.4;
 }
+
+.ArticleHeadline h2 {
+  font-size: 0.65em;
+  margin: 0 0 0 0;
+  padding: 12px 13px 0 13px;
+  line-height: 1.5;
+}
 .dot {
   margin: 0 3px 0 3px;
   height: 3px;
@@ -675,6 +721,11 @@ h4 {
   background-color: #3F3F3F;
   border-radius: 50%;
   display: inline-block;}
+
+.video {
+  width: 100%;
+  height: 100%;
+}
 
 
 // CONTROLS
@@ -757,43 +808,34 @@ input[type=number] {
   margin: 0 0 0 14px;
 }
 
+// LINKS
+a {
+  color: #FFB000;
+}
+a:hover {
+  color: black;
+}
+
 // loader stuff
-.lds-dual-ring {
+.adoptionPending {
   display: inline-block;
   width: 30px;
   height: 30px;
-  margin: 5px 0 0 0;
+  margin: -3px 0 0 -10px;
+  padding-right: 15px;
+  background-image: url("../assets/block-rotate-loading.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30px 30px;
 }
-.lds-dual-ring:after {
-  content: " ";
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin: 0 0 0 0;
-  border-radius: 50%;
-  border: 3px solid white;
-  border-color: white transparent white transparent;
-  animation: lds-dual-ring 1.2s linear infinite;
-}
-@keyframes lds-dual-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+
 #CardShape {
       clip-path: polygon(0% 5%, 9% 0%, 91% 0%, 100% 5%, 100% 100%, 0 100%);
 }
 #PlaqueShape {
   clip-path: polygon(75% 0, 82% 50%, 75% 100%, 25% 100%, 18% 50%, 25% 0%);
 }
-.ShadowContainer {
-  height: 100%;
-  width: auto;
-  filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.04));
-}
+
 
 
 // FALLBACK STYLES

@@ -3,7 +3,7 @@
       
 <ul class="NavBarContainer">
   <!-- HOME ITEM -->
-  <li class="HomeItem"><a href="#"><div class="homeContainer"><p>CRC 30th Anniversary</p></div></a></li>
+  <li class="HomeItem"><a href="#" v-on:click="this.$ga.event('send', 'event', [Links], [Home], [Navbar])"><div class="homeContainer"><p>CRC 30th Anniversary</p></div></a></li>
   
   <!-- ARTISTS ITEM -->
   <li class="MenuItems"><a href="#"><div class="lineContainer" @click="openArtists"><svg><line x1="0" y1="14"/></svg><p>The Artists</p>

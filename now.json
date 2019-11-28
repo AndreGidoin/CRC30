@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "CRC30-Beta",
+  "name": "Adopt The CRC",
   "builds": [{ "src": "package.json", "use": "@now/static-build" }],
   "routes": [
     { "src": "^/js/(.*)", "dest": "/js/$1" },

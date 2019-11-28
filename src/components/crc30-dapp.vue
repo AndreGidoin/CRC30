@@ -29,6 +29,7 @@
         v-on:current-wortheight="article8value = $event" 
         v-on:current-worthnine="article9value = $event" 
         v-on:current-worthten="article10value = $event" 
+        v-on:current-worthtvelve="article12value = $event" 
         v-on:current-worththirtyone="article31value = $event" 
         v-on:current-worththirtyfive="article35value = $event" 
 
@@ -37,6 +38,7 @@
         v-on:artist-nameseven="artistName7 = $event" 
         v-on:artist-nameeight="artistName8 = $event" 
         v-on:artist-namenine="artistName9 = $event" 
+        v-on:artist-nametvelve="artistName12 = $event" 
         v-on:artist-namethirtyone="artistName31 = $event" 
         v-on:artist-namethirtyfive="artistName35 = $event" 
 
@@ -73,6 +75,7 @@ import Article7 from '@/components/article7'
 import Article8 from '@/components/article8'
 import Article9 from '@/components/article9'
 import Article10 from '@/components/article10'
+import Article12 from '@/components/article12'
 import Article31 from '@/components/article31'
 import Article35 from '@/components/article35'
 
@@ -104,6 +107,7 @@ export default {
             article8value: null,
             article9value: null,
             article10value: null,
+            article12value: null,
             article31value: null,
             article35value: null,
 
@@ -117,6 +121,7 @@ export default {
             artistName8: '',
             artistName9: '',
             artistName10: '',
+            artistName12: '',
             artistName31: '',
             artistName35: '',
 
@@ -186,6 +191,12 @@ export default {
                     articleNumber: '10'
                 },
                 {
+                    name: 'article12',
+                    value: '',
+                    artistName: 'Z',
+                    articleNumber: '12'
+                },
+                {
                     name: 'article31',
                     value: '',
                     artistName: 'Z',
@@ -230,6 +241,7 @@ export default {
         'article8': Article8,
         'article9': Article9,
         'article10': Article10,
+        'article12': Article12,
         'article31': Article31,
         'article35': Article35
     },
@@ -270,8 +282,9 @@ export default {
             console.log(this.ArticleComponents[7].value = (this.article8value));
             console.log(this.ArticleComponents[8].value = (this.article9value));
             console.log(this.ArticleComponents[9].value = (this.article10value));
-            console.log(this.ArticleComponents[10].value = (this.article31value));
-            console.log(this.ArticleComponents[11].value = (this.article35value));
+            console.log(this.ArticleComponents[10].value = (this.article12value));
+            console.log(this.ArticleComponents[11].value = (this.article31value));
+            console.log(this.ArticleComponents[12].value = (this.article35value));
         },
         sortName: function() {
             console.log(this.ArticleComponents.sort(this.compareArtistName) + ' ' + 'sort by Name');
@@ -287,8 +300,9 @@ export default {
             console.log(this.ArticleComponents[6].artistName = (this.artistName7));
             console.log(this.ArticleComponents[7].artistName = (this.artistName8));
             console.log(this.ArticleComponents[8].artistName = (this.artistName9));
-            console.log(this.ArticleComponents[10].artistName = (this.artistName31));
-            console.log(this.ArticleComponents[11].artistName = (this.artistName35));
+            console.log(this.ArticleComponents[10].artistName = (this.artistName12));
+            console.log(this.ArticleComponents[11].artistName = (this.artistName31));
+            console.log(this.ArticleComponents[12].artistName = (this.artistName35));
         },
         
         handleClick: function(e) {

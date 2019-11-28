@@ -11,18 +11,23 @@
           <router-view />
       </div>
 
-  <div class="infoContainer">
-        <div class="infoItems"><span class="item"><h1>Every UN country has ratified the Convention on the Rights of the Child and are bound to it by international law. <br><br><b>Every country except the USA.</b></h1></span></div>
-            <div class="infoItems color"><span class="imgItem"><img src="../public/graphics/crc_preso-1.png" ></span></div>
-            <div class="infoItems color"><span class="imgItem"><img src="../public/graphics/crc_preso-2b.png"></span></div>
-        <div class="infoItems"><span class="item"><h1>Adopt the Rights of a Child is a project about democratizing the ratification of children's rights.</h1></span></div>
-        <div class="infoItems"><span class="item"><h1>30 years ago the United Nations created the Convention which is a human rights treaty based on 42 articles which sets out the civil, political, economic, social, health and cultural rights of children.</h1></span></div>
-            <div class="infoItems color"></div>
-            <div class="infoItems color"></div>
-        <div class="infoItems"><span class="item"><h1>Governments should of course create laws meant to protect children, but it is up to us as individuals and part of society to make sure our children have a safe and nourishing place to live.</h1></span></div>
-      </div>
+  <div class="infoContainer nr1">
 
-  <div class="beta">This is only a prototype version of the website. All content is FPO!</div>
+        <div class="infoItems color"><span class="imgItem"><img src="../public/graphics/WorldMap_CRC_White-Black.gif"></span></div>
+        <div class="infoItems"><span class="item"><h1>30 years ago, the United Nations created the Convention on the Right of the Child (CRC). Every UN country has ratified it and are bound to it by international law. <br><br><b>Every country except the USA.</b></h1></span></div>
+  </div>
+  <div class="infoContainer nr2">
+
+        <div class="infoItems color"><span class="imgItem"><img src="../public/graphics/Articles_CRC-2_2.gif"></span></div>
+        <div class="infoItems"><span class="item"><h1>Adopt the Rights of a Child is a project about democratizing the ratification of children’s rights, allowing people to support the convention regardless of what their government might say. </h1></span></div>
+  </div>
+  <div class="infoContainer nr3">      
+        <div class="infoItems color"><span class="imgItem"><img src="../public/graphics/42_Articles_Animation-2.gif"></span></div>
+        <div class="infoItems"><span class="item"><h1>The CRC is a human rights treaty based on 42 articles which sets out the civil, political, economic, social, health and cultural rights of children. It goes without saying that governments should of support it and create laws meant to protect children, but let's take some power into our own hands and make sure that all our children have a safe and nourishing place to live.</h1></span></div>
+            
+  </div>
+
+  <div class="beta">This is only a prototype version of the website. WEBSITE LAUNCHING DECEMBER 1ST!</div>
 
   
   </div>
@@ -56,7 +61,7 @@ h1 {
     padding: auto;
 }
 b {
-  color: #e44551;
+  color:black;
 }
 .beta{
     position: absolute;
@@ -134,26 +139,31 @@ b {
   }
   .infoContainer {
     margin: 0;
-    padding: 0 0 100px 0;
-    display: flex;
-    -webkit-flex-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
+    padding: 0 0 0 0;
+    display: block;
     width: 100%;
-    flex-flow: row wrap;
     text-align: center;
   }
+  .nr1 {
+    background-color: rgb(38, 122, 155);
+    background: -webkit-linear-gradient(-250deg, #cc3838, #e499a9);
+  }
+  .nr2 {
+    background-color: rgb(247, 230, 240);
+  background: -webkit-linear-gradient(-250deg, #538294, #94d7f1);
+  }
+  .nr3 {
+    background-color: rgb(222, 227, 177);
+  background: -webkit-linear-gradient(250deg, #fdeb97, #ffdd46);
+  }
   .infoItems {
+    margin: auto;
     font-size: 0.8em;
     line-height: 2.7em;
-    flex-grow: 1;
-    width:50%;
+    width:65%;
     height: 350px;
     box-sizing: border-box;
-    padding: 30px;
+    padding: 10px;
     @media only screen and (max-width: 985px) {
       // width: 100%;
       //flex-direction: row;
@@ -161,41 +171,21 @@ b {
     }
   }
 
-  /* ODERING THE DIVS. MIGHT NOT NEED THIS
-  @media only screen and (max-width: 985px) {
-      .infoContainer :nth-child(1) { order: 1; }
-      .infoContainer :nth-child(2) { order: 2; }
-      .infoContainer :nth-child(3) { order: 4; }
-      .infoContainer :nth-child(4) { order: 3; }
-      .infoContainer :nth-child(5) { order: 5; }
-      .infoContainer :nth-child(6) { order: 6; }
-      .infoContainer :nth-child(7) { order: 10; }
-      .infoContainer :nth-child(8) { order: 7; }
-      .infoContainer :nth-child(9) { order: 10; }
-      .infoContainer :nth-child(10) { order: 10; }
-  }
-  */
-
-
   .infoItems h1 {
     height: auto;
+    color: white;
   }
   .item {
-    display: flex;
-    height: 100%;
   }
   .imgItem {
-    display: flex;
-    justify-content: center;
-    align-self: center;
     height: 100%;
   }
   .color {
     background-color: none;
   }
   .color img {
-    max-width: 90%;
-    max-height:100%;
+    width: auto;
+    height: 500px;
     margin: auto;
   }
   .fade-enter-active, .fade-leave-active {

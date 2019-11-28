@@ -12,6 +12,7 @@ import getContract7 from './util/getContract7'
 import getContract8 from './util/getContract8'
 import getContract9 from './util/getContract9'
 import getContract10 from './util/getContract10'
+import getContract12 from './util/getContract12'
 import getContract31 from './util/getContract31'
 import getContract35 from './util/getContract35'
 
@@ -73,6 +74,10 @@ export const store = new Vuex.Store({
     registerArticle10Instance (state, payload) {
       console.log('Article10 contract instance: ', payload)
       state.article10Instance = () => payload
+    },
+    registerArticle12Instance (state, payload) {
+      console.log('Article12 contract instance: ', payload)
+      state.article12Instance = () => payload
     },
     registerArticle31Instance (state, payload) {
       console.log('Article31 contract instance: ', payload)
@@ -143,6 +148,11 @@ export const store = new Vuex.Store({
     getArticle10Instance ({commit}) {
       getContract10.then(result => {
         commit('registerArticle10Instance', result)
+      }).catch(e => console.log(e))
+    },
+    getArticle12Instance ({commit}) {
+      getContract12.then(result => {
+        commit('registerArticle12Instance', result)
       }).catch(e => console.log(e))
     },
     getArticle31Instance ({commit}) {
