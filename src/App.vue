@@ -182,6 +182,10 @@ b {
   .infoItems h1 {
     height: auto;
     color: white;
+    @media only screen and (max-width: 985px) {
+      font-size: 1.6em;
+    line-height: 1.7em;
+    }
   }
   .item {
   }

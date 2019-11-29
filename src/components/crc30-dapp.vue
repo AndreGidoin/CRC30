@@ -47,7 +47,14 @@
         />
     </div>
     <div class="allCards nobackground" v-else> 
-        <article2offline class="cards fade-in"/>
+        <component 
+        v-for="offline in OfflineComponents" 
+        v-bind:is="offline.name" 
+        v-bind:key="offline.id" 
+
+        class="cards"
+        v-bind:class="{ 'fade-in': loader}"
+        />
         
         </div>
 
@@ -88,6 +95,18 @@ import Article31 from '@/components/article31'
 import Article35 from '@/components/article35'
 
 import article2offline from '@/components/article2offline'
+import article5offline from '@/components/article5offline'
+import article6offline from '@/components/article6offline'
+import article7offline from '@/components/article7offline'
+import article8offline from '@/components/article8offline'
+import article9offline from '@/components/article9offline'
+import article12offline from '@/components/article12offline'
+import article15offline from '@/components/article15offline'
+import article16offline from '@/components/article16offline'
+import article28offline from '@/components/article28offline'
+import article31offline from '@/components/article31offline'
+import article33offline from '@/components/article33offline'
+import article35offline from '@/components/article35offline'
 
 
 export default {
@@ -222,6 +241,47 @@ export default {
                 }
 
             ],
+            OfflineComponents: [
+                    {
+                        name: 'article2offline',
+                    },
+                    {
+                        name: 'article5offline'
+                    },
+                    {
+                        name: 'article6offline'
+                    },
+                    {
+                        name: 'article7offline'
+                    },
+                    {
+                        name: 'article8offline'
+                    },
+                    {
+                        name: 'article9offline'
+                    },
+                    {
+                        name: 'article12offline'
+                    },
+                    {
+                        name: 'article15offline'
+                    },
+                    {
+                        name: 'article16offline'
+                    },
+                    {
+                        name: 'article28offline'
+                    },
+                    {
+                        name: 'article31offline'
+                    },
+                    {
+                        name: 'article33offline'
+                    },
+                    {
+                        name: 'article35offline'
+                    }
+            ],
             menuItems: [
                 {
                     name: 'Article number',
@@ -258,6 +318,18 @@ export default {
         'article35': Article35,
 
         'article2offline': article2offline,
+        'article5offline': article5offline,
+        'article6offline': article6offline,
+        'article7offline': article7offline,
+        'article8offline': article8offline,
+        'article9offline': article9offline,
+        'article12offline': article12offline,
+        'article15offline': article15offline,
+        'article16offline': article16offline,
+        'article28offline': article28offline,
+        'article31offline': article31offline,
+        'article33offline': article33offline,
+        'article35offline': article35offline
     },
     methods: {
         checkMetaMask: function() {

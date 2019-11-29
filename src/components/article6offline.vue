@@ -9,7 +9,7 @@
     <div class="flipcard" @click="flip">
 
       <div class="articleNumber">
-            <p><span id="numerals">Article 2</span></p>
+            <p><span id="numerals">Article 6</span></p>
       </div>
     <!-- SHADOW CONTAINER -->
     <div class="ShadowContainer">
@@ -132,7 +132,7 @@
 import { setTimeout } from "timers";
 
 export default {
-  name: "article2offline",
+  name: "article6offline",
   mounted() {
   },
   data() {
