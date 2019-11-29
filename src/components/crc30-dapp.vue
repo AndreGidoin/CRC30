@@ -251,7 +251,7 @@ export default {
                 this.NoMetaMask = false;
                 console.log("checkMetaMask is false");
                 console.log("check" + ' ' + window.ethereum.selectedAddress)
-                setTimeout(this.checkMetaMask, 1000);
+                // setTimeout(this.checkMetaMask, 1000);
             } else {
                 this.NoMetaMask = true;
                 console.log("checkMetaMask is true");

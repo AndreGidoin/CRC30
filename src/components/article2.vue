@@ -21,15 +21,15 @@
 
 
     <!-- The Frontside with Convention Article and Artwork -->
-    <div class="Frontside" v-bind:class="{ 'reveal' : flipped }">
+    <div class="Frontside" v-bind:class="{ 'reveal' : flipped }" v-if="!fallbackContent">
       <!-- CARD SHAPE STARTS -->
       <div class="CardShape" id="CardShape">
       <div class="ArticleHeadline">
         <h2 v-if="ArticleNameChecked"> {{ ArticleNameEvent }}</h2>
         </div>
       
-      <div class="theArtwork">
-        <span v-if="ipfshHashChecked">
+      <div class="theArtwork" v-if="ipfshHashChecked">
+        <span >
           <img id="IPFSImage2_1" class="slideshow"/>
           <img id="IPFSImage2_2" class="slideshow"/>
           <img id="IPFSImage2_3" class="slideshow"/>
@@ -56,6 +56,39 @@
           <!-- END Owner Info -->
     </div>
     <!-- End Frontside -->
+
+    <!-- The Frontside FALLBACK --><!-- The Frontside FALLBACK --><!-- The Frontside FALLBACK --><!-- The Frontside FALLBACK -->
+    <div class="Frontside" v-bind:class="{ 'reveal' : flipped }" v-if="fallbackContent">
+      <!-- CARD SHAPE STARTS -->
+      <div class="CardShape" id="CardShape">
+      <div class="ArticleHeadline"><h2 class="redType">
+          Error: No connection <br>to the blockchain
+          </h2>
+        </div>
+      
+      
+      <div class="theArtwork">
+        <div class="noMetaMaskPlaceholder">
+          <div class="noMetaMaskText">
+          Please connect to the Ethereum blockchain to see the content of each article.
+          </div>
+        </div>
+      </div>
+      
+          </div>
+          <!-- END CARD SHAPE -->
+
+          <!-- Owner Info -->
+      <div class="ownerPlaque" id="PlaqueShape" v-if="!worthIsZero">
+        <p class="ownerPlaqueSmall">Last adopted by:</p>
+          <p class="ownerPlaqueBig">{{ theCurrentOwner }}</p>
+        </div>
+        <div class="ownerPlaque" id="PlaqueShape" v-if="worthIsZero">
+        <p class="ownerPlaqueSmall">Last adopted by:</p>
+        </div>
+          <!-- END Owner Info -->
+    </div>
+    <!-- End Frontside FALLBACK --><!-- End Frontside FALLBACK --><!-- End Frontside FALLBACK --><!-- End Frontside FALLBACK --><!-- End Frontside FALLBACK -->
 
     <!-- The Backside About the Artwork and ordering a print -->
     <div class="Backside" v-bind:class="{ 'reveal' : flipped }">
@@ -164,10 +197,11 @@ export default {
     setTimeout(this.ipfsNewEvent, 100);
     setTimeout(this.ArticleName, 100);
     setTimeout(this.crcArticleNumber, 100);
+    setTimeout(this.getArtistName, 100);
     setTimeout(this.crcArticleContentEvent, 100);
     setTimeout(this.ownerPromise, 300);
     setTimeout(this.currentWorthOfArticle, 500);
-    setTimeout(this.getArtistName, 100);
+    setTimeout(this.checkingFallbackContent, 300);
   },
   data() {
     return {
@@ -193,7 +227,9 @@ export default {
       isMouseOver: false,
       buyButton: true,
       artistName:'none',
-      imageSlideShow: 0
+      imageSlideShow: 0,
+      //FALLBACK VARIABLE FOR THE CARD CONTENT
+      fallbackContent: false
     };
   },
   methods: {
@@ -727,7 +763,21 @@ export default {
 
         })
       })
-    }
+    },
+    // THIS IS FALLBACK FOR THE CARD CONTENT
+    checkingFallbackContent: function() {
+            if (window.ethereum.selectedAddress === null) {
+                this.fallbackContent = true;
+                console.log("checkingFallbackContent is true");
+                console.log("check" + ' ' + window.ethereum.selectedAddress)
+                setTimeout(this.checkingFallbackContent, 3000);
+            } else {
+                this.fallbackContent = false;
+                console.log("checkingFallbackContent is false");
+                console.log("check" + ' ' + window.ethereum.selectedAddress)
+            
+            }
+        }
   }
 };
 </script>
@@ -1083,5 +1133,30 @@ a:hover {
   height: 100%;
   margin: 10px 0 0 -5px;
 }
-
+// EVERYTHING BELOW THIS IS FALLBACK FOR THE CARDS IF PEOPLE ARENT CONNECTED TO WEB3.
+.noMetaMaskPlaceholder {
+  width:100%;
+  height:100%;
+  background-image: url('https://gateway.pinata.cloud/ipfs/QmSMWw7ozKDr9LJ7ptF7gQtfc6MnLe3TSrNrTSAePyWuUJ');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: gray;
+  background-blend-mode: screen;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.noMetaMaskText {
+  font-size: 1.3em;
+  color: black;
+  font-weight: 900;
+  box-sizing: border-box;
+  padding: 20px;
+}
+.redType {
+  color: red;
+  padding-top: 18px;
+}
+.redTypePosition {
+}
 </style>
