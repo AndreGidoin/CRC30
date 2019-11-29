@@ -1,85 +1,14 @@
 <template>
-  <div id="container">
-    
-<ul class="NavBarContainer">
-  <!-- HOME ITEM -->
-  <li class="HomeItem"><a href="#" v-on:click="this.$ga.event('send', 'event', [Links], [Home], [Navbar])"><div class="homeContainer"><p>CRC 30th Anniversary</p></div></a></li>
-  
-  <!-- ARTISTS ITEM -->
-  <li class="MenuItems"><a href="#"><div class="lineContainer" @click="openArtists"><svg><line x1="0" y1="14"/></svg><p>The Artists</p>
-  <!-- ARROWHEAD -->
-  <svg class="pageLineExtend" v-if="open1">
-      <defs>
-    <marker id="markerArrow" markerWidth="13" markerHeight="13" refX="8" refY="6.5"
-           orient="auto-start-reverse">
-        <path d="M2,2 L2,11 L10,6 L2,2" style="fill: #000000;" />
-    </marker>
-  </defs>
-  <line x1="0" y1="12" marker-start="url(#markerArrow)"/>
-  </svg>
-  <!-- ARROWHEAD END -->
-  </div></a></li> 
-  
-  <!-- ABOUT ITEM -->
-  <li class="MenuItems"><a href="#"><div class="lineContainer"  @click="openAbout"><svg><line x1="0" y1="14"/></svg><p>How It Works</p>
-  <!-- ARROWHEAD -->
-  <svg class="pageLineExtend" v-if="open2">
-      <defs>
-    <marker id="markerArrow" markerWidth="13" markerHeight="13" refX="8" refY="6.5"
-           orient="auto-start-reverse">
-        <path d="M2,2 L2,11 L10,6 L2,2" style="fill: #000000;" />
-    </marker>
-  </defs>
-  <line x1="0" y1="12" marker-start="url(#markerArrow)"/>
-  </svg>
-  <!-- ARROWHEAD END -->
-  </div></a></li>
+<div>
+<div class="menuContainerMobile">
+        <a href="#"><div class="homeButton">CRC 30th Anniversary Fundraiser</div></a>
+        <a href="#"><div class="mobileMenuItem" @click="openArtists">The Artists</div></a>
+        <a href="#"><div class="mobileMenuItem" @click="openAbout">How it works</div></a>
+        <a href="#"><div class="mobileMenuItem" @click="openBlockchain">Why Blockchain?</div></a>
+        <a href="#"><div class="mobileMenuItem" @click="openContact">Contact</div></a>
+        <a href="#"><div class="mobileMenuItem" @click="openSubmit">Submit</div></a>
+      </div>
 
-  <!-- BLOCKCHAIN ITEM -->
-  <li class="MenuItems"><a href="#"><div class="lineContainer" @click="openBlockchain"><svg><line x1="0" y1="14"/></svg><p>Why Blockchain?</p>
-  <!-- ARROWHEAD -->
-  <svg class="pageLineExtend" v-if="open3">
-      <defs>
-    <marker id="markerArrow" markerWidth="13" markerHeight="13" refX="8" refY="6.5"
-           orient="auto-start-reverse">
-        <path d="M2,2 L2,11 L10,6 L2,2" style="fill: #000000;" />
-    </marker>
-  </defs>
-  <line x1="0" y1="12" marker-start="url(#markerArrow)"/>
-  </svg>
-  <!-- ARROWHEAD END -->
-  </div></a></li>
-
-  <!-- CONTACT ITEM -->
-  <li class="MenuItems"><a href="#"><div class="lineContainer" @click="openContact"><svg><line x1="0" y1="14"/></svg><p>Get in touch</p>
-  <!-- ARROWHEAD -->
-  <svg class="pageLineExtend" v-if="open4">
-      <defs>
-    <marker id="markerArrow" markerWidth="13" markerHeight="13" refX="8" refY="6.5"
-           orient="auto-start-reverse">
-        <path d="M2,2 L2,11 L10,6 L2,2" style="fill: #000000;" />
-    </marker>
-  </defs>
-  <line x1="0" y1="12" marker-start="url(#markerArrow)"/>
-  </svg>
-  <!-- ARROWHEAD END -->
-  </div></a></li>
-
-  <!-- SUBMIT ITEM -->
-  <li class="MenuItems"><a href="#"><div class="lineContainer" @click="openSubmit"><svg><line x1="0" y1="14"/></svg><p>Submit</p>
-  <!-- ARROWHEAD -->
-  <svg class="pageLineExtend" v-if="open5">
-      <defs>
-    <marker id="markerArrow" markerWidth="13" markerHeight="13" refX="8" refY="6.5"
-           orient="auto-start-reverse">
-        <path d="M2,2 L2,11 L10,6 L2,2" style="fill: #000000;" />
-    </marker>
-  </defs>
-  <line x1="0" y1="12" marker-start="url(#markerArrow)"/>
-  </svg>
-  <!-- ARROWHEAD END -->
-  </div></a></li>
-</ul>
 
 
 <!-- ARTIST PAGE -->
@@ -126,7 +55,7 @@ import Submit from '@/views/Submit.vue'
 
 
 export default {
-  name: 'navbar',
+  name: 'navbarMobile',
     components: {
         'aboutpage': About,
         'artistspage': Artists,
@@ -281,6 +210,57 @@ export default {
 
 <style lang="scss">
 
+
+// Mobile NavBar2
+
+
+.menuContainerMobile{
+  display:inline-block;
+  width: 100vw;
+  height: 45px;
+  background-color: white;
+  text-align: left;
+  box-sizing: border-box;
+  padding-top: 17px;
+  color: #000000;
+  font-family: 'Comfortaa', cursive;
+  font-size:0.6em;
+}
+.menuContainerMobile a{
+  color: #000000;
+  font-family: 'Comfortaa', cursive;
+  text-decoration: none;
+}
+.mobileMenuItem{
+  display: inline;
+  width: 100%;
+  margin: 4%;
+  height: 45px;
+  @media only screen and (max-width: 985px) {
+      margin: 3%;
+    }
+    @media only screen and (max-width: 703px) {
+      margin: 2%;
+    }
+    @media only screen and (max-width: 577px) {
+      font-size: 0.5em;
+      width: 40px;
+    }
+}
+.homeButton {
+  display: inline;
+  width: 100%;
+  margin: 4%;
+  @media only screen and (max-width: 985px) {
+      margin: 3%;
+    }
+    @media only screen and (max-width: 703px) {
+      margin: 2%;
+    }
+  @media only screen and (max-width: 587px) {
+      display:none;
+    }
+}
 
 // NEW NAVBAR
 

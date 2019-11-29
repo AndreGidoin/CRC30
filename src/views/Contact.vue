@@ -115,7 +115,7 @@ transition: ease-out 300ms;
 }
 
 .contactContent {
-  margin: 20px;
+  padding: 60px 20px 20px 20px;
   height: 0%;
   opacity:0;
   overflow:hidden;

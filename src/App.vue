@@ -1,7 +1,24 @@
 <template>
     <div class="website">
 
-      <div class="menuContainer"><div class="menu"><navbar/></div></div>
+      <div class="menuContainer desktopMenu"><div class="menu"><navbar/></div></div>
+      <navbarMobile class="mobileMenu"/>
+ <!-- 
+      <div class="menuContainerMobile">
+        <router-link to="/"><div class="homes">CRC 30th Anniversary Fundraiser</div></router-link>
+        <a href="#"><div class="mobileMenuItem"  @click="openArtists">The Artists</div></a>
+        <div class="mobileMenuItem">How it works</div>
+        <div class="mobileMenuItem">Why Blockchain?</div>
+        <div class="mobileMenuItem">Contact</div>
+        <div class="mobileMenuItem">Submit</div>
+      </div>
+    <artistspage :openvariable1="open1" :closevariable1="close1"/>
+<div class="close" v-if="open1">
+      <button class="closeBTN" @click="openArtists">Close</button>
+      </div>
+      -->
+
+
       <div class="headlineContainer">
         <div class="headline"><h1>Adopt the Rights of a Child</h1></div>
         <div class="subhead"><h2>Personally ratify any article from the Convention on the Rights of the Child</h2></div>
@@ -40,6 +57,9 @@
 
 <script>
 import MenuBar from '@/components/navbar'
+import MenuBarMobile from '@/components/navbarMobile'
+import Artists from '@/views/Artists.vue'
+
 
 export default {
   beforeCreate () {
@@ -47,11 +67,50 @@ export default {
     created() {
     },
     components: {
-        'navbar': MenuBar
+        'navbar': MenuBar,
+        'navbarMobile': MenuBarMobile,
+        'artistspage': Artists
     },
   name: 'App',
   data() {
         return{
+            open1: false,
+            open2: false,
+            open3: false,
+            open4: false,
+            open5: false,
+            close1: false,
+            close2: false,
+            close3: false,
+            close4: false,
+            close5: false
+        }
+  },
+  methods: {
+        openArtists: function() {
+            if (this.open1 === false) {
+                this.open1 = !this.open1;
+                this.close1 = false;
+                console.log('About is ' + this.open1);
+                // CLOSING OTHER PAGES
+                this.open2 = false;
+                this.close2 = false;
+                this.open3 = false;
+                this.close3 = false;
+                this.open4 = false;
+                this.close4 = false;
+                this.open5 = false;
+                this.close5 = false;
+            } else {
+                this.close1 = !this.close1;
+                this.open1 = !this.open1;
+                console.log('Artists is already ' + this.open1 + '. And now were closing it ' + this.close1);
+                setTimeout(() => {
+                    this.close1 = !this.close1;
+                    console.log('resetting class - closed is ' + this.close1);
+                    history.pushState(null, null, ' ');
+                }, 400);
+            }
         }
   }
 }
@@ -106,6 +165,7 @@ b {
 }
 .website {
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .SinglePage {
   width: 100%;
@@ -123,7 +183,7 @@ b {
   position:absolute;
   top:0;
   z-index:1;
-  width:100%;
+  width:100vw;
   height:auto;
   .menu {
   }
@@ -176,6 +236,13 @@ b {
       // width: 100%;
       //flex-direction: row;
       font-size: 0.6em;
+      width:80%;
+    }
+    @media only screen and (max-width: 550px) {
+      // width: 100%;
+      //flex-direction: row;
+      font-size: 0.6em;
+      width:90%;
     }
   }
 
@@ -200,6 +267,15 @@ b {
     height: 400px;
     margin: auto;
     padding-top: 20px;
+    @media only screen and (max-width: 985px) {
+    height: 350px;
+    padding-top: 50px;
+    }
+    @media only screen and (max-width: 450px) {
+    height: auto;
+    width: 300px;
+    padding-top: 50px;
+    }
   }
   .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
@@ -227,7 +303,19 @@ b {
 
   }
 
-
+// Menu fallback options
+.desktopMenu {
+  display: inherit;
+@media only screen and (max-width: 560px) {
+  display:none;
+    }
+}
+.mobileMenu {
+  display: none;
+@media only screen and (max-width: 560px) {
+  display: inherit;
+    }
+}
 
 
 

@@ -18,7 +18,7 @@ export default new Router({
       title: "Adopt The Rights Of A Child"
     },
     {
-      path: '/Artisttt',
+      path: '/Artists',
       name: 'Artists',
       component: Artists,
       title: "Adopt The Rights Of A Child - Artists"

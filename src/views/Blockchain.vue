@@ -3,7 +3,7 @@
     <div class="blockchain" v-bind:class="{ 'opened' : openvariable3, 'closed' : closevariable3}">
       <div class="blockchainContent" v-bind:class="{ 'opened' : openvariable3, 'closed' : closevariable3}">
         <h1>Why Blockchain?</h1>
-        <div class="pagecontent">
+        <div class="pagecontentBlockchain">
         <p>We've chosen to create this platform on the Ethereum blockchain for a few different reasons. </p>
         
         <p><span class="bluecolor">Democratizing the record of the rights.</span><br>
@@ -113,12 +113,11 @@ transition: ease-out 300ms;
 }
 
 .blockchainContent {
-  padding: 20px;
+  padding: 60px 20px 20px 20px;
   height: 0%;
   opacity:0;
   width: 100vw;
   box-sizing: border-box;
-  padding-top: 40px;
   &.opened {
     animation: slide2 0.5s ease-out 0.3s forwards;
   }
@@ -126,7 +125,9 @@ transition: ease-out 300ms;
       animation: slide2-reverse 0.4s ease-out forwards;
     }
 }
-.pagecontent {
+.pagecontentBlockchain {
+  box-sizing: border-box;
+  padding-bottom: 40px;
 }
 p {
   font-size: 0.8em;

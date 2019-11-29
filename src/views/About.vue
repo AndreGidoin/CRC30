@@ -7,7 +7,7 @@
           
           
           <div class="howtovideo">
-            <video class="thevideo" controls >
+            <video class="thevideo" controls playsinline>
             <source src="../../public/graphics/HowItWorks/HowItWorks_Screencapture_1.mp4" type="video/mp4">
             Your browser does not support the video tag.
             </video>
@@ -125,12 +125,11 @@ transition: ease-out 300ms;
 }
 
 .aboutContent {
-  margin: 20px;
+  padding: 60px 20px 20px 20px;
   height: 0%;
   width: 100vw;
   opacity:0;
   box-sizing: border-box;
-  padding-top: 40px;
   &.opened {
     animation: slide2 0.5s ease-out 0.3s forwards;
   }

@@ -96,6 +96,7 @@ b {
 }
 .website {
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .SinglePage {
   width: 100%;

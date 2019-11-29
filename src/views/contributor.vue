@@ -47,7 +47,7 @@ export default {
 }
 .artistColumn {
     margin: 0 30px 0 20px;
-    max-height: 300px;
+    max-height: 400px;
     width: 70%;
     min-width:230px;
     @media only screen and (max-width: 985px) {

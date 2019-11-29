@@ -125,7 +125,7 @@ transition: ease-out 300ms;
 }
 
 .submitContent {
-  margin: 20px;
+  padding: 60px 20px 20px 20px;
   height: 0%;
   opacity:0;
   &.opened {

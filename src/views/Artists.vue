@@ -48,7 +48,7 @@ props: {
                 {
                 article: '5',
                 description: 'The Government should respect the right of my family to help me know about my rights.',
-                first: 'Alberto and Sebastiano',
+                first: 'Alberto & Sebastiano',
                 last: 'Lot',
                 bio: 'This is an artwork made by me and my 3 year old son. I used his drawings to create the lettering for the word RIGHTS. I represented how a parent should be aware of the abilities, wants and needs of children in his care and how he should take these into account when thinking about how to act in their best interests.',
                 link: 'WEBSITE LINK HERE',
@@ -78,6 +78,15 @@ props: {
                 first: 'Hanne',
                 last: 'Berkaak',
                 bio: 'BIO OR DESCRIPTION HERE',
+                link: 'WEBSITE LINK HERE',
+                imgURL: 'https://gateway.pinata.cloud/ipfs/QmPPcHSFLTwMCRut6rQnjPEuyUjRMFFx9mkswc3EXXc9n7',
+                },
+                {
+                article: '12',
+                description: 'I have the right to be listened to and taken seriously.',
+                first: 'Sandra Freij &',
+                last: 'Jo McGuinness',
+                bio: 'Children growing up today understand that their future is compromised through a changing climate. We see them taking to the streets all across the world to demand a future for the earth, and for themselves. Not only should they have the right to be heard and taken seriously, but it should be the top priority of all governments to #ACTNOW. Climate breakdown means the breakdown of human rights, in such a society the weakest are the most vulnerable and as such, all articles of the UN Convention on the Rights of the Child are compromised.',
                 link: 'WEBSITE LINK HERE',
                 imgURL: 'https://gateway.pinata.cloud/ipfs/QmPPcHSFLTwMCRut6rQnjPEuyUjRMFFx9mkswc3EXXc9n7',
                 },
@@ -184,12 +193,11 @@ transition: ease-out 300ms;
 }
 
 .artistContent {
-  padding: 20px;
+  padding: 60px 20px 20px 20px;
   height: 0%;
   width: 100vw;
   opacity:0;
   box-sizing: border-box;
-  padding-top: 40px;
   &.opened {
     animation: slide2 0.5s ease-out 0.3s forwards;
   }
