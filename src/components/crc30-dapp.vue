@@ -14,7 +14,7 @@
 
     <!-- HORIZONTAL SCROLLER OF ARTICLES -->
 
-    <div class="allCards" v-bind:class="{ 'nobackground': loader}">
+    <div class="allCards" v-bind:class="{ 'nobackground': loader}" v-if="isInjected">
         <component 
         v-for="component in ArticleComponents" 
         v-bind:is="component.name" 
@@ -46,6 +46,12 @@
         v-bind:class="{ 'fade-in': loader}"
         />
     </div>
+    <div class="allCards nobackground" v-else> 
+        <article2offline class="cards fade-in"/>
+        
+        </div>
+
+
 
     <!-- SYSTEM INFO - METAMASK and WEB3 -->
     <div class="MetaMask"><hello-metamask/></div>
@@ -63,6 +69,8 @@
 
 <script>
 import { setTimeout } from "timers";
+import {mapState} from 'vuex'
+
 
 import HelloMetamask from '@/components/hello-metamask'
 import Article1 from '@/components/article1'
@@ -79,10 +87,14 @@ import Article12 from '@/components/article12'
 import Article31 from '@/components/article31'
 import Article35 from '@/components/article35'
 
+import article2offline from '@/components/article2offline'
 
 
 export default {
     name: 'crc30-dapp',
+    computed: mapState({
+    isInjected: state => state.web3.isInjected,
+    }),
     beforeCreate () {
         console.log('registerWeb3 Action dispatched from crc30-dapp.vue')
         this.$store.dispatch('registerWeb3')
@@ -243,7 +255,9 @@ export default {
         'article10': Article10,
         'article12': Article12,
         'article31': Article31,
-        'article35': Article35
+        'article35': Article35,
+
+        'article2offline': article2offline,
     },
     methods: {
         checkMetaMask: function() {

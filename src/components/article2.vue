@@ -1,7 +1,6 @@
 <template>
   <div class="root-container">
     
-    
     <!-- Start Card Container-->
     <div class="CardContainer" @mouseover="isMouseOver = true" @mouseout="isMouseOver = false">
       
@@ -21,7 +20,7 @@
 
 
     <!-- The Frontside with Convention Article and Artwork -->
-    <div class="Frontside" v-bind:class="{ 'reveal' : flipped }" v-if="!fallbackContent">
+    <div class="Frontside" v-bind:class="{ 'reveal' : flipped }" v-if="isInjected">
       <!-- CARD SHAPE STARTS -->
       <div class="CardShape" id="CardShape">
       <div class="ArticleHeadline">
@@ -58,7 +57,7 @@
     <!-- End Frontside -->
 
     <!-- The Frontside FALLBACK --><!-- The Frontside FALLBACK --><!-- The Frontside FALLBACK --><!-- The Frontside FALLBACK -->
-    <div class="Frontside" v-bind:class="{ 'reveal' : flipped }" v-if="fallbackContent">
+    <div class="Frontside" v-bind:class="{ 'reveal' : flipped }" v-else>
       <!-- CARD SHAPE STARTS -->
       <div class="CardShape" id="CardShape">
       <div class="ArticleHeadline"><h2 class="redType">
@@ -188,9 +187,13 @@
 
 <script>
 import { setTimeout } from "timers";
+import {mapState} from 'vuex'
 
 export default {
   name: "article2",
+  computed: mapState({
+    isInjected: state => state.web3.isInjected,
+  }),
   mounted() {
     console.log("dispatching getArticle2Instance");
     this.$store.dispatch("getArticle2Instance");
