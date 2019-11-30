@@ -9,7 +9,7 @@
     <div class="flipcard" @click="flip">
 
       <div class="articleNumber">
-            <p><span id="numerals">Article X</span></p>
+            <p><span id="numerals">Article 33</span></p>
       </div>
     <!-- SHADOW CONTAINER -->
     <div class="ShadowContainer">

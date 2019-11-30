@@ -19,19 +19,17 @@
         v-for="component in ArticleComponents" 
         v-bind:is="component.name" 
         v-bind:key="component.id" 
-        v-on:current-worthone="article1value = $event" 
         v-on:current-worthtwo="article2value = $event" 
-        v-on:current-worththree="article3value = $event" 
-        v-on:current-worthfour="article4value = $event" 
         v-on:current-worthfive="article5value = $event" 
         v-on:current-worthsix="article6value = $event" 
         v-on:current-worthseven="article7value = $event" 
         v-on:current-wortheight="article8value = $event" 
         v-on:current-worthnine="article9value = $event" 
-        v-on:current-worthten="article10value = $event" 
         v-on:current-worthtvelve="article12value = $event" 
+        v-on:current-worthtwentyfour="article24value = $event" 
         v-on:current-worththirtyone="article31value = $event" 
         v-on:current-worththirtyfive="article35value = $event" 
+        v-on:current-worththirtyseven="article37value = $event" 
 
         v-on:artist-nametwo="artistName2 = $event" 
         v-on:artist-namefive="artistName5 = $event" 
@@ -39,8 +37,10 @@
         v-on:artist-nameeight="artistName8 = $event" 
         v-on:artist-namenine="artistName9 = $event" 
         v-on:artist-nametvelve="artistName12 = $event" 
+        v-on:artist-nametwentyfour="artistName24 = $event" 
         v-on:artist-namethirtyone="artistName31 = $event" 
         v-on:artist-namethirtyfive="artistName35 = $event" 
+        v-on:artist-namethirtyseven="artistName37 = $event" 
 
         class="cards"
         v-bind:class="{ 'fade-in': loader}"
@@ -80,7 +80,6 @@ import {mapState} from 'vuex'
 
 
 import HelloMetamask from '@/components/hello-metamask'
-import Article1 from '@/components/article1'
 import Article2 from '@/components/article2'
 import Article3 from '@/components/article3'
 import Article4 from '@/components/article4'
@@ -91,8 +90,10 @@ import Article8 from '@/components/article8'
 import Article9 from '@/components/article9'
 import Article10 from '@/components/article10'
 import Article12 from '@/components/article12'
+import Article24 from '@/components/article24'
 import Article31 from '@/components/article31'
 import Article35 from '@/components/article35'
+import Article37 from '@/components/article37'
 
 import article2offline from '@/components/article2offline'
 import article5offline from '@/components/article5offline'
@@ -103,10 +104,13 @@ import article9offline from '@/components/article9offline'
 import article12offline from '@/components/article12offline'
 import article15offline from '@/components/article15offline'
 import article16offline from '@/components/article16offline'
+import article24offline from '@/components/article24offline'
 import article28offline from '@/components/article28offline'
+import article29offline from '@/components/article29offline'
 import article31offline from '@/components/article31offline'
-import article33offline from '@/components/article33offline'
 import article35offline from '@/components/article35offline'
+import article36offline from '@/components/article36offline'
+import article37offline from '@/components/article37offline'
 
 
 export default {
@@ -128,7 +132,6 @@ export default {
         return{
             loader: false,
             NoMetaMask: false,
-            article1value: null,
             article2value: null,
             article3value: null,
             article4value: null,
@@ -141,8 +144,8 @@ export default {
             article12value: null,
             article31value: null,
             article35value: null,
+            article37value: null,
 
-            artistName1: '',
             artistName2: '',
             artistName3: '',
             artistName4: '',
@@ -155,35 +158,17 @@ export default {
             artistName12: '',
             artistName31: '',
             artistName35: '',
+            artistName37: '',
 
             lastClicked: 'number',
 
 
-            ArticleComponents: [
-                {
-                    name: 'article1',
-                    value: '',
-                    artistName: 'Z',
-                    articleNumber: '1',
-                },
-                
+            ArticleComponents: [                
                 {
                     name: 'article2',
                     value: '',
                     artistName: 'Z',
                     articleNumber: '2',
-                },
-                {
-                    name: 'article3',
-                    value: '',
-                    artistName: 'Z',
-                    articleNumber: '3'
-                },
-                {
-                    name: 'article4',
-                    value: '',
-                    artistName: 'Z',
-                    articleNumber: '4'
                 },
                 {
                     name: 'article5',
@@ -215,12 +200,6 @@ export default {
                     artistName: 'Z',
                     articleNumber: '9'
                 },
-                {
-                    name: 'article10',
-                    value: '',
-                    artistName: 'Z',
-                    articleNumber: '10'
-                },
                 {
                     name: 'article12',
                     value: '',
@@ -228,6 +207,12 @@ export default {
                     articleNumber: '12'
                 },
                 {
+                    name: 'article24',
+                    value: '',
+                    artistName: 'Z',
+                    articleNumber: '24'
+                },
+{
                     name: 'article31',
                     value: '',
                     artistName: 'Z',
@@ -238,6 +223,12 @@ export default {
                     value: '',
                     artistName: 'Z',
                     articleNumber: '35'
+                },
+                {
+                    name: 'article37',
+                    value: '',
+                    artistName: 'Z',
+                    articleNumber: '37'
                 }
 
             ],
@@ -270,16 +261,25 @@ export default {
                         name: 'article16offline'
                     },
                     {
+                        name: 'article24offline'
+                    },
+                    {
                         name: 'article28offline'
+                    },
+                    {
+                        name: 'article29offline'
                     },
                     {
                         name: 'article31offline'
                     },
                     {
-                        name: 'article33offline'
+                        name: 'article35offline'
                     },
                     {
-                        name: 'article35offline'
+                        name: 'article36offline'
+                    },
+                    {
+                        name: 'article37offline'
                     }
             ],
             menuItems: [
@@ -303,19 +303,17 @@ export default {
     },
     components: {
         'hello-metamask': HelloMetamask,
-        'article1': Article1,
         'article2': Article2,
-        'article3': Article3,
-        'article4': Article4,
         'article5': Article5,
         'article6': Article6,
         'article7': Article7,
         'article8': Article8,
         'article9': Article9,
-        'article10': Article10,
         'article12': Article12,
+        'article24': Article24,
         'article31': Article31,
         'article35': Article35,
+        'article37': Article37,
 
         'article2offline': article2offline,
         'article5offline': article5offline,
@@ -326,10 +324,13 @@ export default {
         'article12offline': article12offline,
         'article15offline': article15offline,
         'article16offline': article16offline,
+        'article24offline': article24offline,
         'article28offline': article28offline,
+        'article29offline': article29offline,
         'article31offline': article31offline,
-        'article33offline': article33offline,
-        'article35offline': article35offline
+        'article35offline': article35offline,
+        'article36offline': article36offline,
+        'article37offline': article37offline
     },
     methods: {
         checkMetaMask: function() {
@@ -358,19 +359,17 @@ export default {
             return b.value - a.value;
         },
         setValue: function() {
-            console.log(this.ArticleComponents[0].value = (this.article1value));
-            console.log(this.ArticleComponents[1].value = (this.article2value));
-            console.log(this.ArticleComponents[2].value = (this.article3value));
-            console.log(this.ArticleComponents[3].value = (this.article4value));
-            console.log(this.ArticleComponents[4].value = (this.article5value));
-            console.log(this.ArticleComponents[5].value = (this.article6value));
-            console.log(this.ArticleComponents[6].value = (this.article7value));
-            console.log(this.ArticleComponents[7].value = (this.article8value));
-            console.log(this.ArticleComponents[8].value = (this.article9value));
-            console.log(this.ArticleComponents[9].value = (this.article10value));
-            console.log(this.ArticleComponents[10].value = (this.article12value));
-            console.log(this.ArticleComponents[11].value = (this.article31value));
-            console.log(this.ArticleComponents[12].value = (this.article35value));
+            console.log(this.ArticleComponents[0].value = (this.article2value));
+            console.log(this.ArticleComponents[1].value = (this.article5value));
+            console.log(this.ArticleComponents[2].value = (this.article6value));
+            console.log(this.ArticleComponents[3].value = (this.article7value));
+            console.log(this.ArticleComponents[4].value = (this.article8value));
+            console.log(this.ArticleComponents[5].value = (this.article9value));
+            console.log(this.ArticleComponents[6].value = (this.article12value));
+            console.log(this.ArticleComponents[7].value = (this.article24value));
+            console.log(this.ArticleComponents[8].value = (this.article31value));
+            console.log(this.ArticleComponents[9].value = (this.article35value));
+            console.log(this.ArticleComponents[10].value = (this.article37value));
         },
         sortName: function() {
             console.log(this.ArticleComponents.sort(this.compareArtistName) + ' ' + 'sort by Name');
@@ -381,14 +380,17 @@ export default {
             return 0;
         },
         setName: function() {
-            console.log(this.ArticleComponents[1].artistName = (this.artistName2));
-            console.log(this.ArticleComponents[4].artistName = (this.artistName5));
-            console.log(this.ArticleComponents[6].artistName = (this.artistName7));
-            console.log(this.ArticleComponents[7].artistName = (this.artistName8));
-            console.log(this.ArticleComponents[8].artistName = (this.artistName9));
-            console.log(this.ArticleComponents[10].artistName = (this.artistName12));
-            console.log(this.ArticleComponents[11].artistName = (this.artistName31));
-            console.log(this.ArticleComponents[12].artistName = (this.artistName35));
+            console.log(this.ArticleComponents[0].artistName = (this.artistName2));
+            console.log(this.ArticleComponents[1].artistName = (this.artistName5));
+            console.log(this.ArticleComponents[2].artistName = (this.artistName6));
+            console.log(this.ArticleComponents[3].artistName = (this.artistName7));
+            console.log(this.ArticleComponents[4].artistName = (this.artistName8));
+            console.log(this.ArticleComponents[5].artistName = (this.artistName9));
+            console.log(this.ArticleComponents[6].artistName = (this.artistName12));
+            console.log(this.ArticleComponents[7].artistName = (this.artistName24));
+            console.log(this.ArticleComponents[8].artistName = (this.artistName31));
+            console.log(this.ArticleComponents[9].artistName = (this.artistName35));
+            console.log(this.ArticleComponents[10].artistName = (this.artistName37));
         },
         
         handleClick: function(e) {

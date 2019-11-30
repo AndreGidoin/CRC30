@@ -9,7 +9,7 @@
     <div class="flipcard" @click="flip">
 
       <div class="articleNumber">
-            <p><span id="numerals">Article 8</span></p>
+            <p><span id="numerals">Article 29</span></p>
       </div>
     <!-- SHADOW CONTAINER -->
     <div class="ShadowContainer">
@@ -132,7 +132,7 @@
 import { setTimeout } from "timers";
 
 export default {
-  name: "article8offline",
+  name: "article24offline",
   mounted() {
   },
   data() {
@@ -505,7 +505,8 @@ a:hover {
 .noMetaMaskPlaceholder {
   width:100%;
   height:100%;
-  background-image: url('https://gateway.pinata.cloud/ipfs/QmaX2X52mHVZCdvfQg2fYQBkqTjhTB9ZDcbAhsAVLDo5ug');
+  background-image: url('https://gateway.pinata.cloud/ipfs/QmfVWV1RZnn7Jab6SzuVBed5nFpsZ2iuH7fExtBUATamJG/Article_Placeholder_Yellow.gif');
+  background-position: center;
   background-size: 100%;
   background-repeat: no-repeat;
   background-color: gray;

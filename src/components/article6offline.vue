@@ -505,7 +505,7 @@ a:hover {
 .noMetaMaskPlaceholder {
   width:100%;
   height:100%;
-  background-image: url('https://gateway.pinata.cloud/ipfs/QmSMWw7ozKDr9LJ7ptF7gQtfc6MnLe3TSrNrTSAePyWuUJ');
+  background-image: url('https://gateway.pinata.cloud/ipfs/QmeXWa3gec9ALMAbB6WmEUcmTeC9nuUiumQBaBAD2hpttg');
   background-size: 100%;
   background-repeat: no-repeat;
   background-color: gray;

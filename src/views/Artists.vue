@@ -43,7 +43,7 @@ props: {
                 last: 'Yun',
                 bio: 'SHORT BIO HERE',
                 link: 'WEBSITE LINK HERE',
-                imgURL: 'https://gateway.pinata.cloud/ipfs/QmPPcHSFLTwMCRut6rQnjPEuyUjRMFFx9mkswc3EXXc9n7',
+                imgURL: 'https://gateway.pinata.cloud/ipfs/QmQtZmy7uaspUiQepjBBghpQkDfvUMWk16JW1vTbCXLiiE',
                 },
                 {
                 article: '5',
@@ -52,7 +52,16 @@ props: {
                 last: 'Lot',
                 bio: 'This is an artwork made by me and my 3 year old son. I used his drawings to create the lettering for the word RIGHTS. I represented how a parent should be aware of the abilities, wants and needs of children in his care and how he should take these into account when thinking about how to act in their best interests.',
                 link: 'WEBSITE LINK HERE',
-                imgURL: 'https://gateway.pinata.cloud/ipfs/QmPPcHSFLTwMCRut6rQnjPEuyUjRMFFx9mkswc3EXXc9n7',
+                imgURL: 'https://gateway.pinata.cloud/ipfs/QmXgBYJhwQQ51UtsLUz13PsUVVC5ctSFhsbiUK9RyxmbmN',
+                },
+                {
+                article: '6',
+                description: 'I should be supported to live and grow.',
+                first: 'Kasper',
+                last: 'Schøning-Kristiansen',
+                bio: 'AboutArtwork',
+                link: 'WEBSITE LINK HERE',
+                imgURL: 'https://gateway.pinata.cloud/ipfs/QmeXWa3gec9ALMAbB6WmEUcmTeC9nuUiumQBaBAD2hpttg',
                 },
                 {
                 article: '7',
@@ -61,16 +70,16 @@ props: {
                 last: 'Karlsson',
                 bio: 'BIO OR DESCRIPTION HERE',
                 link: 'WEBSITE LINK HERE',
-                imgURL: 'https://gateway.pinata.cloud/ipfs/QmPPcHSFLTwMCRut6rQnjPEuyUjRMFFx9mkswc3EXXc9n7',
+                imgURL: 'https://gateway.pinata.cloud/ipfs/QmXnPgzZrP4VwkkDHgj4pVw8nq29k4bxZX6R48VqmywiWV',
                 },
                 {
                 article: '8',
-                description: 'PLACE ARTICLE NAME HERE',
+                description: 'You have the right to an identity.',
                 first: 'Brian',
                 last: 'Catelle',
                 bio: 'BIO OR DESCRIPTION HERE',
                 link: 'WEBSITE LINK HERE',
-                imgURL: 'https://gateway.pinata.cloud/ipfs/QmPPcHSFLTwMCRut6rQnjPEuyUjRMFFx9mkswc3EXXc9n7',
+                imgURL: 'https://gateway.pinata.cloud/ipfs/QmaX2X52mHVZCdvfQg2fYQBkqTjhTB9ZDcbAhsAVLDo5ug',
                 },
                 {
                 article: '9',
@@ -79,7 +88,7 @@ props: {
                 last: 'Berkaak',
                 bio: 'BIO OR DESCRIPTION HERE',
                 link: 'WEBSITE LINK HERE',
-                imgURL: 'https://gateway.pinata.cloud/ipfs/QmPPcHSFLTwMCRut6rQnjPEuyUjRMFFx9mkswc3EXXc9n7',
+                imgURL: 'https://gateway.pinata.cloud/ipfs/QmbuUkaXvKAD6S2DpfXmHoWGFDxmV4wBRH9qyjwE35gikL',
                 },
                 {
                 article: '12',
@@ -88,7 +97,16 @@ props: {
                 last: 'Jo McGuinness',
                 bio: 'Children growing up today understand that their future is compromised through a changing climate. We see them taking to the streets all across the world to demand a future for the earth, and for themselves. Not only should they have the right to be heard and taken seriously, but it should be the top priority of all governments to #ACTNOW. Climate breakdown means the breakdown of human rights, in such a society the weakest are the most vulnerable and as such, all articles of the UN Convention on the Rights of the Child are compromised.',
                 link: 'WEBSITE LINK HERE',
-                imgURL: 'https://gateway.pinata.cloud/ipfs/QmPPcHSFLTwMCRut6rQnjPEuyUjRMFFx9mkswc3EXXc9n7',
+                imgURL: 'https://gateway.pinata.cloud/ipfs/QmVq72Vb58tfjaSnno4ecVrbmJPVUqM749zDDs5i8VDiKQ',
+                },
+                {
+                article: '16',
+                description: 'I have the right to keep some things private.',
+                first: 'Bradley G',
+                last: 'Munkowitz',
+                bio: '...',
+                link: 'WEBSITE LINK HERE',
+                imgURL: '',
                 },
                 {
                 article: '28',
@@ -97,7 +115,7 @@ props: {
                 last: 'Makerie Studio',
                 bio: 'BIO OR DESCRIPTION HERE',
                 link: 'WEBSITE LINK HERE',
-                imgURL: 'https://gateway.pinata.cloud/ipfs/QmPPcHSFLTwMCRut6rQnjPEuyUjRMFFx9mkswc3EXXc9n7',
+                imgURL: '',
                 },
                 {
                 article: '31',
@@ -106,7 +124,7 @@ props: {
                 last: 'Michelitsch',
                 bio: 'BIO OR DESCRIPTION HERE',
                 link: 'WEBSITE LINK HERE',
-                imgURL: 'https://gateway.pinata.cloud/ipfs/QmPPcHSFLTwMCRut6rQnjPEuyUjRMFFx9mkswc3EXXc9n7',
+                imgURL: 'https://gateway.pinata.cloud/ipfs/QmbB3uzdW7XHUnkqiB7xuAaaPzzQtEDQRDeRX6GTr3WKso',
                 },
                 {
                 article: '35',
@@ -115,7 +133,16 @@ props: {
                 last: 'Parere',
                 bio: 'BIO OR DESCRIPTION HERE',
                 link: 'WEBSITE LINK HERE',
-                imgURL: 'https://gateway.pinata.cloud/ipfs/QmPPcHSFLTwMCRut6rQnjPEuyUjRMFFx9mkswc3EXXc9n7',
+                imgURL: 'https://gateway.pinata.cloud/ipfs/QmbGn52Zmp2gj64sbmbDvPLqV9sfu5vj14UFgVz7YqnbpR',
+                },
+                {
+                article: '36',
+                description: 'I have the right to be kept safe from things that could harm my development.',
+                first: 'Fredrik',
+                last: 'Melby',
+                bio: 'BIO OR DESCRIPTION HERE',
+                link: 'WEBSITE LINK HERE',
+                imgURL: '',
                 }
                 ]
             

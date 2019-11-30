@@ -37,6 +37,7 @@ export default {
 
 .artistMember {
     margin: 10px;
+    padding-bottom: 50px;
 }
 .artistImage {
     height:150px;

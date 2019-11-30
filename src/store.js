@@ -13,8 +13,10 @@ import getContract8 from './util/getContract8'
 import getContract9 from './util/getContract9'
 import getContract10 from './util/getContract10'
 import getContract12 from './util/getContract12'
+import getContract24 from './util/getContract24'
 import getContract31 from './util/getContract31'
 import getContract35 from './util/getContract35'
+import getContract37 from './util/getContract37'
 
 Vue.use(Vuex);
 
@@ -79,6 +81,10 @@ export const store = new Vuex.Store({
       console.log('Article12 contract instance: ', payload)
       state.article12Instance = () => payload
     },
+    registerArticle24Instance (state, payload) {
+      console.log('Article24 contract instance: ', payload)
+      state.article24Instance = () => payload
+    },
     registerArticle31Instance (state, payload) {
       console.log('Article31 contract instance: ', payload)
       state.article31Instance = () => payload
@@ -86,6 +92,10 @@ export const store = new Vuex.Store({
     registerArticle35Instance (state, payload) {
       console.log('Article35 contract instance: ', payload)
       state.article35Instance = () => payload
+    },
+    registerArticle37Instance (state, payload) {
+      console.log('Article37 contract instance: ', payload)
+      state.article37Instance = () => payload
     },
   },
   actions: {
@@ -155,6 +165,11 @@ export const store = new Vuex.Store({
         commit('registerArticle12Instance', result)
       }).catch(e => console.log(e))
     },
+    getArticle24Instance ({commit}) {
+      getContract24.then(result => {
+        commit('registerArticle24Instance', result)
+      }).catch(e => console.log(e))
+    },
     getArticle31Instance ({commit}) {
       getContract31.then(result => {
         commit('registerArticle31Instance', result)
@@ -163,6 +178,11 @@ export const store = new Vuex.Store({
     getArticle35Instance ({commit}) {
       getContract35.then(result => {
         commit('registerArticle35Instance', result)
+      }).catch(e => console.log(e))
+    },
+    getArticle37Instance ({commit}) {
+      getContract37.then(result => {
+        commit('registerArticle37Instance', result)
       }).catch(e => console.log(e))
     }
   }

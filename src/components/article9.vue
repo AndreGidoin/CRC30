@@ -709,9 +709,9 @@ h4 {
 }
 
 .ArticleHeadline h2 {
-  font-size: 0.65em;
+  font-size: 0.8em;
   margin: 0 0 0 0;
-  padding: 12px 13px 0 13px;
+  padding: 17px 13px 0 13px;
   line-height: 1.5;
 }
 .dot {

@@ -9,7 +9,7 @@
     <div class="flipcard" @click="flip">
 
       <div class="articleNumber">
-            <p><span id="numerals">Article X</span></p>
+            <p><span id="numerals">Article 28</span></p>
       </div>
     <!-- SHADOW CONTAINER -->
     <div class="ShadowContainer">
@@ -505,7 +505,8 @@ a:hover {
 .noMetaMaskPlaceholder {
   width:100%;
   height:100%;
-  background-image: url('https://gateway.pinata.cloud/ipfs/QmSMWw7ozKDr9LJ7ptF7gQtfc6MnLe3TSrNrTSAePyWuUJ');
+  background-image: url('https://gateway.pinata.cloud/ipfs/QmfVWV1RZnn7Jab6SzuVBed5nFpsZ2iuH7fExtBUATamJG/Article_Placeholder_Blue.gif');
+  background-position: center;
   background-size: 100%;
   background-repeat: no-repeat;
   background-color: gray;

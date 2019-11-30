@@ -709,7 +709,7 @@ h4 {
 }
 
 .ArticleHeadline h2 {
-  font-size: 0.65em;
+  font-size: 0.8em;
   margin: 0 0 0 0;
   padding: 25px 13px 0 13px;
   line-height: 1.5;
