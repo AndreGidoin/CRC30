@@ -4,7 +4,7 @@
         <img v-bind:src="artist.imgURL"></div>
       <div class="col2 artistColumn">
           <div class="articleInfo"><h2>Article {{artist.article}} : {{artist | thefullname}}</h2><p>{{artist.description}}</p></div>
-            <div class="artistInfo"><p>{{artist.bio}}</p><p>{{artist.link}}</p></div>
+            <div class="artistInfo"><p>{{artist.bio}}</p><p><a v-bind:href="artist.link" target="_blank">{{artist.link}}</a></p></div>
       </div>
   </div>
 </template>
