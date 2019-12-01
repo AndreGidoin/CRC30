@@ -117,10 +117,10 @@ transition: ease-out 300ms;
 
 @keyframes slide {
   from {height: 0%;}
-  to {height: 60%;}
+  to {height: 80%;}
 }
 @keyframes slide-reverse {
-  from {height: 60%;}
+  from {height: 80%;}
   to {height: 0%;}
 }
 

@@ -108,19 +108,19 @@ transition: ease-out 300ms;
   display: inline-block;
   overflow:scroll;
     &.opened {
-    animation: slide 0.5s ease-out 0.2s forwards;
+    animation: slide2 0.5s ease-out 0.2s forwards;
     }
     &.closed {
-      animation: slide-reverse 0.4s ease-out forwards;
+      animation: slide2-reverse 0.4s ease-out forwards;
     }
 }
 
 @keyframes slide {
   from {height: 0%;}
-  to {height: 60%;}
+  to {height: 80%;}
 }
 @keyframes slide-reverse {
-  from {height: 60%;}
+  from {height: 80%;}
   to {height: 0%;}
 }
 

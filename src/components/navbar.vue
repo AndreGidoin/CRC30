@@ -388,7 +388,7 @@ line {
 
 .closeBTN {
     position:fixed;
-    top:69%;
+    top:87%;
     left:44%;
   margin: 12px 0 0 0;
   padding: 0 0 0 0;

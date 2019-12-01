@@ -8,7 +8,7 @@
         <p>Read more about the art pieces and the artists who made them below.</p>
         
         <div class="contributorComponentContainer">
-        <contributor-component v-for="artist in artists" v-bind:key="artist.id" v-bind:artist="artist" class="artistchild"/>
+        <contributor-component v-for="artist in artists" v-bind:key="artist.id" v-bind:artist="artist"/>
         </div>
 
 
@@ -120,8 +120,8 @@ props: {
                 {
                 article: '28',
                 description: 'I have the right to an education.',
-                first: 'Julie Wilkionson at',
-                last: 'Makerie Studio',
+                first: 'Julie ',
+                last: 'Wilkionson',
                 bio: 'Artwork coming soon...',
                 link: 'http://www.makeriestudio.com/',
                 imgURL: 'https://gateway.pinata.cloud/ipfs/QmfVWV1RZnn7Jab6SzuVBed5nFpsZ2iuH7fExtBUATamJG/Article_Placeholder_Blue.gif',
@@ -152,6 +152,15 @@ props: {
                 bio: 'Artwork coming soon...',
                 link: 'https://www.behance.net/FredrikMelby',
                 imgURL: 'https://gateway.pinata.cloud/ipfs/QmfVWV1RZnn7Jab6SzuVBed5nFpsZ2iuH7fExtBUATamJG/Article_Placeholder_Blue.gif',
+                },
+                {
+                article: '37',
+                description: 'I have the right not to be punished in a cruel or hurtful way.',
+                first: 'André Gidoin &',
+                last: 'Makerie Studio',
+                bio: 'TBD',
+                link: 'https://www.andregidoin.com',
+                imgURL: 'https://gateway.pinata.cloud/ipfs/QmRaqqYMPwTnqD8X7G1kBmqnSKy7z2yHYLXjSpYD4p9ZjR',
                 }
                 ]
             
@@ -212,24 +221,24 @@ transition: ease-out 300ms;
   display: inline-block;
   overflow:scroll;
     &.opened {
-    animation: slide 0.5s ease-out 0.2s forwards;
+    animation: slide2 0.5s ease-out 0.2s forwards;
     }
     &.closed {
-      animation: slide-reverse 0.4s ease-out forwards;
+      animation: slide2-reverse 0.4s ease-out forwards;
     }
 }
 
 @keyframes slide {
   from {height: 0%;}
-  to {height: 60%;}
+  to {height: 80%;}
 }
 @keyframes slide-reverse {
-  from {height: 60%;}
+  from {height: 80%;}
   to {height: 0%;}
 }
 
 .artistContent {
-  padding: 60px 20px 20px 20px;
+  padding: 40px 20px 20px 20px;
   height: 0%;
   width: 100vw;
   opacity:0;
@@ -260,21 +269,15 @@ p {
   opacity:0;}
 }
 .contributorComponentContainer {
-    margin-top:70px;
-    display: flex;
-    align-items: flex-start;
-    align-content: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
+    margin-top:40px;
+    display: inline-block;
+    width:100%;
     @media only screen and (max-width: 985px) {
-        flex-direction: column;
         }
     box-shadow: // ANIMATION 1
                 0 0 0 0 #db49ad;
 }
 .artistchild {
-    flex:1;
-    max-width: 430px;
     margin:0 30px 55px 0;
 }
 

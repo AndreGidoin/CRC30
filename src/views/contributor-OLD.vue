@@ -25,35 +25,38 @@ export default {
 
 
 .flex-grid {
-    display: inline-block;
-    vertical-align: top;
-    width:100%;
+    display: flex;
+    align-items: flex-start;
+    width: 45%;
+    align-content: flex-start;
 }
 .col {
-    width: 30%;
-    display:inline-block;
-    vertical-align: top;
+    flex: 1;
 }
 .col2 {
-    width: 50%;
-    display:inline-block;
-    vertical-align: top;
-    box-sizing: border-box;
-    padding-left:20px;
+    flex-grow:2;
 }
 
 .artistMember {
     margin: 10px;
     padding-bottom: 50px;
-    box-sizing: border-box;
 }
 .artistImage {
+    height:150px;
+
 }
 .artistImage img {
-    width:100%;
+    height: 150px;
 }
 .artistColumn {
-
+    margin: 0 30px 0 20px;
+    max-height: 400px;
+    width: 70%;
+    min-width:230px;
+    @media only screen and (max-width: 985px) {
+        width:200px;
+        min-width:200px;
+        }
 }
 
 
