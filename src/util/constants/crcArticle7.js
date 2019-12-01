@@ -1,5 +1,5 @@
-// const address = '0x127b73f8c36a64d18171075ac09cab5eba2177a6'
-const address = '0x40FE7A9425251A508fE093B28397c41C30e4E368'
+// Ropsten const address = '0x40FE7A9425251A508fE093B28397c41C30e4E368'
+const address = '0x8F9da7734f0740C95288D2Ca76090f15F3E0e251'
 const ABI = [
 	{
 		"constant": false,

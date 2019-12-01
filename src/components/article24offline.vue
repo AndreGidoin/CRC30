@@ -505,21 +505,32 @@ a:hover {
 .noMetaMaskPlaceholder {
   width:100%;
   height:100%;
-  background-image: url('https://gateway.pinata.cloud/ipfs/QmW23rb2iZ3w4nP9qqzzkXX1YPNqEZcQMQKBkzKWnXSWw2');
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-color: gray;
-  background-blend-mode: screen;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: black;
+}
+.noMetaMaskPlaceholder::after {
+  content: "";
+  background-image: url('https://gateway.pinata.cloud/ipfs/QmW23rb2iZ3w4nP9qqzzkXX1YPNqEZcQMQKBkzKWnXSWw2');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  top:66px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  -webkit-filter: blur(1px);
+  filter: blur(1px);
 }
 .noMetaMaskText {
   font-size: 1.3em;
-  color: black;
+  color: white;
   font-weight: 900;
   box-sizing: border-box;
   padding: 20px;
+  z-index:1;
 }
 .redType {
   color: red;
