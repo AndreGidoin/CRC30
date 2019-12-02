@@ -86,17 +86,16 @@ font-family: 'Comfortaa', cursive;
       }
    
   }
-@keyframes transparency
-{
-from {opacity: 0;}
-to {opacity: 1;}
-transition: ease-out 300ms; 
+@keyframes transparency {
+  from {opacity: 0;}
+  to {opacity: 1;}
+  transition: ease-out 300ms; 
 }
-@keyframes transparency-reverse
-{
-from {opacity: 1;}
-to {opacity: 0;}
-transition: ease-out 300ms; 
+
+@keyframes transparency-reverse {
+  from {opacity: 1;}
+  to {opacity: 0;}
+  transition: ease-out 300ms; 
 }
 
 .submit {
@@ -166,7 +165,7 @@ p {
 a {
   color: #FFB000;
 }
-img:hover {
+.freeArticle:hover {
   color: black;
   transition: ease 300ms;
   transform: scale(1.05);

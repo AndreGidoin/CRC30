@@ -3,12 +3,26 @@
 
       <div class="menuContainer desktopMenu"><div class="menu"><navbar/></div></div>
       <navbarMobile class="mobileMenu"/>
+ <!-- 
+      <div class="menuContainerMobile">
+        <router-link to="/"><div class="homes">CRC 30th Anniversary Fundraiser</div></router-link>
+        <a href="#"><div class="mobileMenuItem"  @click="openArtists">The Artists</div></a>
+        <div class="mobileMenuItem">How it works</div>
+        <div class="mobileMenuItem">Why Blockchain?</div>
+        <div class="mobileMenuItem">Contact</div>
+        <div class="mobileMenuItem">Submit</div>
+      </div>
+    <artistspage :openvariable1="open1" :closevariable1="close1"/>
+<div class="close" v-if="open1">
+      <button class="closeBTN" @click="openArtists">Close</button>
+      </div>
+      -->
 
 
-    <div class="logoContainer">
-      <logo class="theLogo"/>
-      <logoMobile class="theLogoMobile"/>
-    </div>
+      <div class="headlineContainer">
+        <div class="headline"><h1>Adopt the Rights of a Child</h1></div>
+        <div class="subhead"><h2>Personally ratify any article from the Convention on the Rights of the Child</h2></div>
+      </div>
 
       <div id="container">
           <router-view />
@@ -44,8 +58,7 @@
 <script>
 import MenuBar from '@/components/navbar'
 import MenuBarMobile from '@/components/navbarMobile'
-import Logo from '@/views/logo.vue'
-import LogoMobile from '@/views/logoMobile.vue'
+import Artists from '@/views/Artists.vue'
 
 
 export default {
@@ -56,8 +69,7 @@ export default {
     components: {
         'navbar': MenuBar,
         'navbarMobile': MenuBarMobile,
-        'logo': Logo,
-        'logoMobile': LogoMobile
+        'artistspage': Artists
     },
   name: 'App',
   data() {
@@ -176,25 +188,21 @@ b {
   .menu {
   }
 }
-.logoContainer {
-  height: auto;
-  width: 100%;
-  margin: auto;
-}
-.theLogo {
-  @media (max-width: 820px) {
-    transform: scale(0.8);
-    transition: ease 300ms;
+.headlineContainer{
+    height: auto;
+    width: 100%;
+    text-align: center;
+    margin: 95px 0 0 0;
+    font-size: 1em;
+    color: #1B204C;
   }
-  @media (max-width: 620px) {
-    display:none!important;
+  .headline {
+    font-size: 1em;
   }
-}
-.theLogoMobile {
-  @media (max-width: 620px) {
-    display:inline-block!important;
+  .subhead {
+    font-family: 'Comfortaa', cursive;
+    font-size: 0.4em;
   }
-}
   .infoContainer {
     margin: 0;
     padding: 0 0 0 0;
