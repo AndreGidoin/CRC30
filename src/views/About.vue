@@ -6,16 +6,21 @@
         <div class="pagecontentVideo">
           
           
-          <div class="howtovideo">
-            <video class="thevideo" controls playsinline>
+          <div class="howtovideo"><iframe class="thevideo"
+            src="https://www.youtube.com/embed/OZS8vxBh8fI" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+            <!-- <video class="thevideo" controls playsinline>
             <source src="../../public/graphics/HowItWorks/HowItWorks_Screencapture_1.mp4" type="video/mp4">
+            
             Your browser does not support the video tag.
-            </video>
+            </video> -->
           </div>
 
           <div class="howtocopy">
 
-        <p>
+        <p class="noMargin">
           This is an experiment using a public ledger and blockchain technology to allow people to personally ratify articles from the CRC that matter the most to them, independent of what their country’s stance on the convention is. Each article from the CRC has been uploaded to the Ethereum Blockchain in the form of a smart contract that stores information on who’s adopted it and also the amount ether donated.
           </p>
         <p>
@@ -163,7 +168,9 @@ p {
   font-size: 0.8em;
 }
 .thevideo {
-  width: 90%;
+  width: 465px;
+  height: 448px;
+
 }
 
 @keyframes slide2 {
@@ -178,7 +185,9 @@ p {
   to {height: 0%;
   opacity:0;}
 }
-
+.noMargin {
+  margin-top: 0px;
+}
 
 
 </style>

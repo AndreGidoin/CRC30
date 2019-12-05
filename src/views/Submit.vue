@@ -20,14 +20,12 @@
           <a href="mailto:projects@blockchainclub.io?subject=Article21%20Artwork%20Submission"> <img src="../../public/Articles/Article21.png" class="freeArticle"></a>
           <a href="mailto:projects@blockchainclub.io?subject=Article22%20Artwork%20Submission"> <img src="../../public/Articles/Article22.png" class="freeArticle"></a>
           <a href="mailto:projects@blockchainclub.io?subject=Article23%20Artwork%20Submission"> <img src="../../public/Articles/Article23.png" class="freeArticle"></a>
-          <a href="mailto:projects@blockchainclub.io?subject=Article24%20Artwork%20Submission"> <img src="../../public/Articles/Article24.png" class="freeArticle"></a>
           <a href="mailto:projects@blockchainclub.io?subject=Article25%20Artwork%20Submission"> <img src="../../public/Articles/Article25.png" class="freeArticle"></a>
           <a href="mailto:projects@blockchainclub.io?subject=Article26%20Artwork%20Submission"> <img src="../../public/Articles/Article26.png" class="freeArticle"></a>
           <a href="mailto:projects@blockchainclub.io?subject=Article27%20Artwork%20Submission"> <img src="../../public/Articles/Article27.png" class="freeArticle"></a>
           <a href="mailto:projects@blockchainclub.io?subject=Article30%20Artwork%20Submission"> <img src="../../public/Articles/Article30.png" class="freeArticle"></a>
           <a href="mailto:projects@blockchainclub.io?subject=Article32%20Artwork%20Submission"> <img src="../../public/Articles/Article32.png" class="freeArticle"></a>
           <a href="mailto:projects@blockchainclub.io?subject=Article33%20Artwork%20Submission"> <img src="../../public/Articles/Article33.png" class="freeArticle"></a>
-          <a href="mailto:projects@blockchainclub.io?subject=Article37%20Artwork%20Submission"> <img src="../../public/Articles/Article37.png" class="freeArticle"></a>
           <a href="mailto:projects@blockchainclub.io?subject=Article38%20Artwork%20Submission"> <img src="../../public/Articles/Article38.png" class="freeArticle"></a>
           <a href="mailto:projects@blockchainclub.io?subject=Article39%20Artwork%20Submission"> <img src="../../public/Articles/Article39.png" class="freeArticle"></a>
           <a href="mailto:projects@blockchainclub.io?subject=Article40%20Artwork%20Submission"> <img src="../../public/Articles/Article40.png" class="freeArticle"></a>
