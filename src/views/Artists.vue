@@ -100,15 +100,6 @@ props: {
                 imgURL: 'https://gateway.pinata.cloud/ipfs/QmVq72Vb58tfjaSnno4ecVrbmJPVUqM749zDDs5i8VDiKQ',
                 },
                 {
-                article: '16',
-                description: 'I have the right to keep some things private.',
-                first: 'Bradley G',
-                last: 'Munkowitz',
-                bio: 'Artwork coming soon...',
-                link: 'https://gmunk.com/',
-                imgURL: 'https://gateway.pinata.cloud/ipfs/QmfVWV1RZnn7Jab6SzuVBed5nFpsZ2iuH7fExtBUATamJG/Article_Placeholder_Blue.gif',
-                },
-                {
                 article: '15',
                 description: 'I have the right to meet with friends and to join groups.',
                 first: 'Jessica',
@@ -118,13 +109,31 @@ props: {
                 imgURL: 'https://gateway.pinata.cloud/ipfs/QmfVWV1RZnn7Jab6SzuVBed5nFpsZ2iuH7fExtBUATamJG/Article_Placeholder_Blue.gif',
                 },
                 {
+                article: '16',
+                description: 'I have the right to keep some things private.',
+                first: 'GMUNK',
+                last: '(Bradley G Munkowitz)',
+                bio: 'TBD',
+                link: 'https://gmunk.com/',
+                imgURL: 'https://gateway.pinata.cloud/ipfs/QmeBLXA5zB4s3F7zpczbWyH5sVWL41Vuw5kAFwod1f1Lfm',
+                },
+                {
                 article: '28',
                 description: 'I have the right to an education.',
-                first: 'Julie ',
+                first: 'Julie',
                 last: 'Wilkionson',
                 bio: 'Artwork coming soon...',
                 link: 'http://www.makeriestudio.com/',
                 imgURL: 'https://gateway.pinata.cloud/ipfs/QmfVWV1RZnn7Jab6SzuVBed5nFpsZ2iuH7fExtBUATamJG/Article_Placeholder_Blue.gif',
+                },
+                {
+                article: '29',
+                description: 'I have the right to an education which develops my personality, respect for others’ rights and the environment.',
+                first: 'Line',
+                last: 'Vågsmyr',
+                bio: 'TBD',
+                link: 'http://www.linevagsmyr.com/',
+                imgURL: 'https://gateway.pinata.cloud/ipfs/QmeCabgzLCmAo5TKoQ7SoqXcgn7vqcCtUyaonfnvAtwGsZ',
                 },
                 {
                 article: '31',
@@ -159,7 +168,7 @@ props: {
                 first: 'André Gidoin &',
                 last: 'Makerie Studio',
                 bio: 'TBD',
-                link: 'https://www.andregidoin.com',
+                link: 'http://www.andregidoin.com',
                 imgURL: 'https://gateway.pinata.cloud/ipfs/QmRaqqYMPwTnqD8X7G1kBmqnSKy7z2yHYLXjSpYD4p9ZjR',
                 }
                 ]

@@ -512,7 +512,7 @@ a:hover {
 }
 .noMetaMaskPlaceholder::after {
   content: "";
-  background-image: url('https://gateway.pinata.cloud/ipfs/QmfVWV1RZnn7Jab6SzuVBed5nFpsZ2iuH7fExtBUATamJG/Article_Placeholder_Yellow.gif');
+  background-image: url('https://gateway.pinata.cloud/ipfs/QmeCabgzLCmAo5TKoQ7SoqXcgn7vqcCtUyaonfnvAtwGsZ');
   background-size: 100%;
   background-repeat: no-repeat;
   opacity: 0.3;

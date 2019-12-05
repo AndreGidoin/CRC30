@@ -31,11 +31,10 @@
   </div>
 
   <div class="footer">
+    <div class="social"><a href="https://www.instagram.com/adoptthecrcproject/" target="_blank"><img src="../public/graphics/instagram2.png"><br><p>Follow the project on Instagram</p></a></div>
     <div class="footerContent">This is a fundraiser for UNICEF. All proceeds are directly donated to them and their work to protect children's rights. This project was created pro-bono by <a href="http://blockchainclub.io" target="_blank">The Experimental Blockchain Club</a>. For any questions please send an email to <a href="mailto:contact@blockchainclub.io">contact@blockchainclub.io</a>
     </div>
   </div>
-
-  <div class="beta">This is only a prototype version of the website. WEBSITE LAUNCHING DECEMBER 1ST!</div>
 
   
   </div>
@@ -114,19 +113,6 @@ h1 {
 }
 b {
   color:black;
-}
-.beta{
-    position: absolute;
-    top: 55px;
-    left: 10px;
-    z-index: 1;
-    width:100px;
-    color:black;
-    background-color:#f9e784;
-    font-size:0.4em;
-    padding: 4px;
-    font-family: 'Space Mono', monospace;
-    display: none;
 }
 .spinner{
   margin: auto;
@@ -289,10 +275,16 @@ b {
     align-items: center;
     justify-content: center;
     align-content: center;
+    flex-direction: column;
   }
   .footerContent{
     width:60%;
-
+  }
+  .social {
+    margin-bottom:30px;
+  }
+  .social img {
+    width: 70px;
   }
 
 // Menu fallback options

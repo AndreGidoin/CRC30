@@ -13,7 +13,9 @@ import getContract8 from './util/getContract8'
 import getContract9 from './util/getContract9'
 import getContract10 from './util/getContract10'
 import getContract12 from './util/getContract12'
+import getContract16 from './util/getContract16'
 import getContract24 from './util/getContract24'
+import getContract29 from './util/getContract29'
 import getContract31 from './util/getContract31'
 import getContract35 from './util/getContract35'
 import getContract37 from './util/getContract37'
@@ -81,9 +83,17 @@ export const store = new Vuex.Store({
       console.log('Article12 contract instance: ', payload)
       state.article12Instance = () => payload
     },
+    registerArticle16Instance (state, payload) {
+      console.log('Article16 contract instance: ', payload)
+      state.article16Instance = () => payload
+    },
     registerArticle24Instance (state, payload) {
       console.log('Article24 contract instance: ', payload)
       state.article24Instance = () => payload
+    },
+    registerArticle29Instance (state, payload) {
+      console.log('Article29 contract instance: ', payload)
+      state.article29Instance = () => payload
     },
     registerArticle31Instance (state, payload) {
       console.log('Article31 contract instance: ', payload)
@@ -165,9 +175,19 @@ export const store = new Vuex.Store({
         commit('registerArticle12Instance', result)
       }).catch(e => console.log(e))
     },
+    getArticle16Instance ({commit}) {
+      getContract16.then(result => {
+        commit('registerArticle16Instance', result)
+      }).catch(e => console.log(e))
+    },
     getArticle24Instance ({commit}) {
       getContract24.then(result => {
         commit('registerArticle24Instance', result)
+      }).catch(e => console.log(e))
+    },
+    getArticle29Instance ({commit}) {
+      getContract29.then(result => {
+        commit('registerArticle29Instance', result)
       }).catch(e => console.log(e))
     },
     getArticle31Instance ({commit}) {

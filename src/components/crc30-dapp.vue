@@ -26,7 +26,9 @@
         v-on:current-wortheight="article8value = $event" 
         v-on:current-worthnine="article9value = $event" 
         v-on:current-worthtvelve="article12value = $event" 
+        v-on:current-worthsixteen="article16value = $event" 
         v-on:current-worthtwentyfour="article24value = $event" 
+        v-on:current-worthtwentynine="article29value = $event" 
         v-on:current-worththirtyone="article31value = $event" 
         v-on:current-worththirtyfive="article35value = $event" 
         v-on:current-worththirtyseven="article37value = $event" 
@@ -37,7 +39,9 @@
         v-on:artist-nameeight="artistName8 = $event" 
         v-on:artist-namenine="artistName9 = $event" 
         v-on:artist-nametvelve="artistName12 = $event" 
+        v-on:artist-namesixteen="artistName16 = $event" 
         v-on:artist-nametwentyfour="artistName24 = $event" 
+        v-on:artist-nametwentysix="artistName26 = $event" 
         v-on:artist-namethirtyone="artistName31 = $event" 
         v-on:artist-namethirtyfive="artistName35 = $event" 
         v-on:artist-namethirtyseven="artistName37 = $event" 
@@ -94,7 +98,9 @@ import Article8 from '@/components/article8'
 import Article9 from '@/components/article9'
 import Article10 from '@/components/article10'
 import Article12 from '@/components/article12'
+import Article16 from '@/components/article16'
 import Article24 from '@/components/article24'
+import Article29 from '@/components/article29'
 import Article31 from '@/components/article31'
 import Article35 from '@/components/article35'
 import Article37 from '@/components/article37'
@@ -146,6 +152,9 @@ export default {
             article9value: null,
             article10value: null,
             article12value: null,
+            article16value: null,
+            article24value: null,
+            article29value: null,
             article31value: null,
             article35value: null,
             article37value: null,
@@ -160,6 +169,9 @@ export default {
             artistName9: '',
             artistName10: '',
             artistName12: '',
+            artistName16: '',
+            artistName24: '',
+            artistName29: '',
             artistName31: '',
             artistName35: '',
             artistName37: '',
@@ -210,13 +222,25 @@ export default {
                     artistName: 'Z',
                     articleNumber: '12'
                 },
+                {       
+                    name: 'article16',
+                    value: '',
+                    artistName: 'Z',
+                    articleNumber: '16'
+                },
                 {
                     name: 'article24',
                     value: '',
                     artistName: 'Z',
                     articleNumber: '24'
                 },
-{
+                {
+                    name: 'article29',
+                    value: '',
+                    artistName: 'Z',
+                    articleNumber: '29'
+                },
+                {
                     name: 'article31',
                     value: '',
                     artistName: 'Z',
@@ -314,7 +338,9 @@ export default {
         'article8': Article8,
         'article9': Article9,
         'article12': Article12,
+        'article16': Article16,
         'article24': Article24,
+        'article29': Article29,
         'article31': Article31,
         'article35': Article35,
         'article37': Article37,
@@ -585,12 +611,13 @@ ul li ul li {
     -webkit-animation: bounce 2s ;
 	-moz-animation: bounce 2s ;
 	-o-animation: bounce 2s ;
-  animation-iteration-count: 5;
-  -webkit-animation-iteration-count: 5;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
 }
 .down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+
 }
 i {
   border: solid black;
@@ -601,8 +628,12 @@ i {
 .morebelow{
     margin:0;
     padding: 0;
+    animation: fadeout 3.5s ease-out 10s forwards;
 }
-    
+@keyframes fadeout {
+  from {  opacity:1;}
+  to {  opacity:0;}
+}    
 
  
 @-webkit-keyframes bounce {
@@ -627,6 +658,7 @@ i {
 	40% {transform: translateY(-30px);}
 	60% {transform: translateY(-15px);}
 }
+
 
 </style>
 

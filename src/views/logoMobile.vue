@@ -1,8 +1,8 @@
 <template>
   <div class="headlineContainer">
         <div class="introduction"><p>An Ethereum-Powered Fundraiser:</p></div>
-        <div class="headline"><h1>Adopt the Rights of a Child</h1></div>
-        <div class="subhead"><h2>Personally ratify any article from the UN Convention on the Rights of the Child</h2></div>
+        <div class="headline"><h1>Adopt the<br>Rights of a Child</h1></div>
+        <div class="subhead"><h2>Personally ratify any article from the UN<br>Convention on the Rights of the Child</h2></div>
     </div>
 </template>
 
@@ -30,7 +30,7 @@ export default {
   padding: 3px 0 0 0;
 }
   .headline {
-    font-size: 15px;
+    font-size: 19px;
     padding: 0;
     margin: 0;
   }
