@@ -51,8 +51,30 @@
             <p>After you install one of these wallets, it will guide you to to create an accounts. You can have multiple accounts for different purposes.</p>
             <p>You’ll need to put money in your wallet to make your first transaction. We can show you how to do that, too.</p>
             <p>Note: A digital wallet acts like a bank account — treat it with respect and make sure you don’t forget your password and seed words.</p>
-            <p></p>
-            <p></p>
+            
+            <p class="howtoSubhead">What are seed words? Why are they important?</p>
+            <p>Some wallets use seed words for backing up your account. They let you restore your account in the case it’s deleted. This also means that anyone with your seed words can access your account and steal your assets. Please be sure to save your seed words, and do not share them with others.</p>
+
+            <p class="howtoSubhead">Can you change my digital wallet’s password?</p>
+            <p>No, we can’t. Wallets are independent programs that State of the DApps does not in any way control. This means we can’t help with resetting passwords or recovering lost accounts.</p>
+
+            <p class="howtoSubhead">What is a “wallet address”?</p>
+            <p>Your public wallet address (e.g. 0xaba935f589805095a892ecefdb6eb83eff45d67) is a unique identifier for your wallet. It’s like a name. You can share it freely with others, and it’s used to direct assets to your wallet.</p>
+
+            <p class="howtoHeadline">Ethereum, a digital currency</p>
+            <p class="howtoSubhead">What’s ether (ETH)? Why do I need it?</p>
+            <p>Ether is a digital currency that powers the Ethereum network, which is what most DApps are built on. Ether acts like any other currency — its value fluctuates with the market.</p>
+            <p>You need to convert your currency (e.g. USD, EUR, CNY) into ether to pay for things — and interact with DApps — on the Ethereum network.</p>
+
+            <p class="howtoSubhead">How do I get ether? What is Coinbase?</p>
+            <p>Some wallets let you buy currency directly, depending on the wallet and where you live.</p>
+            <p>If your wallet doesn’t let you buy currency, you will need to purchase ETH from an exchange, and then transfer the ETH from your exchange wallet to your digital wallet.</p>
+            <p>Some commonly used exchanges are Coinbase, Kraken, and Binance.</p>
+            <p>You can’t use USD/EUR to directly send to a DApps — currencies need to be converted into ETH first.</p>
+            
+
+            <p class="howtoSubhead">How long does it take to receive ether?</p>
+            <p>If it’s your first time purchasing ether, your exchange will need to verify your identify; that can take a day or two, so it’ll leave you time for a cat nap. In addition, if you need to link a bank account to your exchange (rather than a credit card), your bank may need a few more days to verify the charges.</p>
 
           </div>
 
@@ -180,10 +202,16 @@ transition: ease-out 300ms;
   font-size: 1.2em;
   margin-top: 30px;
   border-top:1px;
-
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-style:dashed;
+  padding-top: 30px;
 }
 .howtoSubhead {
-
+  font-weight: bold;
+  color: #2AACE0;
+  margin-top: 25px;
 }
 .howtovideo{
   width:500px;

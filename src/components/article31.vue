@@ -30,7 +30,9 @@
       
       <div class="theArtwork">
         <span v-if="ipfshHashChecked">
-          <img id="IPFSImage31" />
+          <!-- <img id="IPFSImage31" /> -->
+          <video :src="this.ipfsVideoUrl" class="video" autoplay controls controlsList="nodownload nofullscreen noremoteplayback" loop />
+
           </span>
       </div>
       
@@ -170,6 +172,7 @@ export default {
       failure: false,
       newOwnerEvent: null,
       ipfshHashChecked: false,
+      ipfsVideoUrl: 'www',
       ArticleNameChecked: false,
       crcArticleChecked: false,
       crcArticleContentChecked: false,
@@ -362,8 +365,12 @@ export default {
         });
       }).then(result => {
         console.log("IPFS URL generation success");
-        var myURLBitch = result;
-        document.getElementById("IPFSImage31").src = myURLBitch;
+        // var myURLBitch = result;
+        // document.getElementById("IPFSImage31").src = myURLBitch;
+        this.ipfsVideoUrl = result;
+        console.log(result + ' ' + 'IPFS Video is this link Article 31')
+        console.log(this.ipfsVideoUrl + ' ' + 'IPFS Video variable')
+
       });
     },
     ownerCount(event) {

@@ -1,5 +1,6 @@
 // Ropsten const address = '0xE52B6EB851dbE640144EB48bc5557Fc985EaC726'
-const address = '0xe99df8CE2a696cd4fA2fB33a1F1164ECa8219323'
+// Static image on main net version const address = '0xe99df8CE2a696cd4fA2fB33a1F1164ECa8219323'
+const address = '0xB3552141ACbDF44086C5538FBa7DF3B6530E5a61'
 const ABI = [
 	{
 		"constant": false,

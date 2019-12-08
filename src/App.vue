@@ -222,6 +222,10 @@ b {
       font-size: 1.2em;
       height:450px;
     }
+    @media only screen and (min-width: 1100px) {
+      font-size: 0.7em;
+      height:380px;
+    }
   }
 
   .infoItems h1 {
@@ -256,6 +260,9 @@ b {
     }
     @media only screen and (min-width: 1500px) {
       height:540px;
+    }
+    @media only screen and (min-width: 1100px) {
+      height:490px;
     }
   }
   .fade-enter-active, .fade-leave-active {
