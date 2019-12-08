@@ -9,7 +9,7 @@
     <div class="flipcard" @click="flip">
 
       <div class="articleNumber">
-            <p><span id="numerals">Article 33</span></p>
+            <p><span id="numerals">Article 25</span></p>
       </div>
     <!-- SHADOW CONTAINER -->
     <div class="ShadowContainer">
@@ -37,7 +37,8 @@
 
           <!-- Owner Info -->
         <div class="ownerPlaque" id="PlaqueShape">
-        <p class="ownerPlaqueSmall">Last adopted by:</p>
+        <p class="ownerPlaqueSmall">Artwork by:</p>
+          <p class="ownerPlaqueBig">Lucia Giacani</p>
         </div>
           <!-- END Owner Info -->
     </div>
@@ -132,7 +133,7 @@
 import { setTimeout } from "timers";
 
 export default {
-  name: "article33offline",
+  name: "article24offline",
   mounted() {
   },
   data() {
@@ -512,7 +513,7 @@ a:hover {
 }
 .noMetaMaskPlaceholder::after {
   content: "";
-  background-image: url('https://gateway.pinata.cloud/ipfs/QmSMWw7ozKDr9LJ7ptF7gQtfc6MnLe3TSrNrTSAePyWuUJ');
+  background-image: url('https://gateway.pinata.cloud/ipfs/QmW23rb2iZ3w4nP9qqzzkXX1YPNqEZcQMQKBkzKWnXSWw2');
   background-size: 100%;
   background-repeat: no-repeat;
   opacity: 0.3;

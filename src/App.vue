@@ -211,16 +211,16 @@ b {
     box-sizing: border-box;
     padding: 10px;
     @media only screen and (max-width: 985px) {
-      // width: 100%;
-      //flex-direction: row;
       font-size: 0.6em;
       width:80%;
     }
     @media only screen and (max-width: 550px) {
-      // width: 100%;
-      //flex-direction: row;
       font-size: 0.6em;
       width:90%;
+    }
+    @media only screen and (min-width: 1500px) {
+      font-size: 1.2em;
+      height:450px;
     }
   }
 
@@ -253,6 +253,9 @@ b {
     height: auto;
     width: 300px;
     padding-top: 50px;
+    }
+    @media only screen and (min-width: 1500px) {
+      height:540px;
     }
   }
   .fade-enter-active, .fade-leave-active {

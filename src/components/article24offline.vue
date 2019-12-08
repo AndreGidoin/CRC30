@@ -37,7 +37,8 @@
 
           <!-- Owner Info -->
         <div class="ownerPlaque" id="PlaqueShape">
-        <p class="ownerPlaqueSmall">Last adopted by:</p>
+        <p class="ownerPlaqueSmall">Artwork by:</p>
+          <p class="ownerPlaqueBig">Malte Gruhl</p>
         </div>
           <!-- END Owner Info -->
     </div>

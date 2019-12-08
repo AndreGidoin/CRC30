@@ -6,8 +6,14 @@
         <div class="pagecontentVideo">
           
           
-          <div class="howtovideo"><iframe class="thevideo"
+          <div class="howtovideo">
+            <iframe class="thevideo"
             src="https://www.youtube.com/embed/OZS8vxBh8fI" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+            <iframe class="thevideo-MetaMask"
+            src="https://www.youtube.com/embed/ZIGUC9JAAw8" 
             frameborder="0" 
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
             </iframe>
@@ -38,6 +44,16 @@
         <p>
           <b>We’re currently working on the functionality, which lets people order printed copies of the artwork. Every person who’s adopted an article will be able to order one copy for free.</b>
           </p>
+            <p class="howtoHeadline nextChapter">Here is an explanation about DApps and digital wallets from <a href="https://www.stateofthedapps.com/help/metamask" blank="_blank">State of the DApps</a></p>
+            <p class="howtoHeadline">Digital wallets</p>
+            <p class="howtoSubhead">Installing a digital wallet like MetaMask</p>
+            <p>To use most DApps, you need a digital wallet. Commonly supported are digital wallets, like Metamask, Coinbase Wallet, or Trust Wallet.</p>
+            <p>After you install one of these wallets, it will guide you to to create an accounts. You can have multiple accounts for different purposes.</p>
+            <p>You’ll need to put money in your wallet to make your first transaction. We can show you how to do that, too.</p>
+            <p>Note: A digital wallet acts like a bank account — treat it with respect and make sure you don’t forget your password and seed words.</p>
+            <p></p>
+            <p></p>
+
           </div>
 
         </div>
@@ -156,6 +172,19 @@ transition: ease-out 300ms;
     width: 100%;
     }
 }
+.howtoHeadline{
+  font-size: 1em;
+  font-weight: bold;
+}
+.nextChapter {
+  font-size: 1.2em;
+  margin-top: 30px;
+  border-top:1px;
+
+}
+.howtoSubhead {
+
+}
 .howtovideo{
   width:500px;
   display:inherit;
@@ -170,6 +199,11 @@ p {
 .thevideo {
   width: 465px;
   height: 448px;
+
+}
+.thevideo-MetaMask{
+  width: 465px;
+  height: 262px;
 
 }
 

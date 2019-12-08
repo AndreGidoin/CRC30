@@ -118,6 +118,15 @@ props: {
                 imgURL: 'https://gateway.pinata.cloud/ipfs/QmeBLXA5zB4s3F7zpczbWyH5sVWL41Vuw5kAFwod1f1Lfm',
                 },
                 {
+                article: '24',
+                description: 'I have the right to good quality health care, to clean water and good food.',
+                first: 'Malte',
+                last: 'Gruhl',
+                bio: 'TBD',
+                link: 'https://maltegruhl.com/',
+                imgURL: 'https://gateway.pinata.cloud/ipfs/QmW23rb2iZ3w4nP9qqzzkXX1YPNqEZcQMQKBkzKWnXSWw2',
+                },
+                {
                 article: '28',
                 description: 'I have the right to an education.',
                 first: 'Julie',

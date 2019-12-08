@@ -1,6 +1,7 @@
 <template>
   <div class="root-container">
     
+    
     <!-- Start Card Container-->
     <div class="CardContainer" @mouseover="isMouseOver = true" @mouseout="isMouseOver = false">
       
@@ -20,25 +21,17 @@
 
 
     <!-- The Frontside with Convention Article and Artwork -->
-    <div class="Frontside" v-bind:class="{ 'reveal' : flipped }" v-if="isInjected">
+    <div class="Frontside" v-bind:class="{ 'reveal' : flipped }">
       <!-- CARD SHAPE STARTS -->
       <div class="CardShape" id="CardShape">
       <div class="ArticleHeadline">
         <h2 v-if="ArticleNameChecked"> {{ ArticleNameEvent }}</h2>
         </div>
       
-      <div class="theArtwork" v-if="ipfshHashChecked">
-        <span >
-          <img id="IPFSImage2_1" class="slideshow"/>
-          <img id="IPFSImage2_2" class="slideshow"/>
-          <img id="IPFSImage2_3" class="slideshow"/>
-          <img id="IPFSImage2_4" class="slideshow"/>
-          <img id="IPFSImage2_5" class="slideshow"/>
-          <img id="IPFSImage2_6" class="slideshow"/>
-          <img id="IPFSImage2_7" class="slideshow"/>
-          <img id="IPFSImage2_8" class="slideshow"/>
-          <img id="IPFSImage2_9" class="slideshow"/>
-        </span>
+      <div class="theArtwork">
+        <span v-if="ipfshHashChecked">
+          <img id="IPFSImage25" />
+          </span>
       </div>
       
           </div>
@@ -56,7 +49,6 @@
     </div>
     <!-- End Frontside -->
 
-    
     <!-- The Backside About the Artwork and ordering a print -->
     <div class="Backside" v-bind:class="{ 'reveal' : flipped }">
         <!-- CARD SHAPE STARTS -->
@@ -155,24 +147,19 @@
 
 <script>
 import { setTimeout } from "timers";
-import {mapState} from 'vuex'
 
 export default {
-  name: "article2",
-  computed: mapState({
-    isInjected: state => state.web3.isInjected,
-  }),
+  name: "article25",
   mounted() {
-    console.log("dispatching getArticle2Instance");
-    this.$store.dispatch("getArticle2Instance");
+    console.log("dispatching getArticle25Instance");
+    this.$store.dispatch("getArticle25Instance");
     setTimeout(this.ipfsNewEvent, 100);
     setTimeout(this.ArticleName, 100);
     setTimeout(this.crcArticleNumber, 100);
-    setTimeout(this.getArtistName, 100);
     setTimeout(this.crcArticleContentEvent, 100);
     setTimeout(this.ownerPromise, 300);
     setTimeout(this.currentWorthOfArticle, 500);
-    setTimeout(this.checkingFallbackContent, 300);
+    setTimeout(this.getArtistName, 100);
   },
   data() {
     return {
@@ -197,10 +184,7 @@ export default {
       worthIsZero: false,
       isMouseOver: false,
       buyButton: true,
-      artistName:'none',
-      imageSlideShow: 0,
-      //FALLBACK VARIABLE FOR THE CARD CONTENT
-      fallbackContent: false
+      artistName:'none'
     };
   },
   methods: {
@@ -214,7 +198,7 @@ export default {
       console.log(this.yourName, this.amount);
       this.failure = false;
       this.newOwnerEvent = null;
-      this.$store.state.article2Instance().buyCRC(
+      this.$store.state.article25Instance().buyCRC(
         this.yourName,
         {
           gas: 400000,
@@ -231,7 +215,7 @@ export default {
             setTimeout(this.buyButton = true, 2000);
           } else {
             this.pending = true;
-            let newOwner = this.$store.state.article2Instance().newOwner();
+            let newOwner = this.$store.state.article25Instance().newOwner();
             newOwner.watch((err, result) => {
               if (err) {
                 console.log("could not get event newOwner()");
@@ -251,7 +235,7 @@ export default {
     },
     ArticleName(event) {
       console.log("Getting ArticleName");
-      this.$store.state.article2Instance().conventionArticleName(
+      this.$store.state.article25Instance().conventionArticleName(
         {
           gas: 30000,
           from: this.$store.state.web3.coinbase
@@ -259,7 +243,7 @@ export default {
         (error, result) => {
           if (!error) {
             let theArticleName = this.$store.state
-              .article2Instance()
+              .article25Instance()
               .conventionArticleName((err, result) => {
                 if (err) {
                   console.log(err);
@@ -280,7 +264,7 @@ export default {
     },
     crcArticleNumber(event) {
       console.log("getting article number");
-      this.$store.state.article2Instance().conventionArticleNumber(
+      this.$store.state.article25Instance().conventionArticleNumber(
         {
           gas: 30000,
           from: this.$store.state.web3.coinbase
@@ -288,7 +272,7 @@ export default {
         (error, result) => {
           if (!error) {
             let theArticleNumber = this.$store.state
-              .article2Instance()
+              .article25Instance()
               .conventionArticleNumber((err, result) => {
                 if (err) {
                   console.log(err);
@@ -309,11 +293,11 @@ export default {
     },
     crcArticleContentEvent(event) {
       console.log("Getting article content");
-      this.$store.state.article2Instance().conventionArticleContent(
+      this.$store.state.article25Instance().conventionArticleContent(
         (error, result) => {
           if (!error) {
             let theArticleContent = this.$store.state
-              .article2Instance()
+              .article25Instance()
               .conventionArticleContent((err, result) => {
                 if (err) {
                   console.log(err);
@@ -335,7 +319,7 @@ export default {
     currentWorthOfArticle(event) {
       console.log("Getting current worth of this article");
       const theCurrentWorth = new Promise((resolve, reject) => {
-        this.$store.state.article2Instance().currentWorth((error, result) => {
+        this.$store.state.article25Instance().currentWorth((error, result) => {
           if (error) {
             console.log("Cant get currentWorth()");
             console.log(error);
@@ -352,16 +336,16 @@ export default {
             } 
           }
           resolve(result);
-          this.$emit('current-worthtwo', this.CurrentWorth)
+          this.$emit('current-worthtwentyfive', this.CurrentWorth)
 
         })
       })
     },
-    // GETTING ALL THE 9 IMAGES FROM THE CONTRACT
+    // GETTING THE ARTWORK WITH UNIQUE IDS
     ipfsNewEvent(event) {
-      console.log("Starting ipfsNewEvent function loop 1");
-      const theIPFSHash1 = new Promise((resolve, reject) => {
-        this.$store.state.article2Instance().ipfsImageHash1((error, result) => {
+      console.log("Starting ipfsNewEvent function");
+      const theIPFSHash = new Promise((resolve, reject) => {
+        this.$store.state.article25Instance().ipfsImageHash((error, result) => {
           if (error) {
             console.log("cant get the IPFS hash from the smart contract");
             console.log(err);
@@ -379,229 +363,13 @@ export default {
       }).then(result => {
         console.log("IPFS URL generation success");
         var myURLBitch = result;
-        document.getElementById("IPFSImage2_1").src = myURLBitch;
+        document.getElementById("IPFSImage25").src = myURLBitch;
       });
-      //
-      // NUMBER 2
-      //
-      console.log("Starting ipfsNewEvent function loop 2");
-      const theIPFSHash2 = new Promise((resolve, reject) => {
-        this.$store.state.article2Instance().ipfsImageHash2((error, result) => {
-          if (error) {
-            console.log("cant get the IPFS hash from the smart contract");
-            console.log(err);
-            reject(new Error("ipfsNewEvent function went wrong"));
-          } else {
-            this.ipfshHashChecked = true;
-            console.log(
-              "https://gateway.pinata.cloud/ipfs/" +
-                result +
-                " - this is to see if the result and resolve will render correctly"
-            );
-            resolve("https://gateway.pinata.cloud/ipfs/" + result);
-          }
-        });
-      }).then(result => {
-        console.log("IPFS URL generation success");
-        var myURLBitch = result;
-        document.getElementById("IPFSImage2_2").src = myURLBitch;
-      });
-      //
-      // NUMBER 3
-      //
-      console.log("Starting ipfsNewEvent function loop 3");
-      const theIPFSHash3 = new Promise((resolve, reject) => {
-        this.$store.state.article2Instance().ipfsImageHash3((error, result) => {
-          if (error) {
-            console.log("cant get the IPFS hash 3 from the smart contract");
-            console.log(err);
-            reject(new Error("ipfsNewEvent function went wrong"));
-          } else {
-            this.ipfshHashChecked = true;
-            console.log(
-              "https://gateway.pinata.cloud/ipfs/" +
-                result +
-                " - this is to see if the result and resolve will render correctly"
-            );
-            resolve("https://gateway.pinata.cloud/ipfs/" + result);
-          }
-        });
-      }).then(result => {
-        console.log("IPFS URL generation success");
-        var myURLBitch = result;
-        document.getElementById("IPFSImage2_3").src = myURLBitch;
-      });
-      //
-      // NUMBER 4
-      //
-      console.log("Starting ipfsNewEvent function loop 4");
-      const theIPFSHash4 = new Promise((resolve, reject) => {
-        this.$store.state.article2Instance().ipfsImageHash4((error, result) => {
-          if (error) {
-            console.log("cant get the IPFS hash 4 from the smart contract");
-            console.log(err);
-            reject(new Error("ipfsNewEvent function went wrong"));
-          } else {
-            this.ipfshHashChecked = true;
-            console.log(
-              "https://gateway.pinata.cloud/ipfs/" +
-                result +
-                " - this is to see if the result and resolve will render correctly"
-            );
-            resolve("https://gateway.pinata.cloud/ipfs/" + result);
-          }
-        });
-      }).then(result => {
-        console.log("IPFS URL generation success");
-        var myURLBitch = result;
-        document.getElementById("IPFSImage2_4").src = myURLBitch;
-      });
-      //
-      // NUMBER 5
-      //
-      console.log("Starting ipfsNewEvent function loop 5");
-      const theIPFSHash5 = new Promise((resolve, reject) => {
-        this.$store.state.article2Instance().ipfsImageHash5((error, result) => {
-          if (error) {
-            console.log("cant get the IPFS hash 5 from the smart contract");
-            console.log(err);
-            reject(new Error("ipfsNewEvent function went wrong"));
-          } else {
-            this.ipfshHashChecked = true;
-            console.log(
-              "https://gateway.pinata.cloud/ipfs/" +
-                result +
-                " - this is to see if the result and resolve will render correctly"
-            );
-            resolve("https://gateway.pinata.cloud/ipfs/" + result);
-          }
-        });
-      }).then(result => {
-        console.log("IPFS URL generation success");
-        var myURLBitch = result;
-        document.getElementById("IPFSImage2_5").src = myURLBitch;
-      });
-      //
-      // NUMBER 6
-      //
-      console.log("Starting ipfsNewEvent function loop 6");
-      const theIPFSHash6 = new Promise((resolve, reject) => {
-        this.$store.state.article2Instance().ipfsImageHash6((error, result) => {
-          if (error) {
-            console.log("cant get the IPFS hash 6 from the smart contract");
-            console.log(err);
-            reject(new Error("ipfsNewEvent function went wrong"));
-          } else {
-            this.ipfshHashChecked = true;
-            console.log(
-              "https://gateway.pinata.cloud/ipfs/" +
-                result +
-                " - this is to see if the result and resolve will render correctly"
-            );
-            resolve("https://gateway.pinata.cloud/ipfs/" + result);
-          }
-        });
-      }).then(result => {
-        console.log("IPFS URL generation success");
-        var myURLBitch = result;
-        document.getElementById("IPFSImage2_6").src = myURLBitch;
-      });
-      //
-      // NUMBER 7
-      //
-      console.log("Starting ipfsNewEvent function loop 7");
-      const theIPFSHash7 = new Promise((resolve, reject) => {
-        this.$store.state.article2Instance().ipfsImageHash7((error, result) => {
-          if (error) {
-            console.log("cant get the IPFS hash 7 from the smart contract");
-            console.log(err);
-            reject(new Error("ipfsNewEvent function went wrong"));
-          } else {
-            this.ipfshHashChecked = true;
-            console.log(
-              "https://gateway.pinata.cloud/ipfs/" +
-                result +
-                " - this is to see if the result and resolve will render correctly"
-            );
-            resolve("https://gateway.pinata.cloud/ipfs/" + result);
-          }
-        });
-      }).then(result => {
-        console.log("IPFS URL generation success");
-        var myURLBitch = result;
-        document.getElementById("IPFSImage2_7").src = myURLBitch;
-      });
-      //
-      // NUMBER 8
-      //
-      console.log("Starting ipfsNewEvent function loop 8");
-      const theIPFSHash8 = new Promise((resolve, reject) => {
-        this.$store.state.article2Instance().ipfsImageHash8((error, result) => {
-          if (error) {
-            console.log("cant get the IPFS hash 8 from the smart contract");
-            console.log(err);
-            reject(new Error("ipfsNewEvent function went wrong"));
-          } else {
-            this.ipfshHashChecked = true;
-            console.log(
-              "https://gateway.pinata.cloud/ipfs/" +
-                result +
-                " - this is to see if the result and resolve will render correctly"
-            );
-            resolve("https://gateway.pinata.cloud/ipfs/" + result);
-          }
-        });
-      }).then(result => {
-        console.log("IPFS URL generation success");
-        var myURLBitch = result;
-        document.getElementById("IPFSImage2_8").src = myURLBitch;
-      });
-      //
-      // NUMBER 9
-      //
-      console.log("Starting ipfsNewEvent function loop 9");
-      const theIPFSHash9 = new Promise((resolve, reject) => {
-        this.$store.state.article2Instance().ipfsImageHash9((error, result) => {
-          if (error) {
-            console.log("cant get the IPFS hash 9 from the smart contract");
-            console.log(err);
-            reject(new Error("ipfsNewEvent function went wrong"));
-          } else {
-            this.ipfshHashChecked = true;
-            console.log(
-              "https://gateway.pinata.cloud/ipfs/" +
-                result +
-                " - this is to see if the result and resolve will render correctly"
-            );
-            resolve("https://gateway.pinata.cloud/ipfs/" + result);
-          }
-        });
-      }).then(result => {
-        console.log("IPFS URL generation success");
-        var myURLBitch = result;
-        document.getElementById("IPFSImage2_9").src = myURLBitch;
-        this.imageCarousel();
-      });
-    
-    },
-    //
-    // ARTICLE SLIDESHOW
-    //
-    imageCarousel: function() {
-      var i;
-      var x = document.getElementsByClassName("slideshow");
-      for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-        }
-        this.imageSlideShow++;
-        if (this.imageSlideShow > x.length) {this.imageSlideShow = 1}
-        x[this.imageSlideShow-1].style.display = "block";
-        setTimeout(this.imageCarousel, 2000); // Change image every 2 seconds
     },
     ownerCount(event) {
       console.log("getting owner count");
       const promise1 = new Promise((resolve, reject) => {
-        this.$store.state.article2Instance().owners((error, result) => {
+        this.$store.state.article25Instance().owners((error, result) => {
           if (error) {
             console.log(err);
             reject(new Error("ownerCount function went wrong"));
@@ -617,7 +385,7 @@ export default {
       console.log("running ownerPromise");
 
       const _ownerCount = new Promise((resolve, reject) => {
-        this.$store.state.article2Instance().getUsersCount((error, result) => {
+        this.$store.state.article25Instance().getUsersCount((error, result) => {
           if (error) {
             console.log(error);
             reject( new Error('stopping here'))
@@ -634,7 +402,7 @@ export default {
                 let ownerVariable = result;
               for (let i = 0; i < result; i++) {
                   const ownernames = new Promise((resolve, reject) => {
-                      this.$store.state.article2Instance().getUser(i, (error, result) => {
+                      this.$store.state.article25Instance().getUser(i, (error, result) => {
                           if (error) {
                               console.log(error + ' error in for loop');
                               reject(new Error('for loop stops here'))
@@ -717,7 +485,7 @@ export default {
     getArtistName(event) {
       console.log("Getting artist name of this article");
       const theArtistName = new Promise((resolve, reject) => {
-        this.$store.state.article2Instance().artistName((error, result) => {
+        this.$store.state.article25Instance().artistName((error, result) => {
           if (error) {
             console.log("Cant get artistName()");
             console.log(error);
@@ -730,25 +498,11 @@ export default {
             } 
           }
           resolve(result);
-          this.$emit('artist-nametwo', this.artistName)
+          this.$emit('artist-nametwentyfive', this.artistName)
 
         })
       })
-    },
-    // THIS IS FALLBACK FOR THE CARD CONTENT
-    checkingFallbackContent: function() {
-            if (window.ethereum.selectedAddress === null) {
-                this.fallbackContent = true;
-                console.log("checkingFallbackContent is true");
-                console.log("check" + ' ' + window.ethereum.selectedAddress)
-                setTimeout(this.checkingFallbackContent, 3000);
-            } else {
-                this.fallbackContent = false;
-                console.log("checkingFallbackContent is false");
-                console.log("check" + ' ' + window.ethereum.selectedAddress)
-            
-            }
-        }
+    }
   }
 };
 </script>
@@ -901,10 +655,6 @@ h4 {
 }
 #IPFSImage {
 }
-.slideshow {
-  display:none;
-}
-
 
 .currentOwner {
   color: #124588;
@@ -957,6 +707,13 @@ h4 {
   padding: 26px 0 0 0;
   line-height: 1.4;
 }
+
+.ArticleHeadline h2 {
+  font-size: 0.65em;
+  margin: 0 0 0 0;
+  padding: 19px 13px 0 13px;
+  line-height: 1.5;
+}
 .dot {
   margin: 0 3px 0 3px;
   height: 3px;
@@ -964,6 +721,11 @@ h4 {
   background-color: #3F3F3F;
   border-radius: 50%;
   display: inline-block;}
+
+.video {
+  width: 100%;
+  height: 100%;
+}
 
 
 // CONTROLS
@@ -1104,30 +866,5 @@ a:hover {
   height: 100%;
   margin: 10px 0 0 -5px;
 }
-// EVERYTHING BELOW THIS IS FALLBACK FOR THE CARDS IF PEOPLE ARENT CONNECTED TO WEB3.
-.noMetaMaskPlaceholder {
-  width:100%;
-  height:100%;
-  background-image: url('https://gateway.pinata.cloud/ipfs/QmSMWw7ozKDr9LJ7ptF7gQtfc6MnLe3TSrNrTSAePyWuUJ');
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-color: gray;
-  background-blend-mode: screen;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.noMetaMaskText {
-  font-size: 1.3em;
-  color: black;
-  font-weight: 900;
-  box-sizing: border-box;
-  padding: 20px;
-}
-.redType {
-  color: red;
-  padding-top: 18px;
-}
-.redTypePosition {
-}
+
 </style>
