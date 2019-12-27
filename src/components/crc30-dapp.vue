@@ -45,6 +45,7 @@
         v-on:artist-nametwentyfour="artistName24 = $event" 
         v-on:artist-nametwentyfive="artistName25 = $event" 
         v-on:artist-nametwentysix="artistName26 = $event" 
+        v-on:artist-nametwentynine="artistName29 = $event" 
         v-on:artist-namethirtyone="artistName31 = $event" 
         v-on:artist-namethirtyfive="artistName35 = $event" 
         v-on:artist-namethirtyseven="artistName37 = $event" 
@@ -417,9 +418,10 @@ export default {
             console.log(this.ArticleComponents[7].value = (this.article16value));
             console.log(this.ArticleComponents[8].value = (this.article24value));
             console.log(this.ArticleComponents[9].value = (this.article25value));
-            console.log(this.ArticleComponents[10].value = (this.article31value));
-            console.log(this.ArticleComponents[11].value = (this.article35value));
-            console.log(this.ArticleComponents[12].value = (this.article37value));
+            console.log(this.ArticleComponents[10].value = (this.article29value));
+            console.log(this.ArticleComponents[11].value = (this.article31value));
+            console.log(this.ArticleComponents[12].value = (this.article35value));
+            console.log(this.ArticleComponents[13].value = (this.article37value));
         },
         sortName: function() {
             console.log(this.ArticleComponents.sort(this.compareArtistName) + ' ' + 'sort by Name');
@@ -440,9 +442,10 @@ export default {
             console.log(this.ArticleComponents[7].artistName = (this.artistName16));
             console.log(this.ArticleComponents[8].artistName = (this.artistName24));
             console.log(this.ArticleComponents[9].artistName = (this.artistName25));
-            console.log(this.ArticleComponents[10].artistName = (this.artistName31));
-            console.log(this.ArticleComponents[11].artistName = (this.artistName35));
-            console.log(this.ArticleComponents[12].artistName = (this.artistName37));
+            console.log(this.ArticleComponents[10].artistName = (this.artistName29));
+            console.log(this.ArticleComponents[11].artistName = (this.artistName31));
+            console.log(this.ArticleComponents[12].artistName = (this.artistName35));
+            console.log(this.ArticleComponents[13].artistName = (this.artistName37));
         },
         
         handleClick: function(e) {
