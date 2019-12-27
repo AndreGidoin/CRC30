@@ -497,11 +497,12 @@ export default {
 
     &.nobackground {
             background-image: none;
+            padding-top:50px;
     }
     .cards{
         flex: 0 0 auto;
         margin: 0 35px 0 35px;
-        transform: scale3d(0.74, 0.74, 0.74);
+        transform: scale3d(1, 1, 1);
         opacity: 0;
         transition: opacity .5s;
         &.fade-in {
