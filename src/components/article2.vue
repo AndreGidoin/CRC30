@@ -42,33 +42,90 @@
     <!-- END Artwork SHAPE -->
 
     <!-- START FOLD OUT CONTENT -->
-    <div class="articleInfo" v-if="flipped" v-bind:class="{ 'visible' : flipped }">
+    <div class="articleInfo" v-if="tricked" v-bind:class="{ 'visible' : visible }">
 
     <div class="articleInfoNumber"><p class="numerals">Article {{ crcArticleEvent }}</p></div>
     <div class="ArticleHeadline">
         <h2 v-if="ArticleNameChecked"> {{ ArticleNameEvent }}</h2>
+    </div>
+    <div class="ArticleContainer" v-if="crcArticleContentChecked">
+        <p class="ArticleText">{{ crcArticleContentEvent }} <a href="https://downloads.unicef.org.uk/wp-content/uploads/2019/10/UNCRC_summary-1_1.pdf" target="_blank">Read More</a></p>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <!-- The artist who created the artwork for the article -->
+          <div class="redeem">
+            <h2>This article is illustrated by {{artistName}}</h2>
+            <p>
+              Adopt this article and order a free physical copy of the art piece. Stay loge in with the same wallet you used to adopt this article and this button will take you to the order site.
+            </p>
+            <button class="Button-Inactive Success">
+            Adopt first, then click for a free print
+            </button>
+            </div>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+         <!-- History of owners should go here, on the backside. -->
+        <div class="ownerHistory" v-if="hasOwners">
+          <h2 v-if="hasPreviousOwners">Thank you to all adopters:</h2>
+          <ul id="ownerHistory2">
+          </ul>
+          </div>
+          <div class="ownerHistory" v-if="!hasOwners">
+          <h2>Nobody has adopted this article yet. Claim it yourself for any price.</h2>
+          </div>
         </div>
+        <!-- ARTICLECONTAINER ENDS -->
     </div>
     <!-- END FOLD OUT CONTENT (the end div above)-->
 
 
-          <!-- Owner Info -->
-      <div class="ownerPlaque" id="PlaqueShape" v-if="!worthIsZero" v-bind:class="{ 'invisible' : flipped }">
-        <p class="ownerPlaqueSmall">Last adopted by:</p>
-          <p class="ownerPlaqueBig">{{ theCurrentOwner }}</p>
-        </div>
-        <div class="ownerPlaque" id="PlaqueShape" v-if="worthIsZero" v-bind:class="{ 'invisible' : flipped }">
-        <p class="ownerPlaqueSmall">Last adopted by:</p>
-        </div>
-          <!-- END Owner Info -->
-
-    
-    
+    <!-- Owner Info -->
+    <div class="ownerPlaque" id="PlaqueShape" v-if="!worthIsZero" v-bind:class="{ 'invisible' : flipped }">
+      <p class="ownerPlaqueSmall">Last adopted by:</p>
+      <p class="ownerPlaqueBig">{{ theCurrentOwner }}</p>
+      </div>
+    <div class="ownerPlaque" id="PlaqueShape" v-if="worthIsZero" v-bind:class="{ 'invisible' : flipped }">
+      <p class="ownerPlaqueSmall">Last adopted by:</p>
+      </div>
+    <!-- END Owner Info -->
 
 <!-- END SHADOW CONTAINER -->
     </div>
+
+<!-- Buying form and button -->
+      <div class="buying" v-if="tricked" v-bind:class="{ 'visible' : visible }">
+          <input type="text"
+            v-model="yourName"
+            name="thisName"
+            placeholder="Enter name or nickname"
+          />
+          <input type="number" v-model="amount" placeholder="Price in Ξ" />
+          <button class="Button-Buy" v-on:click="buyConvention" v-if="!pending && buyButton">
+            Adopt this article
+          </button>
+          <button class="Button-Buy Pending" v-if="pending">
+            <div class="pendingContainer"><div class="adoptionPending" v-if="pending"></div><div class="TransactionButtonText"><i>Transaction in progress</i></div></div>
+            </button>
+            <button class="Button-Buy Failure" v-on:click="buyConvention" v-if="failure">
+              Transaction failed. Try again.
+              </button>
+            <button class="Button-Buy Success" v-if="success">
+              Success! You are the new owner.
+              </button>
+          <!-- Small text under form -->
+          <div class="smallText">
+            <p>Adopt this article and artwork for any amount above its current worth. The information entered into this form will be displayed with the article so please be thoughtful. Enter amount in Ether.
+            </p>
+          </div>
+          <!-- END small text under form -->
+    </div>
+    <!-- END buying form and button -->    
           
-<div class="flipControls" @click="flip">
+<div class="flipControls" @click="flip" v-bind:class="{ 'foldout' : flipped }">
       <li><div class="circle" v-bind:class="{ 'ring' : flipped }"></div></li>
       <li><div class="circle" v-bind:class="{ 'ring' : !flipped }"></div></li>
       </div>
@@ -127,6 +184,8 @@ export default {
       listOfOwners2: [],
       hasPreviousOwners: false,
       flipped:false,
+      tricked: false,
+      visible: false,
       CurrentWorth: null,
       worth: false,
       worthIsZero: false,
@@ -648,6 +707,22 @@ export default {
     flip: function() {
       this.flipped = !this.flipped;
       console.log(this.flipped);
+      if (this.flipped === true) {
+      setTimeout(this.trick, 1000)
+      console.log('timeout tricked')
+      } else {
+        this.trick();
+        console.log('no timeout tricked')
+      }
+    },
+    trick: function() {
+      this.tricked = !this.tricked;
+      console.log('it is now tricked')
+      setTimeout(this.vision, 200)
+    },
+    vision: function() {
+      this.visible = !this.visible;
+      console.log('it is now visible')
     },
     getArtistName(event) {
       console.log("Getting artist name of this article");
