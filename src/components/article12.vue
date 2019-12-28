@@ -160,7 +160,7 @@ export default {
   data() {
     return {
       number: 12,
-      textnumber: 'tvelve',
+      textnumber: 'twelve',
       numberID: 'IPFSImage12',
       ownerHistoryNumber: 'ownerList12',
       amount: null,

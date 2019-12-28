@@ -628,6 +628,8 @@ ul li ul li {
 
 // Bounce arrow
 .ScrollDown{
+    position:relative;
+    bottom: -72px;
     width:100%;
     height:60px;
     margin: auto;

@@ -1,28 +1,83 @@
 <template>
-  <div class="theMenu">
+  <div id="container">
     
 <ul class="NavBarContainer">
   <!-- HOME ITEM -->
-  <li class="MenuItems"><a href="#"><div class="clickbox" @click="closeall"><img src="../assets/menu/Menu_Icons_home.png"><p>Home</p></div></a></li>
+  <li class="HomeItem"><a href="#" v-on:click="this.$ga.event('send', 'event', [Links], [Home], [Navbar])"><div class="homeContainer"><p>CRC 30th Anniversary</p></div></a></li>
   
   <!-- ARTISTS ITEM -->
-  <li class="MenuItems"><a href="#"><div class="clickbox" @click="openArtists"><img src="../assets/menu/Menu_Icons_artists.png"><p>The Artists</p>
+  <li class="MenuItems"><a href="#"><div class="lineContainer" @click="openArtists"><svg><line x1="0" y1="14"/></svg><p>The Artists</p>
+  <!-- ARROWHEAD -->
+  <svg class="pageLineExtend" v-if="open1">
+      <defs>
+    <marker id="markerArrow" markerWidth="13" markerHeight="13" refX="8" refY="6.5"
+           orient="auto-start-reverse">
+        <path d="M2,2 L2,11 L10,6 L2,2" style="fill: #000000;" />
+    </marker>
+  </defs>
+  <line x1="0" y1="12" marker-start="url(#markerArrow)"/>
+  </svg>
+  <!-- ARROWHEAD END -->
   </div></a></li> 
   
   <!-- ABOUT ITEM -->
-  <li class="MenuItems"><a href="#"><div class="clickbox"  @click="openAbout"><img src="../assets/menu/Menu_Icons_howitworks.png"><p>How It Works</p>
+  <li class="MenuItems"><a href="#"><div class="lineContainer"  @click="openAbout"><svg><line x1="0" y1="14"/></svg><p>How It Works</p>
+  <!-- ARROWHEAD -->
+  <svg class="pageLineExtend" v-if="open2">
+      <defs>
+    <marker id="markerArrow" markerWidth="13" markerHeight="13" refX="8" refY="6.5"
+           orient="auto-start-reverse">
+        <path d="M2,2 L2,11 L10,6 L2,2" style="fill: #000000;" />
+    </marker>
+  </defs>
+  <line x1="0" y1="12" marker-start="url(#markerArrow)"/>
+  </svg>
+  <!-- ARROWHEAD END -->
   </div></a></li>
 
   <!-- BLOCKCHAIN ITEM -->
-  <li class="MenuItems"><a href="#"><div class="clickbox" @click="openBlockchain"><img src="../assets/menu/Menu_Icons_blockchain.png"><p>Why<br />Blockchain?</p>
+  <li class="MenuItems"><a href="#"><div class="lineContainer" @click="openBlockchain"><svg><line x1="0" y1="14"/></svg><p>Why Blockchain?</p>
+  <!-- ARROWHEAD -->
+  <svg class="pageLineExtend" v-if="open3">
+      <defs>
+    <marker id="markerArrow" markerWidth="13" markerHeight="13" refX="8" refY="6.5"
+           orient="auto-start-reverse">
+        <path d="M2,2 L2,11 L10,6 L2,2" style="fill: #000000;" />
+    </marker>
+  </defs>
+  <line x1="0" y1="12" marker-start="url(#markerArrow)"/>
+  </svg>
+  <!-- ARROWHEAD END -->
   </div></a></li>
 
   <!-- CONTACT ITEM -->
-  <li class="MenuItems"><a href="#"><div class="clickbox" @click="openContact"><img src="../assets/menu/Menu_Icons_contact.png"><p>Get in touch</p>
+  <li class="MenuItems"><a href="#"><div class="lineContainer" @click="openContact"><svg><line x1="0" y1="14"/></svg><p>Get in touch</p>
+  <!-- ARROWHEAD -->
+  <svg class="pageLineExtend" v-if="open4">
+      <defs>
+    <marker id="markerArrow" markerWidth="13" markerHeight="13" refX="8" refY="6.5"
+           orient="auto-start-reverse">
+        <path d="M2,2 L2,11 L10,6 L2,2" style="fill: #000000;" />
+    </marker>
+  </defs>
+  <line x1="0" y1="12" marker-start="url(#markerArrow)"/>
+  </svg>
+  <!-- ARROWHEAD END -->
   </div></a></li>
 
   <!-- SUBMIT ITEM -->
-  <li class="MenuItems"><a href="#"><div class="clickbox" @click="openSubmit"><img src="../assets/menu/Menu_Icons_submit.png"><p>Submit</p>
+  <li class="MenuItems"><a href="#"><div class="lineContainer" @click="openSubmit"><svg><line x1="0" y1="14"/></svg><p>Submit</p>
+  <!-- ARROWHEAD -->
+  <svg class="pageLineExtend" v-if="open5">
+      <defs>
+    <marker id="markerArrow" markerWidth="13" markerHeight="13" refX="8" refY="6.5"
+           orient="auto-start-reverse">
+        <path d="M2,2 L2,11 L10,6 L2,2" style="fill: #000000;" />
+    </marker>
+  </defs>
+  <line x1="0" y1="12" marker-start="url(#markerArrow)"/>
+  </svg>
+  <!-- ARROWHEAD END -->
   </div></a></li>
 </ul>
 
@@ -218,77 +273,99 @@ export default {
                     history.pushState(null, null, ' ');
                 }, 400);
             }
-        },
-      closeall: function() {
-        this.open1 = false;
-        this.open2 = false;
-        this.open3 = false;
-        this.open4 = false;
-        this.open5 = false;
-        this.open6 = false;
-        this.open7 = false;
-        this.close1 = false;
-        this.close2 = false;
-        this.close3 = false;
-        this.close4 = false;
-        this.close5 = false;
-        this.close6 = false;
-        this.close7 = false;
-      }
+        }
     }
 }
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 
 // NEW NAVBAR
-.theMenu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  margin: auto;
-  padding: 0;
-  width: 70px;
-  background-color: white;
-  filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.06));
-  height:100vh;
-  z-index:999;
+
+.NavBarContainer {
+  margin: 0 0 0 0;
+  height: 45px;
+  list-style: none;
+  background: white;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: row;
+}
+.NavBarContainer a {
+  color: #000000;
+  font-family: 'Comfortaa', cursive;
+  font-size: 0.5em;
+  text-decoration: none;
+  
+}
+.MenuItems, .HomeItem, li {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    text-align: center;
 }
 .MenuItems {
-  border-color: black;
-  border-style: solid;
-  border-width: 0px 0px 1px 0px;
-  height:90px;
-  box-sizing: border-box;
+    flex-basis: 10px;
 }
-.MenuItems img {
+.HomeItem {
+    flex-grow: 4;
+    text-align: left;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+.homeContainer {
+  height: 100%;
+  width:100%;
+  text-align: left;
+  margin: 21px;
+}
+.lineContainer {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
   display: inline-block;
-  width: 40px;
-  height: auto;
-}
-ul li {
-  list-style: none;
-}
-.NavBarContainer {
-  margin: auto;
-  padding: 0;
+  height: 100%;
+  width:100%;
   text-align: center;
 }
-.clickbox {
-  padding-top:10px;
-  padding-bottom:10px;
-  box-sizing: border-box;
-  height:90px;
+.lineContainer:hover {
+  background: rgb(245, 245, 245);
 }
-.clickbox p {
-  margin: 0;
-  padding: 0;
-  font-size:8px;
-  color:black;
-    font-family: 'Comfortaa', cursive;
+.lineContainer p {
+    margin: 5px 0 0 0;
+    @media only screen and (max-width: 662px) {
+    font-size:8px;
+    }
+    @media only screen and (max-width: 500px) {
+    font-size:6px;
+    }
 }
+svg {
+  height: 14px;
+  margin-left: 50%;
+  width: auto;
+  overflow:visible;
+}
+line {
+  stroke:rgb(0,0,0);
+  stroke-width:1;
+}
+
+
+
+
+
+// NAVBAR
+
+.burgerIcon {
+  display:none;
+}
+
 // CLOSE BTN
 .close {
     position:relative;
