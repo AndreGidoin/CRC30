@@ -99,7 +99,7 @@
             Adopt this article
           </button>
           <button class="Button-Buy Pending" v-if="pending">
-            <div class="pendingContainer"><div class="adoptionPending" v-if="pending"></div><div class="TransactionButtonText"><i>Transaction in progress</i></div></div>
+            <div class="adoptionPending"><img src="../assets/block-rotate-loading.gif" class="pendingImage"><i>Transaction in progress</i></div>
             </button>
             <button class="Button-Buy Failure" v-on:click="buyConvention" v-if="failure">
               Transaction failed. Try again.

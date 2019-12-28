@@ -3,7 +3,7 @@
 <div class="cardRoot">
 
     <!-- SORT BUTTON -->
-    <ul class="middleList">
+    <ul>
         <li>Sort articles by: {{this.lastClicked}}
             <ul>
         <li v-for="item in menuItems" v-bind:key="item.id" @click="() => handleClick(item.id)">{{item.name}}
@@ -487,17 +487,14 @@ export default {
     display:flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-    overflow-y: hidden;
-    margin: auto;
-    margin-top: 40px;
-    margin-bottom: 30px;
+    margin: 15px 0 0 0;
     height:auto;
-    min-height: 420px;
     -webkit-overflow-scrolling: touch;
     background-image: url("../assets/block-rotate-loading.gif");
     background-repeat: no-repeat;
     background-position:50% 30%;
     background-size: 100px 100px;
+
     &.nobackground {
             background-image: none;
             padding-top:50px;
@@ -575,7 +572,7 @@ ul {
     font-size: 0.5em;
     font-family: 'Comfortaa', cursive;
     text-align: center;
-    padding: 0;
+    padding: auto;
     height: auto;
     outline:none;
     background:none;
