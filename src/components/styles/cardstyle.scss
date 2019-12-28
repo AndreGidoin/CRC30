@@ -5,6 +5,13 @@
 */
 
 
+ul, li {
+  margin: 0;
+  padding: 0;
+  width: auto;
+  text-align: left;
+  list-style: none;
+}
 
 .root-container {
     margin: 40px;
@@ -207,6 +214,10 @@ h2 {
 .worthInfo {
   text-align: center;
   font-size: 1.3em;
+  &.noWorth {
+    font-size: 0.9em;
+    margin-top: -7px;
+  }
 }
 .articleInfoNumber{
   padding-top:10px;
@@ -237,11 +248,9 @@ h2 {
     margin: 0 0 0 0;
     padding: 10px 0 0 0;
   }
-  .ownerHistory ul {
-    font-size: 0.65em;
-    list-style: none;
-    margin: 10px 0 0 0;
-    padding: 0 0 10px 0;
+  div.ownerHistory ul.ownerlist {
+    font-size: 0.7em;
+    padding-top: 4px;
   }
   .dot {
     margin: 0 3px 0 3px;
@@ -331,6 +340,7 @@ h2 {
     background: -webkit-linear-gradient(#68F09E, #00AA56);
     color: white;
     transition: ease-in 300ms;
+    cursor: pointer;
   }
   .Button-Inactive {
     margin: 0 0 12px 0;
@@ -347,6 +357,7 @@ h2 {
     background: -webkit-linear-gradient(#68F09E, #00AA56);
     color: white;
     transition: ease-in 300ms;
+    cursor: no-drop;
   }
   .smallText {
     font-size:9.5px;
@@ -386,7 +397,23 @@ h2 {
   }
   
   // New Card Styles
-  
+  .closeX {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    transition: 0.5s;
+    opacity: 0;
+    &.foldout {
+      transition: 1s;
+      opacity: 1;
+    }
+  }
+  .closeX img {
+    width: 14px;
+    height: auto;
+    padding: 10px;
+  }
   
   
   // FALLBACK STYLES

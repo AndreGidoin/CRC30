@@ -2,7 +2,7 @@
   <div class="root-container">
     
     <!-- Start Card Container-->
-    <div class="CardContainer" @mouseover="isMouseOver = true" @mouseout="isMouseOver = false" v-bind:class="{ 'foldout' : flipped }" @click="flip">
+    <div class="CardContainer" @mouseover="isMouseOver = true" @mouseout="isMouseOver = false" v-bind:class="{ 'foldout' : flipped }">
       
 
 
@@ -14,8 +14,8 @@
 
 
     <!-- SHADOW CONTAINER -->
-    <div class="ShadowContainer" v-bind:class="{ 'foldout' : flipped }">
-
+    <div class="ShadowContainer" v-bind:class="{ 'foldout' : flipped }" @click="flip">
+      <div class="closeX" v-bind:class="{ 'foldout' : flipped }"><img src="../assets/Close_X.png"></div>
 
       <!-- Artwork SHAPE STARTS -->
       <div class="ArtworkShape" v-bind:class="{ 'foldout' : flipped }" v-if="isInjected">
@@ -33,10 +33,9 @@
           <img id="IPFSImage2_9" class="slideshow"/>
         </span>
       </div>
-      <div class="worthInfo">
+      <div class="worthInfo" v-bind:class="{ 'noWorth' : !worth }" >
       <p class="gold" v-if="worth">Current worth: {{CurrentWorth}} ETH</p>
-          <p class="NoOwner" v-if="!worth">This article has not been ratified by anyone yet. <i>Claim it for any price.</i></p>
-      
+          <p class="NoOwner" v-if="!worth">This article has not been ratified by anyone yet.<br> <i>Claim it for any price.</i></p>
     </div>
     </div>
     <!-- END Artwork SHAPE -->
@@ -71,7 +70,7 @@
          <!-- History of owners should go here, on the backside. -->
         <div class="ownerHistory" v-if="hasOwners">
           <h2 v-if="hasPreviousOwners">Thank you to all adopters:</h2>
-          <ul id="ownerHistory2">
+          <ul class="ownerlist"  v-bind:id="this.ownerHistoryNumber">
           </ul>
           </div>
           <div class="ownerHistory" v-if="!hasOwners">
@@ -155,7 +154,6 @@ export default {
     isInjected: state => state.web3.isInjected,
   }),
   mounted() {
-    console.log("dispatching getArticle2Instance");
     this.$store.dispatch("getArticle2Instance");
     setTimeout(this.ipfsNewEvent, 100);
     setTimeout(this.ArticleName, 100);
@@ -168,6 +166,9 @@ export default {
   },
   data() {
     return {
+      number: 2,
+      textnumber: 'two',
+      ownerHistoryNumber: 'ownerList2',
       amount: null,
       yourName: null,
       pending: false,
@@ -244,7 +245,6 @@ export default {
     }
     },
     ArticleName(event) {
-      console.log("Getting ArticleName");
       this.$store.state.article2Instance().conventionArticleName(
         {
           gas: 30000,
@@ -256,15 +256,11 @@ export default {
               .article2Instance()
               .conventionArticleName((err, result) => {
                 if (err) {
-                  console.log(err);
-                  console.log(
-                    "cant get the convention name from the smart contract"
-                  );
+                  console.log("cant get the convention name from the smart contract");
                 } else {
                   this.ArticleNameChecked = true;
                 }
               });
-            console.log(JSON.stringify(result));
             this.ArticleNameEvent = result;
           } else {
             console.error(error);
@@ -273,7 +269,6 @@ export default {
       );
     },
     crcArticleNumber(event) {
-      console.log("getting article number");
       this.$store.state.article2Instance().conventionArticleNumber(
         {
           gas: 30000,
@@ -285,15 +280,11 @@ export default {
               .article2Instance()
               .conventionArticleNumber((err, result) => {
                 if (err) {
-                  console.log(err);
-                  console.log(
-                    "cant get the convention number from the smart contract"
-                  );
+                  console.log("cant get the convention number from the smart contract");
                 } else {
                   this.crcArticleChecked = true;
                 }
               });
-            console.log(JSON.stringify(result));
             this.crcArticleEvent = result;
           } else {
             console.error(error);
@@ -302,7 +293,6 @@ export default {
       );
     },
     crcArticleContentEvent(event) {
-      console.log("Getting article content");
       this.$store.state.article2Instance().conventionArticleContent(
         (error, result) => {
           if (!error) {
@@ -310,15 +300,11 @@ export default {
               .article2Instance()
               .conventionArticleContent((err, result) => {
                 if (err) {
-                  console.log(err);
-                  console.log(
-                    "cant get the article content from the smart contract"
-                  );
+                  console.log("cant get the article content from the smart contract");
                 } else {
                   this.crcArticleContentChecked = true;
                 }
               });
-            console.log(JSON.stringify(result));
             this.crcArticleContentEvent = result;
           } else {
             console.error(error);
@@ -327,251 +313,173 @@ export default {
       );
     },
     currentWorthOfArticle(event) {
-      console.log("Getting current worth of this article");
       const theCurrentWorth = new Promise((resolve, reject) => {
         this.$store.state.article2Instance().currentWorth((error, result) => {
           if (error) {
             console.log("Cant get currentWorth()");
-            console.log(error);
           } else {
             if (result == 0) {
-              console.log(result + " Current worth is ZERO");
               this.worthIsZero = true;
               this.worth = false;
             } else {
             this.CurrentWorth = web3.fromWei(result);
             this.worth = true;
-            console.log("This article is worth " + result);
-            console.log(web3.fromWei(result) + " is the result in ETH")
             } 
           }
           resolve(result);
-          this.$emit('current-worthtwo', this.CurrentWorth)
-
+          this.$emit('current-worth' + this.textnumber, this.CurrentWorth)
         })
       })
     },
     // GETTING ALL THE 9 IMAGES FROM THE CONTRACT
     ipfsNewEvent(event) {
-      console.log("Starting ipfsNewEvent function loop 1");
       const theIPFSHash1 = new Promise((resolve, reject) => {
         this.$store.state.article2Instance().ipfsImageHash1((error, result) => {
           if (error) {
             console.log("cant get the IPFS hash from the smart contract");
-            console.log(err);
             reject(new Error("ipfsNewEvent function went wrong"));
           } else {
             this.ipfshHashChecked = true;
-            console.log(
-              "https://gateway.pinata.cloud/ipfs/" +
-                result +
-                " - this is to see if the result and resolve will render correctly"
-            );
             resolve("https://gateway.pinata.cloud/ipfs/" + result);
           }
         });
       }).then(result => {
-        console.log("IPFS URL generation success");
         var myURLBitch = result;
         document.getElementById("IPFSImage2_1").src = myURLBitch;
       });
       //
       // NUMBER 2
       //
-      console.log("Starting ipfsNewEvent function loop 2");
       const theIPFSHash2 = new Promise((resolve, reject) => {
         this.$store.state.article2Instance().ipfsImageHash2((error, result) => {
           if (error) {
             console.log("cant get the IPFS hash from the smart contract");
-            console.log(err);
             reject(new Error("ipfsNewEvent function went wrong"));
           } else {
             this.ipfshHashChecked = true;
-            console.log(
-              "https://gateway.pinata.cloud/ipfs/" +
-                result +
-                " - this is to see if the result and resolve will render correctly"
-            );
             resolve("https://gateway.pinata.cloud/ipfs/" + result);
           }
         });
       }).then(result => {
-        console.log("IPFS URL generation success");
         var myURLBitch = result;
         document.getElementById("IPFSImage2_2").src = myURLBitch;
       });
       //
       // NUMBER 3
       //
-      console.log("Starting ipfsNewEvent function loop 3");
       const theIPFSHash3 = new Promise((resolve, reject) => {
         this.$store.state.article2Instance().ipfsImageHash3((error, result) => {
           if (error) {
             console.log("cant get the IPFS hash 3 from the smart contract");
-            console.log(err);
             reject(new Error("ipfsNewEvent function went wrong"));
           } else {
             this.ipfshHashChecked = true;
-            console.log(
-              "https://gateway.pinata.cloud/ipfs/" +
-                result +
-                " - this is to see if the result and resolve will render correctly"
-            );
             resolve("https://gateway.pinata.cloud/ipfs/" + result);
           }
         });
       }).then(result => {
-        console.log("IPFS URL generation success");
         var myURLBitch = result;
         document.getElementById("IPFSImage2_3").src = myURLBitch;
       });
       //
       // NUMBER 4
       //
-      console.log("Starting ipfsNewEvent function loop 4");
       const theIPFSHash4 = new Promise((resolve, reject) => {
         this.$store.state.article2Instance().ipfsImageHash4((error, result) => {
           if (error) {
             console.log("cant get the IPFS hash 4 from the smart contract");
-            console.log(err);
             reject(new Error("ipfsNewEvent function went wrong"));
           } else {
             this.ipfshHashChecked = true;
-            console.log(
-              "https://gateway.pinata.cloud/ipfs/" +
-                result +
-                " - this is to see if the result and resolve will render correctly"
-            );
             resolve("https://gateway.pinata.cloud/ipfs/" + result);
           }
         });
       }).then(result => {
-        console.log("IPFS URL generation success");
         var myURLBitch = result;
         document.getElementById("IPFSImage2_4").src = myURLBitch;
       });
       //
       // NUMBER 5
       //
-      console.log("Starting ipfsNewEvent function loop 5");
       const theIPFSHash5 = new Promise((resolve, reject) => {
         this.$store.state.article2Instance().ipfsImageHash5((error, result) => {
           if (error) {
             console.log("cant get the IPFS hash 5 from the smart contract");
-            console.log(err);
             reject(new Error("ipfsNewEvent function went wrong"));
           } else {
             this.ipfshHashChecked = true;
-            console.log(
-              "https://gateway.pinata.cloud/ipfs/" +
-                result +
-                " - this is to see if the result and resolve will render correctly"
-            );
             resolve("https://gateway.pinata.cloud/ipfs/" + result);
           }
         });
       }).then(result => {
-        console.log("IPFS URL generation success");
         var myURLBitch = result;
         document.getElementById("IPFSImage2_5").src = myURLBitch;
       });
       //
       // NUMBER 6
       //
-      console.log("Starting ipfsNewEvent function loop 6");
       const theIPFSHash6 = new Promise((resolve, reject) => {
         this.$store.state.article2Instance().ipfsImageHash6((error, result) => {
           if (error) {
             console.log("cant get the IPFS hash 6 from the smart contract");
-            console.log(err);
             reject(new Error("ipfsNewEvent function went wrong"));
           } else {
             this.ipfshHashChecked = true;
-            console.log(
-              "https://gateway.pinata.cloud/ipfs/" +
-                result +
-                " - this is to see if the result and resolve will render correctly"
-            );
             resolve("https://gateway.pinata.cloud/ipfs/" + result);
           }
         });
       }).then(result => {
-        console.log("IPFS URL generation success");
         var myURLBitch = result;
         document.getElementById("IPFSImage2_6").src = myURLBitch;
       });
       //
       // NUMBER 7
       //
-      console.log("Starting ipfsNewEvent function loop 7");
       const theIPFSHash7 = new Promise((resolve, reject) => {
         this.$store.state.article2Instance().ipfsImageHash7((error, result) => {
           if (error) {
             console.log("cant get the IPFS hash 7 from the smart contract");
-            console.log(err);
             reject(new Error("ipfsNewEvent function went wrong"));
           } else {
             this.ipfshHashChecked = true;
-            console.log(
-              "https://gateway.pinata.cloud/ipfs/" +
-                result +
-                " - this is to see if the result and resolve will render correctly"
-            );
             resolve("https://gateway.pinata.cloud/ipfs/" + result);
           }
         });
       }).then(result => {
-        console.log("IPFS URL generation success");
         var myURLBitch = result;
         document.getElementById("IPFSImage2_7").src = myURLBitch;
       });
       //
       // NUMBER 8
       //
-      console.log("Starting ipfsNewEvent function loop 8");
       const theIPFSHash8 = new Promise((resolve, reject) => {
         this.$store.state.article2Instance().ipfsImageHash8((error, result) => {
           if (error) {
             console.log("cant get the IPFS hash 8 from the smart contract");
-            console.log(err);
             reject(new Error("ipfsNewEvent function went wrong"));
           } else {
             this.ipfshHashChecked = true;
-            console.log(
-              "https://gateway.pinata.cloud/ipfs/" +
-                result +
-                " - this is to see if the result and resolve will render correctly"
-            );
             resolve("https://gateway.pinata.cloud/ipfs/" + result);
           }
         });
       }).then(result => {
-        console.log("IPFS URL generation success");
         var myURLBitch = result;
         document.getElementById("IPFSImage2_8").src = myURLBitch;
       });
       //
       // NUMBER 9
       //
-      console.log("Starting ipfsNewEvent function loop 9");
       const theIPFSHash9 = new Promise((resolve, reject) => {
         this.$store.state.article2Instance().ipfsImageHash9((error, result) => {
           if (error) {
             console.log("cant get the IPFS hash 9 from the smart contract");
-            console.log(err);
             reject(new Error("ipfsNewEvent function went wrong"));
           } else {
             this.ipfshHashChecked = true;
-            console.log(
-              "https://gateway.pinata.cloud/ipfs/" +
-                result +
-                " - this is to see if the result and resolve will render correctly"
-            );
             resolve("https://gateway.pinata.cloud/ipfs/" + result);
           }
         });
       }).then(result => {
-        console.log("IPFS URL generation success");
         var myURLBitch = result;
         document.getElementById("IPFSImage2_9").src = myURLBitch;
         this.imageCarousel();
@@ -593,31 +501,24 @@ export default {
         setTimeout(this.imageCarousel, 2000); // Change image every 2 seconds
     },
     ownerCount(event) {
-      console.log("getting owner count");
       const promise1 = new Promise((resolve, reject) => {
         this.$store.state.article2Instance().owners((error, result) => {
           if (error) {
-            console.log(err);
             reject(new Error("ownerCount function went wrong"));
           } else {
-            console.log(result);
-            console.log(JSON.stringify(result));
             resolve(result);
           }
         });
       });
     },
     ownerPromise(event) {
-      console.log("running ownerPromise");
 
       const _ownerCount = new Promise((resolve, reject) => {
         this.$store.state.article2Instance().getUsersCount((error, result) => {
           if (error) {
             console.log(error);
-            reject( new Error('stopping here'))
           } else {
             console.log(result);
-            console.log(result + " is the result");
             resolve(result);
           }
         });
@@ -633,32 +534,19 @@ export default {
                               console.log(error + ' error in for loop');
                               reject(new Error('for loop stops here'))
                           } else {
-                              console.log(ownerVariable + ' is the ownerVariable')
-                              console.log(i + ' – this is the value of I')
-                              console.log(ownerVariable-1 + ' this is ownervariable-2');
                               if (i === ownerVariable-1) {
-                                console.log('going into the IF statement in the for loop')
                                 this.ownersarray2.push(' ' + result[1]);
-                                console.log('end of first for loop');
-                                console.log(this.ownersarray2 + ' this is the end result for ownersarray2');
                                 resolve(result);
                               } else {
-                              console.log(result + ' is the result in the first for loop');
                               ownersarray.push(' ' + result[1]);
                               this.ownersarray2.push(' ' + result[1]);
-                              console.log(this.ownersarray2 + ' this is the ownersarray2 preliminary result')
                               }
                           }
                       });
                   });
                   ownernames.then((result) => {
-                      console.log('running ownernames.then')
-                      console.log(this.ownersarray2 + ' are the owners of this contract')
-                      console.log(result + ' this is the result from the previous promise called ownernames')
                       if (this.ownersarray2 === "undefined") {
-                          console.log('ownersarray is undefined');
                       } else {
-                          console.log('Done with getting the array from the contract and now were triggering showCurrentOwner()')
                           this.showCurrentOwner();
                       }
                   })
@@ -667,80 +555,64 @@ export default {
       })
     },
     showCurrentOwner(event) {
-        console.log('running show current owner');
         console.log(this.ownersarray2);
         const showCurrentOwner = new Promise((resolve, reject) => {
             const minusArray = this.ownersarray2;
-        console.log(minusArray.length + ' is minusArray');
         this.theCurrentOwner = this.ownersarray2[(minusArray.length-1)];
-        console.log(this.theCurrentOwner + ' is the current owner');
-        resolve(this.showOwnerHistoryList());
+        resolve();
         });
         
     },
     showOwnerHistoryList(event) {
-        console.log('running show owner history list');
-        console.log(this.ownersarray2 + ' are in the ownersarray2 array');
+        this.listOfOwners2 = [];
 
         for (let i = 0; i < (this.ownersarray2.length); i++) {
             const forPromise = new Promise ((resolve, reject) => {
-                console.log('were inside the for Promise')
                 if (i === this.ownersarray2.length-1) {
-                    this.listOfOwners2 += "<li>" + this.ownersarray2[i] + "</li>";
-                    console.log('did we make it?')
+                    this.listOfOwners2 += "<li id='listId'>" + this.ownersarray2[i] + "</li>";
                     this.hasOwners = true;
                     this.hasPreviousOwners = true;
                     resolve(this.listOfOwners2);
-                    console.log(this.listOfOwners2 + ' logging the resolve')
                 } else {
-                this.listOfOwners2 += "<li>" + this.ownersarray2[i] + "</li>";
-                console.log(this.listOfOwners2 + ' – the owner loop');
+                this.listOfOwners2 += "<li id='listId'>" + this.ownersarray2[i] + "</li>";
                 }
             })
             forPromise.then((result) => {
-                console.log('in the then promise')
-                document.getElementById("ownerHistory2").innerHTML = result;
-                console.log(result);
+                document.getElementById("ownerList" + this.number).innerHTML = result;
             })
         }
     },
     flip: function() {
       this.flipped = !this.flipped;
-      console.log(this.flipped);
       if (this.flipped === true) {
       setTimeout(this.trick, 1000)
-      console.log('timeout tricked')
       } else {
         this.trick();
-        console.log('no timeout tricked')
       }
     },
     trick: function() {
       this.tricked = !this.tricked;
-      console.log('it is now tricked')
+      if (this.tricked === true) {
+        this.showOwnerHistoryList();
+      }
       setTimeout(this.vision, 200)
     },
     vision: function() {
       this.visible = !this.visible;
-      console.log('it is now visible')
     },
     getArtistName(event) {
-      console.log("Getting artist name of this article");
       const theArtistName = new Promise((resolve, reject) => {
         this.$store.state.article2Instance().artistName((error, result) => {
           if (error) {
             console.log("Cant get artistName()");
-            console.log(error);
           } else {
             if (result === 0) {
-              console.log(result + " artistName is NULL");
             } else {
             this.artistName = result;
-            console.log("This article artwork is made by " + result);
             } 
           }
           resolve(result);
-          this.$emit('artist-nametwo', this.artistName)
+          this.$emit('artist-name' + this.textnumber, this.artistName)
 
         })
       })
@@ -749,14 +621,9 @@ export default {
     checkingFallbackContent: function() {
             if (window.ethereum.selectedAddress === null) {
                 this.fallbackContent = true;
-                console.log("checkingFallbackContent is true");
-                console.log("check" + ' ' + window.ethereum.selectedAddress)
                 setTimeout(this.checkingFallbackContent, 3000);
             } else {
                 this.fallbackContent = false;
-                console.log("checkingFallbackContent is false");
-                console.log("check" + ' ' + window.ethereum.selectedAddress)
-            
             }
         }
   }

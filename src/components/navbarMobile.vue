@@ -287,7 +287,6 @@ export default {
     padding: 0;
     width: 20px;
     text-align: center;
-    width: 20px;
 }
 .MenuItems {
     flex-basis: 10px;

@@ -1,10 +1,6 @@
 <template>
     <div class="website">
 
-      <div class="menuContainer desktopMenu"><div class="menu"><navbar/></div></div>
-      <navbarMobile class="mobileMenu"/>
-
-
     <div class="logoContainer">
       <logo class="theLogo"/>
       <logoMobile class="theLogoMobile"/>
@@ -41,8 +37,6 @@
 </template>
 
 <script>
-import MenuBar from '@/components/navbar'
-import MenuBarMobile from '@/components/navbarMobile'
 import Logo from '@/views/logo.vue'
 import LogoMobile from '@/views/logoMobile.vue'
 
@@ -53,58 +47,21 @@ export default {
     created() {
     },
     components: {
-        'navbar': MenuBar,
-        'navbarMobile': MenuBarMobile,
         'logo': Logo,
         'logoMobile': LogoMobile
     },
   name: 'App',
   data() {
         return{
-            open1: false,
-            open2: false,
-            open3: false,
-            open4: false,
-            open5: false,
-            close1: false,
-            close2: false,
-            close3: false,
-            close4: false,
-            close5: false
         }
   },
   methods: {
-        openArtists: function() {
-            if (this.open1 === false) {
-                this.open1 = !this.open1;
-                this.close1 = false;
-                console.log('About is ' + this.open1);
-                // CLOSING OTHER PAGES
-                this.open2 = false;
-                this.close2 = false;
-                this.open3 = false;
-                this.close3 = false;
-                this.open4 = false;
-                this.close4 = false;
-                this.open5 = false;
-                this.close5 = false;
-            } else {
-                this.close1 = !this.close1;
-                this.open1 = !this.open1;
-                console.log('Artists is already ' + this.open1 + '. And now were closing it ' + this.close1);
-                setTimeout(() => {
-                    this.close1 = !this.close1;
-                    console.log('resetting class - closed is ' + this.close1);
-                    history.pushState(null, null, ' ');
-                }, 400);
-            }
-        }
   }
 }
 </script>
 
 
-<style lang="scss">
+<style lang="scss" >
 
 h1 {
     font-family: 'Comfortaa', cursive;
@@ -141,27 +98,9 @@ b {
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }
-.SinglePage {
-  width: 100%;
-  height: 100%;
-  margin: 0 0 0 0;
-  padding: 0 0 0 0;  
-  background-color: #B1E3E1;
-  background: -webkit-linear-gradient(250deg, #fff9de, #b3e9ff);
-  overflow-x:hidden;
-  overflow-y:hidden;
-}
 @media (min-width: 768px) {
 }
-.menuContainer {
-  position:absolute;
-  top:0;
-  z-index:1;
-  width:100vw;
-  height:auto;
-  .menu {
-  }
-}
+
 .logoContainer {
   height: auto;
   width: 100%;
@@ -235,8 +174,6 @@ b {
       font-size: 1.6em;
     line-height: 1.7em;
     }
-  }
-  .item {
   }
   .imgItem {
     height: 100%;
