@@ -24,7 +24,15 @@
   <!-- SUBMIT ITEM -->
   <li class="MenuItems"><a href="#"><div class="clickbox" @click="openSubmit"><img src="../assets/menu/Menu_Icons_submit.png"><p>Submit</p>
   </div></a></li>
-</ul>
+
+  <!-- METAMASK -->
+  <li class="system">
+    <div class="MetaMask"><hello-metamask/></div>
+  </li>
+
+
+</ul><!-- END OF LIST -->
+
 
 
 <!-- ARTIST PAGE -->
@@ -67,6 +75,7 @@ import About from '@/views/About.vue'
 import Contact from '@/views/Contact.vue'
 import Blockchain from '@/views/Blockchain.vue'
 import Submit from '@/views/Submit.vue'
+import HelloMetamask from '@/components/hello-metamask'
 
 
 
@@ -77,7 +86,8 @@ export default {
         'artistspage': Artists,
         'contactpage': Contact,
         'blockchainpage': Blockchain,
-        'submitpage': Submit
+        'submitpage': Submit,
+        'hello-metamask': HelloMetamask
     },
     data() {
         return {
@@ -277,10 +287,14 @@ ul li {
   text-align: center;
 }
 .clickbox {
-  padding-top:10px;
+  padding-top:19px;
   padding-bottom:10px;
   box-sizing: border-box;
   height:90px;
+  &:hover {
+    background-color: rgb(222, 227, 177);
+    background: -webkit-linear-gradient(-250deg, #f2b719, #ffdd46);
+  }
 }
 .clickbox p {
   margin: 0;
@@ -289,6 +303,13 @@ ul li {
   color:black;
     font-family: 'Comfortaa', cursive;
 }
+
+
+// LINKS
+a:link {
+  text-decoration: none;
+}
+
 // CLOSE BTN
 .close {
     position:relative;
