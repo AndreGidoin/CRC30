@@ -1,7 +1,7 @@
 <template>
     <div class="website">
-      <!-- <navbar /> -->
-      <navbarMobile />
+      <navbar class="desktopMenu"/>
+      <navbarMobile class="mobileMenu" />
     <div class="logoContainer">
       <logo class="theLogo"/>
       <logoMobile class="theLogoMobile"/>
@@ -242,13 +242,13 @@ b {
 // Menu fallback options
 .desktopMenu {
   display: inherit;
-@media only screen and (max-width: 560px) {
+@media only screen and (max-width: 780px) {
   display:none;
     }
 }
 .mobileMenu {
   display: none;
-@media only screen and (max-width: 560px) {
+@media only screen and (max-width: 780px) {
   display: inherit;
     }
 }

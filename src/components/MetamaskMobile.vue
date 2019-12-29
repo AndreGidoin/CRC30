@@ -1,10 +1,8 @@
 <template>
     <div class="metamask-info">
-      <div class="greencircle" v-if="isInjected"></div>
-      <div class="redcircle" v-if="!isInjected"></div>
-        <p v-if="isInjected" id="has-metamask"><i aria-hidden="true" class="fa fa-check"></i>You are connected to the Ethereum Blockchain</p>
+        <p v-if="isInjected" id="has-metamask"><i aria-hidden="true" class="fa fa-check"></i>You are connected to the <b>{{ network }}</b> Ethereum Blockchain</p>
         <p v-else id="no-metamask"> Metamask not found. <a href="https://metamask.io/" target="_blank">Please install to fully experience the website.</a> </p>
-        <p v-if="isInjected" >Network:<br />{{ network }}</p>
+
         <!-- 
           <p>Account: {{ coinbase }}</p>
         <p>Balance: {{ balance }} Wei </p>
@@ -46,23 +44,5 @@ export default {
 }
 .metamask-info a {
   color: red;
-}
-.greencircle {
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  background-color: green;
-  text-align: center;
-  margin: auto;
-  padding: 0;
-}
-.redcircle {
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  background-color: red;
-  text-align: center;
-  margin: auto;
-  padding: 0;
 }
 </style>

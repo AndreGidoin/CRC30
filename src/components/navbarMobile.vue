@@ -31,8 +31,7 @@
   </div></a></li>
 
   <!-- METAMASK -->
-  <li class="MenuItems">
-    <div class="MetaMask"><MetamaskMobile/></div>
+  <li class="MenuItems"><MetamaskMobile class="clickbox"/>
   </li>
 
 
@@ -85,7 +84,7 @@ import MetamaskMobile from '@/components/MetamaskMobile.vue'
 
 
 export default {
-  name: 'navbar',
+  name: 'navbarMobile',
     components: {
         'aboutpage': About,
         'artistspage': Artists,
@@ -312,7 +311,11 @@ ul li {
   color:black;
     font-family: 'Comfortaa', cursive;
 }
-
+.MetaMask {
+  height: 60px;
+  margin: auto;
+  padding: 0;
+}
 
 // LINKS
 a:link {
