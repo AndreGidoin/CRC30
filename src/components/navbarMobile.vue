@@ -1,15 +1,44 @@
 <template>
 <div>
-<div class="menuContainerMobile">
-        <a href="#"><div class="homeButton">CRC 30th Anniversary Fundraiser</div></a>
-        <a href="#"><div class="mobileMenuItem" @click="openArtists">The Artists</div></a>
-        <a href="#"><div class="mobileMenuItem" @click="openAbout">How it works</div></a>
-        <a href="#"><div class="mobileMenuItem" @click="openBlockchain">Why Blockchain?</div></a>
-        <a href="#"><div class="mobileMenuItem" @click="openContact">Contact</div></a>
-        <a href="#"><div class="mobileMenuItem" @click="openSubmit">Submit</div></a>
-      </div>
+  <div class="theMenuMobile">
+    
+<ul class="NavBarContainerMobile">
+  <!-- HOME ITEM -->
+  <li class="MenuItems"><a href="#"><div class="clickbox" @click="closeall"><img src="../assets/menu/Menu_Icons_home2.png"><p>Home</p></div></a></li>
+  
+  <!-- ARTISTS ITEM -->
+  <li class="MenuItems"><a href="#"><div class="clickbox" @click="openArtists"><img src="../assets/menu/Menu_Icons_artists.png"><p>The Artists</p>
+  </div></a></li> 
+  
+  <!-- HOW IT WORKS ITEM -->
+  <li class="MenuItems"><a href="#"><div class="clickbox"  @click="openAbout"><img src="../assets/menu/Menu_Icons_howitworks.png"><p>How It Works</p>
+  </div></a></li>
+
+  <!-- ONBOARDING ITEM -->
+  <li class="MenuItems"><a href="#"><div class="clickbox"  @click="openOnboarding"><img src="../assets/menu/Menu_Icons_onboarding.png"><p>Onboarding instructions</p>
+  </div></a></li>
+
+  <!-- BLOCKCHAIN ITEM -->
+  <li class="MenuItems"><a href="#"><div class="clickbox" @click="openBlockchain"><img src="../assets/menu/Menu_Icons_blockchain.png"><p>Why Blockchain?</p>
+  </div></a></li>
+
+  <!-- CONTACT ITEM -->
+  <li class="MenuItems"><a href="#"><div class="clickbox" @click="openContact"><img src="../assets/menu/Menu_Icons_contact.png"><p>Get in touch</p>
+  </div></a></li>
+
+  <!-- SUBMIT ITEM -->
+  <li class="MenuItems"><a href="#"><div class="clickbox" @click="openSubmit"><img src="../assets/menu/Menu_Icons_submit.png"><p>Submit</p>
+  </div></a></li>
+
+  <!-- METAMASK -->
+  <li class="MenuItems">
+    <div class="MetaMask"><MetamaskMobile/></div>
+  </li>
 
 
+</ul><!-- END OF LIST -->
+
+  </div>
 
 <!-- ARTIST PAGE -->
 <artistspage :openvariable1="open1" :closevariable1="close1"/>
@@ -42,7 +71,7 @@
       </div>
 
 
-  </div>
+</div>
 </template>
 
 <script>
@@ -51,17 +80,19 @@ import About from '@/views/About.vue'
 import Contact from '@/views/Contact.vue'
 import Blockchain from '@/views/Blockchain.vue'
 import Submit from '@/views/Submit.vue'
+import MetamaskMobile from '@/components/MetamaskMobile.vue'
 
 
 
 export default {
-  name: 'navbarMobile',
+  name: 'navbar',
     components: {
         'aboutpage': About,
         'artistspage': Artists,
         'contactpage': Contact,
         'blockchainpage': Blockchain,
-        'submitpage': Submit
+        'submitpage': Submit,
+        'MetamaskMobile': MetamaskMobile
     },
     data() {
         return {
@@ -202,148 +233,90 @@ export default {
                     history.pushState(null, null, ' ');
                 }, 400);
             }
-        }
+        },
+      closeall: function() {
+        this.open1 = false;
+        this.open2 = false;
+        this.open3 = false;
+        this.open4 = false;
+        this.open5 = false;
+        this.open6 = false;
+        this.open7 = false;
+        this.close1 = false;
+        this.close2 = false;
+        this.close3 = false;
+        this.close4 = false;
+        this.close5 = false;
+        this.close6 = false;
+        this.close7 = false;
+      }
     }
 }
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 
-
-// Mobile NavBar2
-
-
-.menuContainerMobile{
-  display:inline-block;
-  width: 100vw;
-  height: 45px;
-  background-color: white;
-  text-align: left;
-  box-sizing: border-box;
-  padding-top: 17px;
-  color: #000000;
-  font-family: 'Comfortaa', cursive;
-  font-size:0.6em;
-}
-.menuContainerMobile a{
-  color: #000000;
-  font-family: 'Comfortaa', cursive;
-  text-decoration: none;
-}
-.mobileMenuItem{
-  display: inline;
-  width: 100%;
-  margin: 4%;
-  height: 45px;
-  @media only screen and (max-width: 985px) {
-      margin: 3%;
-    }
-    @media only screen and (max-width: 703px) {
-      margin: 2%;
-    }
-    @media only screen and (max-width: 577px) {
-      font-size: 0.5em;
-      width: 40px;
-    }
-}
-.homeButton {
-  display: inline;
-  width: 100%;
-  margin: 4%;
-  @media only screen and (max-width: 985px) {
-      margin: 3%;
-    }
-    @media only screen and (max-width: 703px) {
-      margin: 2%;
-    }
-  @media only screen and (max-width: 587px) {
-      display:none;
-    }
-}
 
 // NEW NAVBAR
-
-.NavBarContainer {
-  margin: 0 0 0 0;
-  height: 45px;
-  list-style: none;
-  background: white;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  flex-direction: row;
-}
-.NavBarContainer a {
-  color: #000000;
-  font-family: 'Comfortaa', cursive;
-  font-size: 0.5em;
-  text-decoration: none;
-  
-}
-.MenuItems, .HomeItem, li {
-    flex: 1;
-    margin: 0;
-    padding: 0;
-    width: 20px;
-    text-align: center;
+.theMenuMobile{
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: auto;
+  padding: 0;
+  width: 100vw;
+  background-color: white;
+  filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.06));
+  height:60px;
+  z-index:999;
 }
 .MenuItems {
-    flex-basis: 10px;
+  height:60px;
+  box-sizing: border-box;
 }
-.HomeItem {
-    flex-grow: 4;
-    text-align: left;
-}
-ul {
-    margin: 0;
-    padding: 0;
-}
-.homeContainer {
-  height: 100%;
-  width:100%;
-  text-align: left;
-  margin: 21px;
-}
-.lineContainer {
-  margin: 0 0 0 0;
-  padding: 0 0 0 0;
+.MenuItems img {
   display: inline-block;
-  height: 100%;
-  width:100%;
+  height: 30px;
+}
+ul li {
+  list-style: none;
+}
+.NavBarContainerMobile {
+  margin: auto;
+  padding: 0;
   text-align: center;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: flex-start;
 }
-.lineContainer:hover {
-  background: rgb(245, 245, 245);
+.clickbox {
+  padding-top:5px;
+  margin: auto;
+  box-sizing: border-box;
+  height:60px;
+  width: 12.5vw;
+  align-self: auto;
+  &:hover {
+    background-color: rgb(222, 227, 177);
+    background: -webkit-linear-gradient(-250deg, #f2b719, #ffdd46);
+  }
 }
-.lineContainer p {
-    margin: 5px 0 0 0;
-    @media only screen and (max-width: 662px) {
-    font-size:8px;
-    }
-    @media only screen and (max-width: 500px) {
-    font-size:6px;
-    }
-}
-svg {
-  height: 14px;
-  margin-left: 50%;
-  width: auto;
-  overflow:visible;
-}
-line {
-  stroke:rgb(0,0,0);
-  stroke-width:1;
+.clickbox p {
+  margin: 0;
+  padding: 0;
+  font-size:8px;
+  color:black;
+    font-family: 'Comfortaa', cursive;
 }
 
 
-
-
-
-// NAVBAR
-
-.burgerIcon {
-  display:none;
+// LINKS
+a:link {
+  text-decoration: none;
 }
 
 // CLOSE BTN

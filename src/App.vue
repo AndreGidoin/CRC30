@@ -1,6 +1,7 @@
 <template>
     <div class="website">
-      <navbar />
+      <!-- <navbar /> -->
+      <navbarMobile />
     <div class="logoContainer">
       <logo class="theLogo"/>
       <logoMobile class="theLogoMobile"/>
@@ -40,6 +41,7 @@
 import Logo from '@/views/logo.vue'
 import LogoMobile from '@/views/logoMobile.vue'
 import navbar from '@/components/navbar.vue'
+import navbarMobile from '@/components/navbarMobile.vue'
 
 
 export default {
@@ -50,7 +52,8 @@ export default {
     components: {
         'logo': Logo,
         'logoMobile': LogoMobile,
-        'navbar' : navbar
+        'navbar' : navbar,
+        'navbarMobile' : navbarMobile
     },
   name: 'App',
   data() {

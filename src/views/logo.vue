@@ -1,6 +1,6 @@
 <template>
   <div class="headlineContainer">
-        <div class="headlineImage"><img src="../../public/graphics/Card.png"></div>
+        <div class="headlineImage"><img src="../../public/graphics/Card_Logo.png"></div>
         <div class="introduction"><p>An Ethereum-Powered Fundraiser:</p></div>
         <div class="headline"><h1>Adopt the Rights of a Child</h1></div>
         <div class="subhead"><h2>Personally ratify any article from the UN Convention on the Rights of the Child</h2></div>
@@ -46,6 +46,7 @@ export default {
     text-align:right;
     grid-row-start: 1;
     grid-row-end: 4;
+    margin-left: -7px;
   }
   .headlineImage img {
     height: 130px;

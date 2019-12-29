@@ -1,16 +1,21 @@
 <template>
-  <div class="theMenu">
+<div>
+  <div class="theMenuDesktop">
     
 <ul class="NavBarContainer">
   <!-- HOME ITEM -->
-  <li class="MenuItems"><a href="#"><div class="clickbox" @click="closeall"><img src="../assets/menu/Menu_Icons_home.png"><p>Home</p></div></a></li>
+  <li class="MenuItems"><a href="#"><div class="clickbox" @click="closeall"><img src="../assets/menu/Menu_Icons_home2.png"><p>Home</p></div></a></li>
   
   <!-- ARTISTS ITEM -->
   <li class="MenuItems"><a href="#"><div class="clickbox" @click="openArtists"><img src="../assets/menu/Menu_Icons_artists.png"><p>The Artists</p>
   </div></a></li> 
   
-  <!-- ABOUT ITEM -->
+  <!-- HOW IT WORKS ITEM -->
   <li class="MenuItems"><a href="#"><div class="clickbox"  @click="openAbout"><img src="../assets/menu/Menu_Icons_howitworks.png"><p>How It Works</p>
+  </div></a></li>
+
+  <!-- ONBOARDING ITEM -->
+  <li class="MenuItems"><a href="#"><div class="clickbox"  @click="openAbout"><img src="../assets/menu/Menu_Icons_onboarding.png"><p>Onboarding instructions</p>
   </div></a></li>
 
   <!-- BLOCKCHAIN ITEM -->
@@ -33,7 +38,7 @@
 
 </ul><!-- END OF LIST -->
 
-
+  </div>
 
 <!-- ARTIST PAGE -->
 <artistspage :openvariable1="open1" :closevariable1="close1"/>
@@ -66,7 +71,7 @@
       </div>
 
 
-  </div>
+</div>
 </template>
 
 <script>
@@ -254,7 +259,7 @@ export default {
 
 
 // NEW NAVBAR
-.theMenu {
+.theMenuDesktop {
   position: fixed;
   top: 0;
   left: 0;

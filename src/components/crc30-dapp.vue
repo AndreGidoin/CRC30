@@ -73,7 +73,6 @@
     </div>
 
     <!-- SYSTEM INFO - METAMASK and WEB3 -->
-    <div class="MetaMask"><hello-metamask/></div>
     <div v-if="NoMetaMask === false" class="check">            
         <div class="stepOne">
         <a href="http://www.metamask.io" target="_blank"><img src="../assets/Onboarding-1.jpg"></a>
@@ -91,7 +90,6 @@ import { setTimeout } from "timers";
 import {mapState} from 'vuex'
 
 
-import HelloMetamask from '@/components/hello-metamask'
 import Article2 from '@/components/article2'
 import Article3 from '@/components/article3'
 import Article4 from '@/components/article4'
@@ -347,7 +345,6 @@ export default {
         }
     },
     components: {
-        'hello-metamask': HelloMetamask,
         'article2': Article2,
         'article5': Article5,
         'article6': Article6,
