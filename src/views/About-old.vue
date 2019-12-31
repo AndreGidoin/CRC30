@@ -1,8 +1,7 @@
 <template>
-  <div class="pageContainer">
-    <div class="arrowcontainer makeLink" v-on:click="pageSwitch">    <div class="arrow"></div>    </div>
-      <div class="pageContent">
-        
+  <div class="aboutContainer" id="aboutOverlay" v-bind:class="{ 'opened' : openvariable2, 'closed' : closevariable2}">
+    <div class="about" v-bind:class="{ 'opened' : openvariable2, 'closed' : closevariable2}">
+      <div class="aboutContent" v-bind:class="{ 'opened' : openvariable2, 'closed' : closevariable2}">
         <h1>Adopt the Rights of a Child through the Blockchain</h1>
         <div class="pagecontentVideo">
           
@@ -80,112 +79,107 @@
           </div>
 
         </div>
-
-
-      </div>
-      <close class="makeLink"  v-on:click.native="pageSwitch"/>
-      <div class="spacer"></div>
+        </div>
+    </div>
   </div>
 </template>
 
 <script>
-import close from './close.vue'
-
 export default {
-  components: {
-        'close': close
+
+props: {
+    openvariable2: {
+      type: Boolean
     },
-    methods: {
-      pageSwitch: function() {
-        this.$emit('howitworksSwitch', false)
-        setTimeout(() => {
-                this.$emit('howitworksSwitchB', true)
-              }, 400);
-      }
+    closevariable2: {
+      type: Boolean
     }
+  }
 }
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Comfortaa|Libre+Baskerville|Space+Mono&display=swap');
 
-.pageContainer {
-  font-family: 'Comfortaa', arial, sans-serif;
+
+.aboutContainer {
+font-family: 'Comfortaa', cursive;
   font-size: 1em;
   color: #3F3F3F;
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  z-index: 98;
-  left: 0;
-  top: 0;
-  background-color: rgb(255,255,255);
-  overflow-x: hidden;
-  overflow-y: scroll;
-  display:inherit;
-  opacity: 1;
-  box-sizing: border-box;
-  padding-left:80px;
-  }
-
-.pageContent {
-  padding: 40px 20px 20px 20px;
-  height: auto;
+  height: 100%;
   width: 100%;
-  opacity:1;
+  position: fixed;
+  left: 0;
+  top: 45px;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.4);
+  overflow: hidden;
+  display:none;
+  opacity: 0;
+  z-index:1;
+  transition: ease-out 300ms; 
+    &.opened {
+      display:inline-block;
+      animation: transparency 0.5s ease-out 0.2s forwards;
+      }
+      &.closed {
+      display:inline-block;
+      animation: transparency-reverse 0.5s ease-out forwards;
+      }
+   
+  }
+@keyframes transparency
+{
+from {opacity: 0;}
+to {opacity: 1;}
+transition: ease-out 300ms; 
+}
+@keyframes transparency-reverse
+{
+from {opacity: 1;}
+to {opacity: 0;}
+transition: ease-out 300ms; 
+}
+
+.about {
+  margin: 0;
+  padding: 0;
+  width: 100%; /* 100% width */
+  height: 0%;
+  background: white;
+  display: inline-block;
+  overflow:scroll;
+    &.opened {
+    animation: slide 0.5s ease-out 0.2s forwards;
+    }
+    &.closed {
+      animation: slide-reverse 0.4s ease-out forwards;
+    }
+}
+
+@keyframes slide {
+  from {height: 0%;}
+  to {height: 80%;}
+}
+@keyframes slide-reverse {
+  from {height: 80%;}
+  to {height: 0%;}
+}
+
+.aboutContent {
+  padding: 60px 20px 20px 20px;
+  height: 0%;
+  width: 100vw;
+  opacity:0;
   box-sizing: border-box;
+  &.opened {
+    animation: slide2 0.5s ease-out 0.3s forwards;
+  }
+  &.closed {
+      animation: slide2-reverse 0.4s ease-out forwards;
+    }
 }
-
-p {
-  font-size: 0.8em;
-}
-
-.arrowcontainer {
-	position: relative;
-  height: 50px; 
-  width: 60px;
-  margin-top: 35px;
-  margin-bottom: -35px;
-  padding-left:25px;
-}
-.makeLink:hover {
-  cursor: pointer;
-}
-
-.arrow {
-	/* more triangle */
-	position: relative;
-	height: 0px; width: 0px;
-	border: 8px solid;
-	border-color: 
-		#3F3F3F
-		#3F3F3F
-		transparent
-		transparent;
-	transform: rotate(225deg); 
-}
-
-.arrow:before {
-	content: '';
-	position: absolute;
-	top: 0px; right: 0px;
-	display: block;
-	height: 6px; width: 16px;
-	background-color: #3F3F3F;
-	transform: 
-		rotate(-45deg) 
-		translate(2px, 4px);
-}
-
-.spacer {
-  height: 50px;
-  width: auto;
-}
-
-
-// HOW IT WORKS STYLES
-
 
 .pagecontentVideo {
   display: inline-block;
@@ -239,6 +233,22 @@ p {
   width: 465px;
   height: 262px;
 
+}
+
+@keyframes slide2 {
+  from {height: 0%;
+  opacity:0;}
+  to {height: 80%;
+  opacity:1;}
+}
+@keyframes slide2-reverse {
+  from {height: 80%;
+  opacity:1;}
+  to {height: 0%;
+  opacity:0;}
+}
+.noMargin {
+  margin-top: 0px;
 }
 
 

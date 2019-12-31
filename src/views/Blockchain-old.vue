@@ -1,9 +1,9 @@
 <template>
-  <div class="pageContainer">
-    <div class="arrowcontainer makeLink" v-on:click="pageSwitch">    <div class="arrow"></div>    </div>
-      <div class="pageContent">
-        
+  <div class="blockchainContainer" id="blockchainOverlay" v-bind:class="{ 'opened' : openvariable3, 'closed' : closevariable3}">
+    <div class="blockchain" v-bind:class="{ 'opened' : openvariable3, 'closed' : closevariable3}">
+      <div class="blockchainContent" v-bind:class="{ 'opened' : openvariable3, 'closed' : closevariable3}">
         <h1>Why Blockchain?</h1>
+        <div class="pagecontentBlockchain">
         <p>We've chosen to create this platform on the Ethereum blockchain for a few different reasons. </p>
         
         <p><span class="bluecolor">Democratizing the record of the rights.</span><br>
@@ -23,116 +23,131 @@ There hasn’t been a lot of projects like this, so we consider this very much a
 The point of this campaign is that if everything in the world only were up to big governments or organizations we wouldn't get anywhere. It's up to us as citizens of the world to change things for the better. What better symbolic platform to use than one that promotes decentralization and in itself could be a threat to the old ways of institutional processes.
         </p>
 
-              
+        
 
-
-      </div>
-      <close class="makeLink"  v-on:click.native="pageSwitch"/>
-      <div class="spacer"></div>
+        </div>
+        </div>
+    </div>
   </div>
 </template>
 
 <script>
-import close from './close.vue'
-
 export default {
-  components: {
-        'close': close
+props: {
+    openvariable3: {
+      type: Boolean
     },
-    methods: {
-      pageSwitch: function() {
-        this.$emit('blockchainSwitch', false)
-        setTimeout(() => {
-                this.$emit('blockchainSwitchB', true)
-              }, 400);
-      }
+    closevariable3: {
+      type: Boolean
     }
+  },
 }
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Comfortaa|Libre+Baskerville|Space+Mono&display=swap');
 
-.pageContainer {
-  font-family: 'Comfortaa', arial, sans-serif;
+.blockchainContainer {
+    font-family: 'Comfortaa', cursive;
   font-size: 1em;
   color: #3F3F3F;
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  z-index: 98;
-  left: 0;
-  top: 0;
-  background-color: rgb(255,255,255);
-  overflow-x: hidden;
-  overflow-y: scroll;
-  display:inherit;
-  opacity: 1;
-  box-sizing: border-box;
-  padding-left:80px;
-  }
-
-.pageContent {
-  padding: 40px 20px 20px 20px;
-  height: auto;
+  height: 100%;
   width: 100%;
-  opacity:1;
-  box-sizing: border-box;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 45px;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.4);
+  overflow: hidden;
+  display:none;
+  opacity: 0;
+  transition: ease-out 300ms; 
+    &.opened {
+      display:inline-block;
+      animation: transparency 0.5s ease-out 0.2s forwards;
+      }
+      &.closed {
+      display:inline-block;
+      animation: transparency-reverse 0.5s ease-out forwards;
+      }
+   
+  }
+@keyframes transparency
+{
+from {opacity: 0;}
+to {opacity: 1;}
+transition: ease-out 300ms; 
+}
+@keyframes transparency-reverse
+{
+from {opacity: 1;}
+to {opacity: 0;}
+transition: ease-out 300ms; 
 }
 
+.blockchain {
+  margin: 0;
+  padding: 0;
+  width: 100%; /* 100% width */
+  height: 0%;
+  background: white;
+  display: inline-block;
+  overflow:scroll;
+    &.opened {
+    animation: slide 0.5s ease-out 0.2s forwards;
+    }
+    &.closed {
+      animation: slide-reverse 0.4s ease-out forwards;
+    }
+}
+
+@keyframes slide {
+  from {height: 0%;}
+  to {height: 80%;}
+}
+@keyframes slide-reverse {
+  from {height: 80%;}
+  to {height: 0%;}
+}
+
+.blockchainContent {
+  padding: 60px 20px 20px 20px;
+  height: 0%;
+  opacity:0;
+  width: 100vw;
+  box-sizing: border-box;
+  &.opened {
+    animation: slide2 0.5s ease-out 0.3s forwards;
+  }
+  &.closed {
+      animation: slide2-reverse 0.4s ease-out forwards;
+    }
+}
+.pagecontentBlockchain {
+  box-sizing: border-box;
+  padding-bottom: 40px;
+}
 p {
   font-size: 0.8em;
+  line-height: 1.45em;
 }
-
-.arrowcontainer {
-	position: relative;
-  height: 50px; 
-  width: 60px;
-  margin-top: 35px;
-  margin-bottom: -35px;
-  padding-left:25px;
-}
-.makeLink:hover {
-  cursor: pointer;
-}
-
-.arrow {
-	/* more triangle */
-	position: relative;
-	height: 0px; width: 0px;
-	border: 8px solid;
-	border-color: 
-		#3F3F3F
-		#3F3F3F
-		transparent
-		transparent;
-	transform: rotate(225deg); 
-}
-
-.arrow:before {
-	content: '';
-	position: absolute;
-	top: 0px; right: 0px;
-	display: block;
-	height: 6px; width: 16px;
-	background-color: #3F3F3F;
-	transform: 
-		rotate(-45deg) 
-		translate(2px, 4px);
-}
-
-.spacer {
-  height: 50px;
-  width: auto;
-}
-
-
-// BLOCKCHAIN STYLES
-
-
 .bluecolor {
   color: #2AACE0;
+}
+
+@keyframes slide2 {
+  from {height: 0%;
+  opacity:0;}
+  to {height: 80%;
+  opacity:1;}
+}
+@keyframes slide2-reverse {
+  from {height: 80%;
+  opacity:1;}
+  to {height: 0%;
+  opacity:0;}
 }
 
 

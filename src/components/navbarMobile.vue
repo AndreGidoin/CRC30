@@ -15,7 +15,7 @@
   </div></a></li>
 
   <!-- ONBOARDING ITEM -->
-  <li class="MenuItems"><a href="#"><div class="clickbox"  @click="openOnboarding"><img src="../assets/menu/Menu_Icons_onboarding.png"><p>Onboarding instructions</p>
+  <li class="MenuItems"><a href="#"><div class="clickbox"  @click="openOnboarding"><img src="../assets/menu/Menu_Icons_onboarding.png"><p>Onboarding<br />instructions</p>
   </div></a></li>
 
   <!-- BLOCKCHAIN ITEM -->
@@ -30,13 +30,8 @@
   <li class="MenuItems"><a href="#"><div class="clickbox" @click="openSubmit"><img src="../assets/menu/Menu_Icons_submit.png"><p>Submit</p>
   </div></a></li>
 
-  <!-- METAMASK -->
-  <li class="MenuItems"><MetamaskMobile class="clickbox"/>
-  </li>
-
-
 </ul><!-- END OF LIST -->
-
+<MetamaskMobile class="MetaMask"/>
   </div>
 
 <!-- ARTIST PAGE -->
@@ -233,6 +228,9 @@ export default {
                 }, 400);
             }
         },
+        openOnboarding: function() {
+
+        },
       closeall: function() {
         this.open1 = false;
         this.open2 = false;
@@ -260,16 +258,21 @@ export default {
 // NEW NAVBAR
 .theMenuMobile{
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   margin: auto;
   padding: 0;
   width: 100vw;
   background-color: white;
   filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.06));
-  height:60px;
+  height:90px;
   z-index:999;
 }
+.MenuItems:first-child {
+  border-color: black;
+  border-style: solid;
+  border-width: 0px 1px 0px 0px;
+  }
 .MenuItems {
   height:60px;
   box-sizing: border-box;
@@ -297,7 +300,7 @@ ul li {
   margin: auto;
   box-sizing: border-box;
   height:60px;
-  width: 12.5vw;
+  width: 14.28vw;
   align-self: auto;
   &:hover {
     background-color: rgb(222, 227, 177);
@@ -307,14 +310,15 @@ ul li {
 .clickbox p {
   margin: 0;
   padding: 0;
-  font-size:8px;
+  font-size:7px;
   color:black;
     font-family: 'Comfortaa', cursive;
 }
 .MetaMask {
-  height: 60px;
   margin: auto;
-  padding: 0;
+  padding-top: 10px;
+  box-sizing: border-box;
+  display: block;
 }
 
 // LINKS

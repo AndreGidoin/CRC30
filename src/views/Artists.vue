@@ -1,40 +1,41 @@
 <template>
-  <div class="artistContainer" id="artistOverlay" v-bind:class="{ 'opened' : openvariable1, 'closed' : closevariable1}">
-    <div class="artist" v-bind:class="{ 'opened' : openvariable1, 'closed' : closevariable1}">
-      <div class="artistContent" v-bind:class="{ 'opened' : openvariable1, 'closed' : closevariable1}">
+  <div class="pageContainer">
+    <div class="arrowcontainer makeLink" v-on:click="pageSwitch">    <div class="arrow"></div>    </div>
+      <div class="pageContent">
         <h1>Every article is represented by bespoke artwork created by an artist.</h1>
-        <div class="pagecontent">
         <p>We’d like to thank all the amazing artists who has donated their time and talent to craft custom pieces inspired by article from the CRC. </p>
         <p>Read more about the art pieces and the artists who made them below.</p>
         
-        <div class="contributorComponentContainer">
-        <contributor-component v-for="artist in artists" v-bind:key="artist.id" v-bind:artist="artist"/>
+          <div class="contributorComponentContainer">
+          <contributor-component v-for="artist in artists" v-bind:key="artist.id" v-bind:artist="artist"/>
+        
         </div>
-
-
-        </div>
-        </div>
-    </div>
+      </div>
+      <close class="makeLink"  v-on:click.native="pageSwitch"/>
+      <div class="spacer"></div>
   </div>
 </template>
 
 <script>
 import contributor from './contributor'
+import close from './close.vue'
 
 export default {
   components: {
-        'contributor-component': contributor
+        'contributor-component': contributor,
+        'close': close
     },
-props: {
-    openvariable1: {
-      type: Boolean
+    methods: {
+      pageSwitch: function() {
+        this.$emit('artistSwitch', false)
+        setTimeout(() => {
+                this.$emit('artistSwitchB', true)
+              }, 400);
+      }
     },
-    closevariable1: {
-      type: Boolean
-    }
-  },
   data () {
         return {
+          closeBtn: false,
             artists: [
                 {
                 article: '2',
@@ -188,31 +189,31 @@ props: {
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css?family=Comfortaa|Libre+Baskerville|Space+Mono&display=swap');
 
-.artistContainer {
-    font-family: 'Comfortaa', cursive;
+.pageContainer {
+  font-family: 'Comfortaa', arial, sans-serif;
   font-size: 1em;
   color: #3F3F3F;
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 98;
   left: 0;
-  top: 45px;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0, 0.4);
-  overflow: hidden;
-  display:none;
-  opacity: 0;
+  top: 0;
+  background-color: rgb(255,255,255);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display:inherit;
+  opacity: 1;
+  box-sizing: border-box;
+  padding-left:80px;
   transition: ease-out 300ms; 
     &.opened {
-      display:inline-block;
       animation: transparency 0.5s ease-out 0.2s forwards;
       }
       &.closed {
-      display:inline-block;
       animation: transparency-reverse 0.5s ease-out forwards;
       }
    
@@ -221,45 +222,20 @@ props: {
 {
 from {opacity: 0;}
 to {opacity: 1;}
-transition: ease-out 300ms; 
 }
 @keyframes transparency-reverse
 {
 from {opacity: 1;}
 to {opacity: 0;}
-transition: ease-out 300ms; 
 }
 
-.artist {
-  margin: 0;
-  padding: 0;
-  width: 100%; /* 100% width */
-  height: 0%;
-  background: white;
-  display: inline-block;
-  overflow:scroll;
-    &.opened {
-    animation: slide2 0.5s ease-out 0.2s forwards;
-    }
-    &.closed {
-      animation: slide2-reverse 0.4s ease-out forwards;
-    }
-}
 
-@keyframes slide {
-  from {height: 0%;}
-  to {height: 80%;}
-}
-@keyframes slide-reverse {
-  from {height: 80%;}
-  to {height: 0%;}
-}
 
-.artistContent {
+.pageContent {
   padding: 40px 20px 20px 20px;
-  height: 0%;
-  width: 100vw;
-  opacity:0;
+  height: auto;
+  width: 100%;
+  opacity:1;
   box-sizing: border-box;
   &.opened {
     animation: slide2 0.5s ease-out 0.3s forwards;
@@ -268,8 +244,7 @@ transition: ease-out 300ms;
       animation: slide2-reverse 0.4s ease-out forwards;
     }
 }
-.pagecontent {
-}
+
 p {
   font-size: 0.8em;
 }
@@ -297,6 +272,51 @@ p {
 }
 .artistchild {
     margin:0 30px 55px 0;
+}
+
+.arrowcontainer {
+	position: relative;
+  height: 50px; 
+  width: 60px;
+  margin-top: 35px;
+  margin-bottom: -35px;
+  padding-left:25px;
+}
+.makeLink:hover {
+  cursor: pointer;
+}
+
+.arrow {
+	/* more triangle */
+	position: relative;
+	height: 0px; width: 0px;
+	border: 8px solid;
+	border-color: 
+		#3F3F3F
+		#3F3F3F
+		transparent
+		transparent;
+	transform: rotate(225deg); 
+}
+
+.arrow:before {
+	content: '';
+	position: absolute;
+	top: 0px; right: 0px;
+	display: block;
+	height: 6px; width: 16px;
+	background-color: #3F3F3F;
+	transform: 
+		rotate(-45deg) 
+		translate(2px, 4px);
+}
+
+
+
+
+.spacer {
+  height: 50px;
+  width: auto;
 }
 
 </style>

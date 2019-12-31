@@ -1,10 +1,9 @@
 <template>
-  <div class="pageContainer">
-    <div class="arrowcontainer makeLink" v-on:click="pageSwitch">    <div class="arrow"></div>    </div>
-      <div class="pageContent">
-        
+  <div class="submitContainer" id="submitOverlay" v-bind:class="{ 'opened' : openvariable5, 'closed' : closevariable5}">
+    <div class="submit" v-bind:class="{ 'opened' : openvariable5, 'closed' : closevariable5}">
+      <div class="submitContent" v-bind:class="{ 'opened' : openvariable5, 'closed' : closevariable5}">
         <h1>Submit artwork for an article</h1>
-        
+        <div class="pagecontent">
         <p>Are you a visual artist and want to contribute with an art piece to the project? Choose one of the article below, create an art piece inspired by that child right, and submit to <a href="mailto:projects@blockchainclub.io">projects@blockchainclub.io</a></p>
         <div class="articleimages">
           <a href="mailto:projects@blockchainclub.io?subject=Article1%20Artwork%20Submission"> <img src="../../public/Articles/Article1.png" class="freeArticle"></a>
@@ -33,113 +32,125 @@
           <a href="mailto:projects@blockchainclub.io?subject=Article41%20Artwork%20Submission"> <img src="../../public/Articles/Article41.png" class="freeArticle"></a>
           <a href="mailto:projects@blockchainclub.io?subject=Article42%20Artwork%20Submission"> <img src="../../public/Articles/Article42.png" class="freeArticle"></a>
         </div>
-              
 
-
-      </div>
-      <close class="makeLink"  v-on:click.native="pageSwitch"/>
-      <div class="spacer"></div>
+        </div>
+        </div>
+    </div>
   </div>
 </template>
 
 <script>
-import close from './close.vue'
-
 export default {
-  components: {
-        'close': close
+
+props: {
+    openvariable5: {
+      type: Boolean
     },
-    methods: {
-      pageSwitch: function() {
-        this.$emit('submitSwitch', false)
-        setTimeout(() => {
-                this.$emit('submitSwitchB', true)
-              }, 400);
-      }
+    closevariable5: {
+      type: Boolean
     }
+  },
 }
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Comfortaa|Libre+Baskerville|Space+Mono&display=swap');
 
-.pageContainer {
-  font-family: 'Comfortaa', arial, sans-serif;
+
+.submitContainer {
+font-family: 'Comfortaa', cursive;
   font-size: 1em;
   color: #3F3F3F;
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  z-index: 98;
-  left: 0;
-  top: 0;
-  background-color: rgb(255,255,255);
-  overflow-x: hidden;
-  overflow-y: scroll;
-  display:inherit;
-  opacity: 1;
-  box-sizing: border-box;
-  padding-left:80px;
-  }
-
-.pageContent {
-  padding: 40px 20px 20px 20px;
-  height: auto;
+  height: 100%;
   width: 100%;
-  opacity:1;
-  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  top: 45px;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.4);
+  overflow: hidden;
+  display:none;
+  opacity: 0;
+  z-index:1;
+  transition: ease-out 300ms; 
+    &.opened {
+      display:inline-block;
+      animation: transparency 0.5s ease-out 0.2s forwards;
+      }
+      &.closed {
+      display:inline-block;
+      animation: transparency-reverse 0.5s ease-out forwards;
+      }
+   
+  }
+@keyframes transparency {
+  from {opacity: 0;}
+  to {opacity: 1;}
+  transition: ease-out 300ms; 
 }
 
+@keyframes transparency-reverse {
+  from {opacity: 1;}
+  to {opacity: 0;}
+  transition: ease-out 300ms; 
+}
+
+.submit {
+  margin: 0;
+  padding: 0;
+  width: 100%; /* 100% width */
+  height: 0%;
+  background: white;
+  display: inline-block;
+  overflow:scroll;
+    &.opened {
+    animation: slide2 0.5s ease-out 0.2s forwards;
+    }
+    &.closed {
+      animation: slide2-reverse 0.4s ease-out forwards;
+    }
+}
+
+@keyframes slide {
+  from {height: 0%;}
+  to {height: 80%;}
+}
+@keyframes slide-reverse {
+  from {height: 80%;}
+  to {height: 0%;}
+}
+
+.submitContent {
+  padding: 60px 20px 20px 20px;
+  height: 0%;
+  opacity:0;
+  &.opened {
+    animation: slide2 0.5s ease-out 0.3s forwards;
+  }
+  &.closed {
+      animation: slide2-reverse 0.4s ease-out forwards;
+    }
+}
+
+.pagecontent {
+}
 p {
   font-size: 0.8em;
 }
 
-.arrowcontainer {
-	position: relative;
-  height: 50px; 
-  width: 60px;
-  margin-top: 35px;
-  margin-bottom: -35px;
-  padding-left:25px;
+@keyframes slide2 {
+  from {height: 0%;
+  opacity:0;}
+  to {height: 80%;
+  opacity:1;}
 }
-.makeLink:hover {
-  cursor: pointer;
+@keyframes slide2-reverse {
+  from {height: 80%;
+  opacity:1;}
+  to {height: 0%;
+  opacity:0;}
 }
-
-.arrow {
-	/* more triangle */
-	position: relative;
-	height: 0px; width: 0px;
-	border: 8px solid;
-	border-color: 
-		#3F3F3F
-		#3F3F3F
-		transparent
-		transparent;
-	transform: rotate(225deg); 
-}
-
-.arrow:before {
-	content: '';
-	position: absolute;
-	top: 0px; right: 0px;
-	display: block;
-	height: 6px; width: 16px;
-	background-color: #3F3F3F;
-	transform: 
-		rotate(-45deg) 
-		translate(2px, 4px);
-}
-
-.spacer {
-  height: 50px;
-  width: auto;
-}
-
-
-// SUBMIT STYLES
-
 .freeArticle {
   height: 250px;
   margin-top: 15px;

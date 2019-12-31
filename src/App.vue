@@ -1,7 +1,7 @@
 <template>
     <div class="website">
-      <navbar class="desktopMenu"/>
-      <navbarMobile class="mobileMenu" />
+      <navbar class="desktopMenu" v-if="!menuChange"/>
+      <navbarMobile class="mobileMenu" v-if="menuChange" />
     <div class="logoContainer">
       <logo class="theLogo"/>
       <logoMobile class="theLogoMobile"/>
@@ -45,9 +45,18 @@ import navbarMobile from '@/components/navbarMobile.vue'
 
 
 export default {
+  name: 'App',
   beforeCreate () {
     },
     created() {
+    },
+    mounted() {
+    this.$nextTick(function() {
+      window.addEventListener('resize', this.getWindowWidth);
+
+      //Init
+      this.getWindowWidth()
+    })
     },
     components: {
         'logo': Logo,
@@ -55,13 +64,25 @@ export default {
         'navbar' : navbar,
         'navbarMobile' : navbarMobile
     },
-  name: 'App',
-  data() {
-        return{
-        }
-  },
   methods: {
-  }
+    getWindowWidth(event) {
+        this.windowWidth = document.documentElement.clientWidth;
+          if(this.windowWidth <= 780) {
+            this.menuChange = true;
+          } else {
+            this.menuChange = false;
+          }
+      },
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.getWindowWidth);
+  },
+  data: function() {
+    return {
+      windowWidth: 0,
+      menuChange: false
+    }
+  },
 }
 </script>
 

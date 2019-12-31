@@ -1,33 +1,33 @@
 <template>
 <div>
-  <div class="theMenuDesktop">
+  <div class="theMenuDesktop"><!-- START MENU CONTAINER -->
     
 <ul class="NavBarContainer">
   <!-- HOME ITEM -->
-  <li class="MenuItems"><a href="#"><div class="clickbox" @click="closeall"><img src="../assets/menu/Menu_Icons_home2.png"><p>Home</p></div></a></li>
+  <li class="MenuItems"><a href="#"><div class="clickbox" @click="closeothers"><img src="../assets/menu/Menu_Icons_home2.png"><p>Home</p></div></a></li>
   
   <!-- ARTISTS ITEM -->
-  <li class="MenuItems"><a href="#"><div class="clickbox" @click="openArtists"><img src="../assets/menu/Menu_Icons_artists.png"><p>The Artists</p>
+  <li class="MenuItems"><a href="#"><div class="clickbox" @click="openArtists(); closeothers()"><img src="../assets/menu/Menu_Icons_artists.png"><p>The Artists</p>
   </div></a></li> 
   
   <!-- HOW IT WORKS ITEM -->
-  <li class="MenuItems"><a href="#"><div class="clickbox"  @click="openAbout"><img src="../assets/menu/Menu_Icons_howitworks.png"><p>How It Works</p>
+  <li class="MenuItems"><a href="#"><div class="clickbox"  @click="openAbout(); closeothers()"><img src="../assets/menu/Menu_Icons_howitworks.png"><p>How It Works</p>
   </div></a></li>
 
   <!-- ONBOARDING ITEM -->
-  <li class="MenuItems"><a href="#"><div class="clickbox"  @click="openAbout"><img src="../assets/menu/Menu_Icons_onboarding.png"><p>Onboarding instructions</p>
+  <li class="MenuItems"><a href="#"><div class="clickbox"  @click="openOnboarding(); closeothers()"><img src="../assets/menu/Menu_Icons_onboarding.png"><p>Onboarding instructions</p>
   </div></a></li>
 
   <!-- BLOCKCHAIN ITEM -->
-  <li class="MenuItems"><a href="#"><div class="clickbox" @click="openBlockchain"><img src="../assets/menu/Menu_Icons_blockchain.png"><p>Why<br />Blockchain?</p>
+  <li class="MenuItems"><a href="#"><div class="clickbox" @click="openBlockchain(); closeothers()"><img src="../assets/menu/Menu_Icons_blockchain.png"><p>Why<br />Blockchain?</p>
   </div></a></li>
 
   <!-- CONTACT ITEM -->
-  <li class="MenuItems"><a href="#"><div class="clickbox" @click="openContact"><img src="../assets/menu/Menu_Icons_contact.png"><p>Get in touch</p>
+  <li class="MenuItems"><a href="#"><div class="clickbox" @click="openContact(); closeothers()"><img src="../assets/menu/Menu_Icons_contact.png"><p>Get in touch</p>
   </div></a></li>
 
   <!-- SUBMIT ITEM -->
-  <li class="MenuItems"><a href="#"><div class="clickbox" @click="openSubmit"><img src="../assets/menu/Menu_Icons_submit.png"><p>Submit</p>
+  <li class="MenuItems"><a href="#"><div class="clickbox" @click="openSubmit(); closeothers()"><img src="../assets/menu/Menu_Icons_submit.png"><p>Submit</p>
   </div></a></li>
 
   <!-- METAMASK -->
@@ -38,37 +38,57 @@
 
 </ul><!-- END OF LIST -->
 
-  </div>
+  </div><!-- END MENU CONTAINER -->
+
+
 
 <!-- ARTIST PAGE -->
-<artistspage :openvariable1="open1" :closevariable1="close1"/>
-<div class="close" v-if="open1">
-      <button class="closeBTN" @click="openArtists">Close</button>
-      </div>
+<div class="artistPage" v-if="!close1" v-bind:class="{ 'open': open1}">
+<artistspage 
+  v-on:artistSwitch="open1 = $event"
+  v-on:artistSwitchB="close1 = $event"
+ />
+</div>
 
-<!-- ABOUT PAGE -->
-<aboutpage :openvariable2="open2" :closevariable2="close2"/>
-<div class="close" v-if="open2">
-      <button class="closeBTN" @click="openAbout">Close</button>
-      </div>
+<!-- HOW IT WORKS PAGE -->
+<div class="howitworksPage" v-if="!close2" v-bind:class="{ 'open': open2}">
+<aboutpage 
+  v-on:howitworksSwitch="open2 = $event"
+  v-on:howitworksSwitchB="close2 = $event"
+ />
+</div>
 
-  <!-- BLOCKCHAIN PAGE -->
-<blockchainpage :openvariable3="open3" :closevariable3="close3"/>
-    <div class="close" v-if="open3">
-      <button class="closeBTN" @click="openBlockchain">Close</button>
-      </div>
+<!-- ONBOARDING PAGE -->
+<div class="onboardingPage" v-if="!close3" v-bind:class="{ 'open': open3}">
+<onboardingpage 
+  v-on:onboardingSwitch="open3 = $event"
+  v-on:onboardingSwitchB="close3 = $event"
+ />
+</div>
 
-  <!-- CONTACT PAGE -->
-<contactpage :openvariable4="open4" :closevariable4="close4"/>
-    <div class="close" v-if="open4">
-      <button class="closeBTN" @click="openContact">Close</button>
-      </div>
+<!-- BLOCKCHAIN PAGE -->
+<div class="blockchainPage" v-if="!close4" v-bind:class="{ 'open': open4}">
+<blockchainpage 
+  v-on:blockchainSwitch="open4 = $event"
+  v-on:blockchainSwitchB="close4 = $event"
+ />
+</div>
 
-  <!-- Submit PAGE -->
-<submitpage :openvariable5="open5" :closevariable5="close5"/>
-    <div class="close" v-if="open5">
-      <button class="closeBTN" @click="openSubmit">Close</button>
-      </div>
+<!-- CONTACT PAGE -->
+<div class="contactPage" v-if="!close5" v-bind:class="{ 'open': open5}">
+<contactpage 
+  v-on:contactSwitch="open5 = $event"
+  v-on:contactSwitchB="close5 = $event"
+ />
+</div>
+
+<!-- SUBMIT PAGE -->
+<div class="submitPage" v-if="!close6" v-bind:class="{ 'open': open6}">
+<submitpage 
+  v-on:submitSwitch="open6 = $event"
+  v-on:submitSwitchB="close6 = $event"
+ />
+</div>
 
 
 </div>
@@ -80,6 +100,7 @@ import About from '@/views/About.vue'
 import Contact from '@/views/Contact.vue'
 import Blockchain from '@/views/Blockchain.vue'
 import Submit from '@/views/Submit.vue'
+import Onboarding from '@/views/Onboarding.vue'
 import HelloMetamask from '@/components/hello-metamask'
 
 
@@ -92,6 +113,7 @@ export default {
         'contactpage': Contact,
         'blockchainpage': Blockchain,
         'submitpage': Submit,
+        'onboardingpage': Onboarding,
         'hello-metamask': HelloMetamask
     },
     data() {
@@ -101,155 +123,141 @@ export default {
             open3: false,
             open4: false,
             open5: false,
-            close1: false,
-            close2: false,
-            close3: false,
-            close4: false,
-            close5: false
+            open6: false,
+            close1: true,
+            close2: true,
+            close3: true,
+            close4: true,
+            close5: true,
+            close6: true
             }
         },
     methods: {
         openArtists: function() {
             if (this.open1 === false) {
-                this.open1 = !this.open1;
-                this.close1 = false;
-                console.log('About is ' + this.open1);
-                // CLOSING OTHER PAGES
-                this.open2 = false;
-                this.close2 = false;
-                this.open3 = false;
-                this.close3 = false;
-                this.open4 = false;
-                this.close4 = false;
-                this.open5 = false;
-                this.close5 = false;
+              this.close1 = false;
+              setTimeout(() => {
+                this.open1 = true;
+              }, 200);
             } else {
-                this.close1 = !this.close1;
-                this.open1 = !this.open1;
-                console.log('Artists is already ' + this.open1 + '. And now were closing it ' + this.close1);
-                setTimeout(() => {
-                    this.close1 = !this.close1;
-                    console.log('resetting class - closed is ' + this.close1);
-                    history.pushState(null, null, ' ');
-                }, 400);
+                this.open1 = false;
+                history.pushState(null, null, ' ');
+              setTimeout(() => {
+                this.close1 = true;
+              }, 500);
             }
         },
         openAbout: function() {
             if (this.open2 === false) {
-                this.open2 = !this.open2;
-                this.close2 = false;
-                console.log('About is ' + this.open2);
-                // CLOSING OTHER PAGES
-                this.open1 = false;
-                this.close1 = false;
-                this.open3 = false;
-                this.close3 = false;
-                this.open4 = false;
-                this.close4 = false;
-                this.open5 = false;
-                this.close5 = false;
+              this.close2 = false;
+              setTimeout(() => {
+                this.open2 = true;
+              }, 200);
             } else {
-                this.close2 = !this.close2;
-                this.open2 = !this.open2;
-                console.log('About is already ' + this.open2 + '. And now were closing it ' + this.close2);
-                setTimeout(() => {
-                    this.close2 = !this.close2;
-                    console.log('resetting class - closed is ' + this.close2);
-                    history.pushState(null, null, ' ');
-                }, 400);
+                this.open2 = false;
+                history.pushState(null, null, ' ');
+              setTimeout(() => {
+                this.close2 = true;
+              }, 500);
+            }
+        },
+        openOnboarding: function() {
+            if (this.open3 === false) {
+              this.close3 = false;
+              setTimeout(() => {
+                this.open3 = true;
+              }, 200);
+            } else {
+                this.open3 = false;
+                history.pushState(null, null, ' ');
+              setTimeout(() => {
+                this.close3 = true;
+              }, 500);
             }
         },
         openBlockchain: function() {
-            if (this.open3 === false) {
-                this.open3 = !this.open3;
-                this.close3 = false;
-                console.log('Blockchain is ' + this.open3);
-                // CLOSING OTHER PAGES
-                this.open1 = false;
-                this.close1 = false;
-                this.open2 = false;
-                this.close2 = false;
-                this.open4 = false;
-                this.close4 = false;
-                this.open5 = false;
-                this.close5 = false;
+            if (this.open4 === false) {
+              this.close4 = false;
+              setTimeout(() => {
+                this.open4 = true;
+              }, 200);
             } else {
-                this.close3 = !this.close3;
-                this.open3 = !this.open3;
-                console.log('Blockchain is already ' + this.open3 + '. And now were closing it ' + this.close3);
-                setTimeout(() => {
-                    this.close3 = !this.close3;
-                    console.log('resetting class - closed is ' + this.close3);
-                    history.pushState(null, null, ' ');
-                }, 400);
+                this.open4 = false;
+                history.pushState(null, null, ' ');
+              setTimeout(() => {
+                this.close4 = true;
+              }, 500);
             }
         },
         openContact: function() {
-            if (this.open4 === false) {
-                this.open4 = !this.open4;
-                this.close4 = false;
-                console.log('Contact is ' + this.open4);
-                // CLOSING OTHER PAGES
-                this.open1 = false;
-                this.close1 = false;
-                this.open2 = false;
-                this.close2 = false;
-                this.open3 = false;
-                this.close3 = false;
-                this.open5 = false;
-                this.close5 = false;
+          if (this.open5 === false) {
+              this.close5 = false;
+              setTimeout(() => {
+                this.open5 = true;
+              }, 200);
             } else {
-                this.close4 = !this.close4;
-                this.open4 = !this.open4;
-                console.log('Contact is already ' + this.open4 + '. And now were closing it ' + this.close4);
-                setTimeout(() => {
-                    this.close4 = !this.close4;
-                    console.log('resetting class - closed is ' + this.close4);
-                    history.pushState(null, null, ' ');
-                }, 400);
+                this.open5 = false;
+                history.pushState(null, null, ' ');
+              setTimeout(() => {
+                this.close5 = true;
+              }, 500);
             }
         },
       openSubmit: function() {
-            if (this.open5 === false) {
-                this.open5 = !this.open5;
-                this.close5 = false;
-                console.log('Submit is ' + this.open5);
-                // CLOSING OTHER PAGES
-                this.open1 = false;
-                this.close1 = false;
-                this.open2 = false;
-                this.close2 = false;
-                this.open3 = false;
-                this.close3 = false;
-                this.open4 = false;
-                this.close4 = false;
+            if (this.open6 === false) {
+              this.close6 = false;
+              setTimeout(() => {
+                this.open6 = true;
+              }, 200);
             } else {
-                this.close5 = !this.close5;
-                this.open5 = !this.open5;
-                console.log('Submit is already ' + this.open5 + '. And now were closing it ' + this.close5);
-                setTimeout(() => {
-                    this.close5 = !this.close5;
-                    console.log('resetting class - closed is ' + this.close5);
-                    history.pushState(null, null, ' ');
-                }, 400);
+                this.open6 = false;
+                history.pushState(null, null, ' ');
+              setTimeout(() => {
+                this.close6 = true;
+              }, 500);
             }
         },
-      closeall: function() {
-        this.open1 = false;
-        this.open2 = false;
-        this.open3 = false;
-        this.open4 = false;
-        this.open5 = false;
-        this.open6 = false;
-        this.open7 = false;
-        this.close1 = false;
-        this.close2 = false;
-        this.close3 = false;
-        this.close4 = false;
-        this.close5 = false;
-        this.close6 = false;
-        this.close7 = false;
-      }
+      closeothers: function() {
+        if (this.open1 === true) {
+          this.open1 = false;
+                history.pushState(null, null, ' ');
+              setTimeout(() => {
+                this.close1 = true;
+              }, 500);
+        } else if (this.open2 === true) {
+          this.open2 = false;
+                history.pushState(null, null, ' ');
+              setTimeout(() => {
+                this.close2 = true;
+              }, 500);
+        } else if (this.open3 === true) {
+          this.open3 = false;
+                history.pushState(null, null, ' ');
+              setTimeout(() => {
+                this.close3 = true;
+              }, 500);
+        } else if (this.open4 === true) {
+          this.open4 = false;
+                history.pushState(null, null, ' ');
+              setTimeout(() => {
+                this.close4 = true;
+              }, 500);
+        } else if (this.open5 === true) {
+          this.open5 = false;
+                history.pushState(null, null, ' ');
+              setTimeout(() => {
+                this.close5 = true;
+              }, 500);
+        } else if (this.open6 === true) {
+          this.open6 = false;
+                history.pushState(null, null, ' ');
+              setTimeout(() => {
+                this.close6 = true;
+              }, 500);
+        } else {
+          console.log('all done');
+        }
+    }
     }
 }
 </script>
@@ -315,45 +323,26 @@ a:link {
   text-decoration: none;
 }
 
-// CLOSE BTN
-.close {
-    position:relative;
-    z-index:1;
-  text-align: center;
-  margin: 20px;
-  padding: 0;
-  width: 100%;
-  height: 40px;
-  opacity:0;
-  animation: fadeIn 0.6s ease-out forwards;
-  animation-delay: 0.5s;
+
+
+// THE PAGES
+
+.artistPage, .blockchainPage, .contactPage, .submitPage, .howitworksPage, .onboardingPage {
+  display: inherit;
+  transition: 200ms;
+  transition-timing-function: ease;
+  position: relative;
+  top: 0;
+  left: -100%;
+  &.open {
+    left: 0;
+  transition-duration: 500ms;
+  transition-timing-function: ease;
+  }
+  &.dontshow {
+    display: none;
+  }
 }
 
-@keyframes fadeIn {
-    from {opacity:0;}
-    to {opacity:1;}
-}
 
-.closeBTN {
-    position:fixed;
-    top:87%;
-    left:44%;
-  margin: 12px 0 0 0;
-  padding: 0 0 0 0;
-  font-family:'Comfortaa', cursive;
-  font-size:0.8em;
-  height: 45px;
-  width:150px;
-  outline:none;
-  background:none;
-  border-radius:6px;
-  border-style: solid;
-  box-sizing: border-box;
-  // background: -webkit-linear-gradient(#68F09E, #00AA56);
-  color: white;
-}
-.closeBTN:hover {
-  background-color: rgba(255,255,255, 0.9);
-  color: black;
-}
 </style>
