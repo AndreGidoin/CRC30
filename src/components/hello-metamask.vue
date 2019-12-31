@@ -38,10 +38,10 @@ export default {
 .metamask-info {
   font-family: 'Space Mono', monospace;
   color: #999999;
-  font-size: 10px;
+  font-size: 8px;
   margin: auto;
   text-align: center;
-  line-height:0.8;
+  line-height:1.2;
   position: absolute;
   bottom: 0;
   left: 1px;

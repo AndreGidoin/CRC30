@@ -63,6 +63,7 @@ export default {
 
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css?family=Comfortaa|Libre+Baskerville|Space+Mono&display=swap');
+@import "../components/styles/menustyle.scss";
 
 .pageContainer {
   font-family: 'Comfortaa', arial, sans-serif;

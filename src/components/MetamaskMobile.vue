@@ -1,7 +1,7 @@
 <template>
     <div class="metamask-info">
         <p v-if="isInjected" id="has-metamask" class="textposition">You are connected to the <b>{{ network }}</b> Ethereum Blockchain</p>
-        <p v-else id="no-metamask" class="textposition"> Metamask not found. <a href="https://metamask.io/" target="_blank">Please install to fully experience the website.</a> </p>
+        <p v-else id="no-metamask" class="textposition"> Connection to blockchain not found. <a href="https://wallet.coinbase.com/" target="_blank">Please install Coninbase Wallet App</a> or <a href="https://metamask.io" target="_blank">MetaMask to fully experience the website.</a> </p>
 
         <!-- 
           <p>Account: {{ coinbase }}</p>
@@ -36,10 +36,10 @@ export default {
 .metamask-info {
   font-family: 'Space Mono', monospace;
   color: #999999;
-  font-size: 10px;
+  font-size: 8px;
   margin: auto;
   text-align: center;
-  line-height:0.8;
+  line-height:1;
   height:auto;
 }
 .metamask-info a {
