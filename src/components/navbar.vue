@@ -331,9 +331,10 @@ a:link {
   display: inherit;
   transition: 200ms;
   transition-timing-function: ease;
-  position: relative;
+  position: fixed;
   top: 0;
   left: -100%;
+  z-index:97;
   &.open {
     left: 0;
   transition-duration: 500ms;
