@@ -116,6 +116,11 @@ export default {
         'onboardingpage': Onboarding,
         'hello-metamask': HelloMetamask
     },
+    mounted() {
+      setTimeout(() => {
+        this.detectWeb3();
+              }, 1500);
+    },
     data() {
         return {
             open1: false,
@@ -129,7 +134,8 @@ export default {
             close3: true,
             close4: true,
             close5: true,
-            close6: true
+            close6: true,
+            NoMetaMask: false
             }
         },
     methods: {
@@ -257,8 +263,20 @@ export default {
         } else {
           console.log('all done');
         }
+    },
+    detectWeb3: function() {
+      if (window.ethereum.selectedAddress === null) {
+                this.NoMetaMask = false;
+                this.open3 = true;
+                this.close3 = false;
+            } else {
+                this.NoMetaMask = true;
+                this.open3 = false;
+                this.close3 = true;
+            
+            }
     }
-    }
+  }
 }
 </script>
 

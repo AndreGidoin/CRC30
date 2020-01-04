@@ -76,4 +76,16 @@ p {
     margin-top: 5px;
 }
 
+
+a {
+  color: #FFB000;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+
 </style>

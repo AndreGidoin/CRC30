@@ -87,7 +87,7 @@ export default {
                 description: 'I have a right to live with a family who cares for me.',
                 first: 'Hanne',
                 last: 'Berkaak',
-                bio: 'BIO OR DESCRIPTION HERE',
+                bio: 'TBD',
                 link: 'http://hanne-berkaak.squarespace.com/',
                 imgURL: 'https://gateway.pinata.cloud/ipfs/QmbuUkaXvKAD6S2DpfXmHoWGFDxmV4wBRH9qyjwE35gikL',
                 },

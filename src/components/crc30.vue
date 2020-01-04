@@ -614,8 +614,6 @@ h4 {
   margin-left: 50%;
   transform: translateX(-50%);
 }
-#IPFSImage1 {
-}
 
 
 .currentOwner {

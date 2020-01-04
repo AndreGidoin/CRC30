@@ -16,9 +16,11 @@
 
     <div class="allCards" v-bind:class="{ 'nobackground': loader}" v-if="isInjected">
         <component 
+        v-on:click.native="centerContent(component.name)"
         v-for="component in ArticleComponents" 
         v-bind:is="component.name" 
         v-bind:key="component.id" 
+        v-bind:id="component.name"
         v-on:current-worthtwo="article2value = $event" 
         v-on:current-worthfive="article5value = $event" 
         v-on:current-worthsix="article6value = $event" 
@@ -52,6 +54,7 @@
 
         class="cards"
         v-bind:class="{ 'fade-in': loader}"
+        
         />
     </div>
     <div class="allCards nobackground" v-else> 
@@ -72,13 +75,7 @@
         <p class="morebelow"><i class="arrow down"></i></p>
     </div>
 
-    <!-- SYSTEM INFO - METAMASK and WEB3 -->
-    <div v-if="NoMetaMask === false" class="check">            
-        <div class="stepOne">
-        <a href="http://www.metamask.io" target="_blank"><img src="../assets/Onboarding-1.jpg"></a>
-         <br><button class="closeOnboarding" @click="NoMetaMask = true">Close</button>
-        </div>
-    </div>
+    
 
 </div>
 
@@ -137,7 +134,6 @@ export default {
         this.$store.dispatch('registerWeb3')
     },
     mounted() {
-    setTimeout(this.checkMetaMask, 500);
     setTimeout(this.setValue, 1300);
     setTimeout(this.setName, 1400);
     setTimeout(this.setLoader, 1100);
@@ -145,7 +141,6 @@ export default {
     data() {
         return{
             loader: false,
-            NoMetaMask: false,
             article2value: null,
             article3value: null,
             article4value: null,
@@ -379,19 +374,7 @@ export default {
         'article37offline': article37offline
     },
     methods: {
-        checkMetaMask: function() {
-            if (window.ethereum.selectedAddress === null) {
-                this.NoMetaMask = false;
-                console.log("checkMetaMask is false");
-                console.log("check" + ' ' + window.ethereum.selectedAddress)
-                // setTimeout(this.checkMetaMask, 1000);
-            } else {
-                this.NoMetaMask = true;
-                console.log("checkMetaMask is true");
-                console.log("check" + ' ' + window.ethereum.selectedAddress)
-            
-            }
-        },
+        
         sortNumber: function() {
             console.log(this.ArticleComponents.sort(this.compareArticleNumber) + ' ' + 'sort by number');
         },
@@ -465,6 +448,11 @@ export default {
         },
         setLoader: function() {
             this.loader = true;
+        },
+        centerContent: function(n) {
+            const element = document.getElementById(n);
+            element.scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
+            console.log('we scrolling to ' + n)
         }
     }
 }
@@ -513,14 +501,13 @@ export default {
         padding-right: 150px;
         margin-left: 15px;
     }
+    @media only screen and (min-width: 780px) {
+            padding-left:80px;
+        }
 
 }
 
-.MetaMask {
-    position: absolute;
-    bottom: 5px;
-    right: 0;
-}
+
 .check{
   height: 100vh;
   width: 100vw;
