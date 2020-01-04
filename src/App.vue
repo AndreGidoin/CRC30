@@ -90,7 +90,7 @@ export default {
 <style lang="scss" >
 
 h1 {
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Comfortaa', arial, sans-serif;
     margin: auto;
     padding: auto;
 }

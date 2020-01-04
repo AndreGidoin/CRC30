@@ -5,8 +5,8 @@
 
           <!-- CHOOSE CONNECTION METHOD -->
           <div class="connectionMethod">
-          <div class="walletlink" v-bind:class="{ 'active' : connect }" @click="connectionMetaMask(), revert()"><img src="../assets/Onboarding/Desktop/Metamask_logo.png"><p>Connect with MetaMask</p></div>
-          <div class="walletlink" v-bind:class="{ 'active' : !connect }" @click="connectionWalletLink"><img src="../assets/Onboarding/Mobile/CoinbaseWallet_Logo.png"><p>Connect with Wallet Link</p></div>
+          <div class="walletType" v-bind:class="{ 'active' : connect }" @click="connectionMetaMask(), revert()"><img src="../assets/Onboarding/Desktop/Metamask_logo.png"><p>Connect with MetaMask</p></div>
+          <div class="walletType" v-bind:class="{ 'active' : !connect }" @click="connectionWalletLink"><img src="../assets/Onboarding/Mobile/CoinbaseWallet_Logo.png"><p>Connect with Wallet Link</p></div>
           </div>
       <div class="spacer"></div>
 
@@ -37,12 +37,14 @@
           <!-- SLIDER PAGE 2 -->
           <div class="mySlides fade">
             <div class="slideImages">
-              new info here
+              <img src="../assets/Onboarding/Desktop/Desktop_Step2.png">
                </div>
 
             <div class="slideText">
-              <h2>1. Install MetaMask, a browser extension</h2>
-              <p>To use this Decentralized Application (DApp) you need a digital wallet like MetaMask. The MetaMask browser extension allows you to interact with and DApp on the Ethereum blockchain direcly in your browser.</p>
+              <h2>2. Create a Wallet (no credit card information required)</h2>
+              <p>
+                Once you've installed MetaMask you'll be asked to create a wallet which will act as your account to interact with and explore and DApp on the Ethereum Blockchain. Chose a safe password and write down the secret backup phrase should you need to recover your accuont. The extension is accessible from the top right of your browser window, just click the orange fox icon to get started.
+                </p>
            
               </div>
           </div>
@@ -50,38 +52,40 @@
           <!-- SLIDER PAGE 3 -->
           <div class="mySlides fade">
             <div class="slideImages">
-              page 3
+              <img src="../assets/Onboarding/Desktop/Desktop_Step3.png">
                </div>
 
             <div class="slideText">
-              <h2>1. Install MetaMask, a browser extension</h2>
-              <p>To use this Decentralized Application (DApp) you need a digital wallet like MetaMask. The MetaMask browser extension allows you to interact with and DApp on the Ethereum blockchain direcly in your browser.</p>
-           
+              <h2>3. Connect to the Adopt-The-CRC DApp</h2>
+              <p>
+                When you are logged into MetaMask you will get a pop-up prompt to connect the DApp to your wallet account. Once accepted, the website is fully operational and ready for use. Make sure you're connected to the Main Ethereum Network which is seen on the dropdown menu on the top of the browser plugin.
+                </p>
               </div>
           </div>
 
           <!-- SLIDER PAGE 4 -->
           <div class="mySlides fade">
             <div class="slideImages">
-              page 4
+              <img src="../assets/Onboarding/Desktop/Desktop_Step4.png">
                </div>
 
             <div class="slideText">
-              <h2>1. Install MetaMask, a browser extension</h2>
-              <p>To use this Decentralized Application (DApp) you need a digital wallet like MetaMask. The MetaMask browser extension allows you to interact with and DApp on the Ethereum blockchain direcly in your browser.</p>
-           
+              <h2>4. No ether needed to view the site</h2>
+              <p>
+                Your digital wallet doesn't have to contain any ether to acces the site. But if you want to adopt an article and donate to the fundraiser you will have to buy some ether for your wallet. <a href="https://www.coinbase.com/buy-ethereum" target="_blank">Click to find out how to do that.</a>
+                </p>
               </div>
           </div>
 
           
 
           <!-- Next and previous buttons -->
-          <a class="prev" @click="plusSlides(-1)"><img src="../assets/Onboarding/Desktop/Left_Arrow.png"></a>
-          <a class="next" @click="plusSlides(1)"><img src="../assets/Onboarding/Desktop/Right_Arrow.png"></a>
+          <a class="prev" @click="plusSlides(-1)" v-if="!page1"><img src="../assets/Onboarding/Desktop/Left_Arrow.png"></a>
+          <a class="next" @click="plusSlides(1)" v-if="!page4"><img src="../assets/Onboarding/Desktop/Right_Arrow.png"></a>
 
-          <div style="text-align:center">
+          <div class="pageNumber">
              <img v-if="page1" src="../assets/Onboarding/Desktop/1_green.png" class="dot"/>
-             <img v-if="!page1" src="../assets/Onboarding/Desktop/2_white.png" class="dot active" @click="currentSlide(1)"/>
+             <img v-if="!page1" src="../assets/Onboarding/Desktop/1_white.png" class="dot active" @click="currentSlide(1)"/>
 
              <img v-if="page2" src="../assets/Onboarding/Desktop/2_green.png" class="dot"/>
              <img v-if="!page2" src="../assets/Onboarding/Desktop/2_white.png" class="dot active" @click="currentSlide(2)"/>
@@ -102,7 +106,9 @@
 
         <!-- WALLET LINK CONTAINER -->  
         <div v-if="!connect" class="sliderContainer desktop">
-          wallet link
+          <div class="sliderInfo walletlink">
+            <h1>Wallet Link integration coming soon...</h1>
+            </div>
         </div>
       </div>
       <close class="makeLink"  v-on:click.native="pageSwitch"/>
@@ -277,7 +283,7 @@ p {
 
 
 // ONBOARDING STYLES
-.walletlink {
+.walletType {
   position: relative;
   margin: 0 20px 0 20px;
   padding:12px 0 0 0;
@@ -329,7 +335,7 @@ a {
   width: 70vw;
   min-width: 500px;
   max-width: 1000px;
-  min-height: 400px;
+  min-height: 464px;
   height: auto;
   background-color: white;
   border-radius: 15px;
@@ -416,6 +422,13 @@ a {
   h2 {
     font-size: 1em;
   }
+  a {
+    text-decoration: underline;
+    color: #FFB000;
+  }
+  a:hover {
+    color: black;
+  }
 
 }
 
@@ -428,5 +441,24 @@ a {
     cursor: pointer;
     }
 }
+.pageNumber {
+  text-align: center;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
 
+
+// WALLET LINK STYLES
+
+.walletlink {
+  height: 440px;
+  vertical-align: middle;
+  margin: auto;
+  padding: auto;
+  h1 {
+    height: 100%;
+    line-height: 440px;
+  }
+}
 </style>

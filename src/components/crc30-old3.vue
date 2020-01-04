@@ -570,7 +570,7 @@ ul {
     margin-top: 15px;
     width: 130px;
     font-size: 0.5em;
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Comfortaa', arial, sans-serif;
     text-align: center;
     padding: auto;
     height: auto;

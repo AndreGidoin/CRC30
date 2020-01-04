@@ -52,7 +52,7 @@ export default {
 <style lang="scss">
 
 h1 {
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Comfortaa', arial, sans-serif;
     margin: auto;
     padding: auto;
 }
@@ -131,7 +131,7 @@ b {
     font-size: 1em;
   }
   .subhead {
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Comfortaa', arial, sans-serif;
     font-size: 0.4em;
   }
   .infoContainer {

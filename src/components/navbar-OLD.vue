@@ -296,7 +296,7 @@ export default {
 }
 .NavBarContainer a {
   color: #000000;
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Comfortaa', arial, sans-serif;
   font-size: 0.5em;
   text-decoration: none;
   

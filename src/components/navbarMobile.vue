@@ -317,7 +317,7 @@ ul li {
   padding: 0;
   font-size:7px;
   color:black;
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Comfortaa', arial, sans-serif;
 }
 .MetaMask {
   margin: auto;

@@ -22,7 +22,7 @@ export default {
     margin: auto;
     margin-top:85px;
     color: #3d3d3d;
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Comfortaa', arial, sans-serif;
     display: none;
     text-align: center;
 }

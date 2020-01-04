@@ -89,6 +89,7 @@ export default {
 
 p {
   font-size: 0.8em;
+  line-height: 1.5em;
 }
 
 .arrowcontainer {

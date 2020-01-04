@@ -59,7 +59,7 @@ props: {
 
 
 .submitContainer {
-font-family: 'Comfortaa', cursive;
+font-family: 'Comfortaa', arial, sans-serif;
   font-size: 1em;
   color: #3F3F3F;
   height: 100%;

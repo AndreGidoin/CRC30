@@ -517,7 +517,7 @@ export default {
   text-align: center;
   width: auto;
   position: relative;
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Comfortaa', arial, sans-serif;
   font-size: 1em;
   color: #3F3F3F;
 }

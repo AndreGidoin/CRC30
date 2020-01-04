@@ -49,7 +49,7 @@ props: {
 @import url('https://fonts.googleapis.com/css?family=Comfortaa|Libre+Baskerville|Space+Mono&display=swap');
 
 .blockchainContainer {
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Comfortaa', arial, sans-serif;
   font-size: 1em;
   color: #3F3F3F;
   height: 100%;
