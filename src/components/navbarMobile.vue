@@ -15,7 +15,7 @@
   </div></a></li>
 
   <!-- ONBOARDING ITEM -->
-  <li class="MenuItems"><a href="#"><div class="clickbox"  @click="openOnboarding(); closeothers()"><img src="../assets/menu/Menu_Icons_onboarding.png"><p>Onboarding instructions</p>
+  <li class="MenuItems"><a href="#"><div class="clickbox"  @click="openOnboarding(); closeothers()"><img src="../assets/menu/Menu_Icons_onboarding.png"><p>How to connect</p>
   </div></a></li>
 
   <!-- BLOCKCHAIN ITEM -->

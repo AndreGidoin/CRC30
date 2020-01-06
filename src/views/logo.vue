@@ -26,7 +26,7 @@ export default {
     font-family: 'Comfortaa', arial, sans-serif;
     display: grid;
     grid-gap: 0 20px;
-    grid-template-columns: 80px 600px;
+    grid-template-columns: 80px 620px;
     grid-template-rows:  25px 44px 100px;
     padding: 0;
     justify-content: center;

@@ -410,7 +410,7 @@ b {
     clip-path: polygon(0% 4%, 2% 0%, 98% 0%, 100% 4%, 100% 96%, 98% 100%, 2% 100%, 0 96%);
   }
   .whiteTextBlock h1 {
-  font-size: 1em;
+  font-size: 0.9em;
   }
   .thevideos {
   width: 100%;

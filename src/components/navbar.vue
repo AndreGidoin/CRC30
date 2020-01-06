@@ -15,11 +15,11 @@
   </div></a></li>
 
   <!-- ONBOARDING ITEM -->
-  <li class="MenuItems"><a href="#"><div class="clickbox"  @click="openOnboarding(); closeothers()"><img src="../assets/menu/Menu_Icons_onboarding.png"><p>Onboarding instructions</p>
+  <li class="MenuItems"><a href="#"><div class="clickbox"  @click="openOnboarding(); closeothers()"><img src="../assets/menu/Menu_Icons_onboarding.png"><p>How to connect</p>
   </div></a></li>
 
   <!-- BLOCKCHAIN ITEM -->
-  <li class="MenuItems"><a href="#"><div class="clickbox" @click="openBlockchain(); closeothers()"><img src="../assets/menu/Menu_Icons_blockchain.png"><p>Why<br />Blockchain?</p>
+  <li class="MenuItems"><a href="#"><div class="clickbox" @click="openBlockchain(); closeothers()"><img src="../assets/menu/Menu_Icons_blockchain.png"><p>Why Blockchain?</p>
   </div></a></li>
 
   <!-- CONTACT ITEM -->
@@ -301,12 +301,12 @@ export default {
   border-color: black;
   border-style: solid;
   border-width: 0px 0px 1px 0px;
-  height:90px;
+  height:75px;
   box-sizing: border-box;
 }
 .MenuItems img {
   display: inline-block;
-  width: 40px;
+  width: 35px;
   height: auto;
 }
 ul li {
@@ -318,10 +318,10 @@ ul li {
   text-align: center;
 }
 .clickbox {
-  padding-top:19px;
+  padding-top:12px;
   padding-bottom:10px;
   box-sizing: border-box;
-  height:90px;
+  height:80px;
   &:hover {
     background-color: rgb(222, 227, 177);
     background: -webkit-linear-gradient(-250deg, #f2b719, #ffdd46);
@@ -330,7 +330,7 @@ ul li {
 .clickbox p {
   margin: 0;
   padding: 0;
-  font-size:8px;
+  font-size:7px;
   color:black;
     font-family: 'Comfortaa', arial, sans-serif;
 }
