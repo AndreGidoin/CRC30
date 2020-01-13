@@ -52,7 +52,7 @@
 
 <!-- ONBOARDING PAGE -->
 <div class="onboardingPage" v-if="!close3" v-bind:class="{ 'open': open3}">
-<onboardingpage 
+<onboardingpageMobile 
   v-on:onboardingSwitch="open3 = $event"
   v-on:onboardingSwitchB="close3 = $event"
  />
@@ -92,7 +92,7 @@ import About from '@/views/About.vue'
 import Contact from '@/views/Contact.vue'
 import Blockchain from '@/views/Blockchain.vue'
 import Submit from '@/views/Submit.vue'
-import Onboarding from '@/views/Onboarding.vue'
+import OnboardingMobile from '@/views/OnboardingMobile.vue'
 import MetamaskMobile from '@/components/MetamaskMobile.vue'
 
 
@@ -105,7 +105,7 @@ export default {
         'contactpage': Contact,
         'blockchainpage': Blockchain,
         'submitpage': Submit,
-        'onboardingpage': Onboarding,
+        'onboardingpageMobile': OnboardingMobile,
         'MetamaskMobile': MetamaskMobile
     },
     data() {

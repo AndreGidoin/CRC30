@@ -41,6 +41,9 @@ export default {
   }
   .subhead {
     font-size: 9.6px;
+    h2 {
+      padding-top: 8px;
+    }
   }
   .headlineImage {
     text-align:right;

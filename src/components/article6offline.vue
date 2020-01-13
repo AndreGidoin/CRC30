@@ -130,7 +130,6 @@ import { setTimeout } from "timers";
 export default {
   name: "articl6offline",
   mounted() {
-    this.imageCarousel()
   },
   data() {
     return {

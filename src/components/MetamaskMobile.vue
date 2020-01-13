@@ -36,7 +36,7 @@ export default {
 .metamask-info {
   font-family: 'Space Mono', monospace;
   color: #999999;
-  font-size: 8px;
+  font-size: 7.5px;
   margin: auto;
   text-align: center;
   line-height:1;
@@ -49,5 +49,6 @@ export default {
   width: 100vw;
   margin: auto;
   text-align: center;
+  padding: 0 10px;
 }
 </style>

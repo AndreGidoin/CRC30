@@ -59,6 +59,7 @@ h2 {
     text-align: left;
     filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.06));
     transition: ease-out 300ms, width 1s, height 1s;
+    position: relative;
     &:hover {
       filter: drop-shadow(14px 14px 10px rgba(0, 0, 0, 0.08));
     }
