@@ -11,7 +11,7 @@
   </div></a></li> 
   
   <!-- HOW IT WORKS ITEM -->
-  <li class="MenuItems"><a href="#"><div class="clickbox"  @click="openAbout(); closeothers()"><img src="../assets/menu/Menu_Icons_howitworks.png"><p>How It Works</p>
+  <li class="MenuItems"><a href="#"><div class="clickbox"  @click="openAbout(); closeothers()"><img src="../assets/menu/Menu_Icons_howitworks.png"><p>About</p>
   </div></a></li>
 
   <!-- ONBOARDING ITEM -->
