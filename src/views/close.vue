@@ -23,7 +23,8 @@ export default {
   padding: 0 0 0 0;
   height: 45px;
   width:150px;
-  background: -webkit-linear-gradient(250deg, #fff9de, #b3e9ff);
+  // background: -webkit-linear-gradient(250deg, #fff9de, #b3e9ff);
+  background-color: #89ffb2;
   border-radius:6px;
   transition: 200ms;
 }

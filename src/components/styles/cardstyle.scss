@@ -338,7 +338,9 @@ h2 {
     border-radius:6px;
     border-style: none;
     box-sizing: border-box;
-    background: -webkit-linear-gradient(#68F09E, #00AA56);
+    // background: -webkit-linear-gradient(#68F09E, #00AA56) ;
+    background: -webkit-linear-gradient(#68F09E, #89ffb2) ;
+    //background-color: #89ffb2;
     color: white;
     transition: ease-in 300ms;
     cursor: pointer;
@@ -374,7 +376,7 @@ h2 {
   
   // LINKS
   a {
-    color: #FFB000;
+    color: #89ffb2;
   }
   a:hover {
     color: black;

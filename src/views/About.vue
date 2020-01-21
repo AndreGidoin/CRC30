@@ -160,8 +160,8 @@ p {
 	height: 0px; width: 0px;
 	border: 8px solid;
 	border-color: 
-		#3F3F3F
-		#3F3F3F
+		#89ffb2
+		#89ffb2
 		transparent
 		transparent;
 	transform: rotate(225deg); 
@@ -173,7 +173,7 @@ p {
 	top: 0px; right: 0px;
 	display: block;
 	height: 6px; width: 16px;
-	background-color: #3F3F3F;
+	background-color: #89ffb2;
 	transform: 
 		rotate(-45deg) 
 		translate(2px, 4px);
@@ -217,7 +217,7 @@ p {
 }
 .howtoSubhead {
   font-weight: bold;
-  color: #2AACE0;
+  color: #0367ea;
   margin-top: 25px;
 }
 .howtovideo{

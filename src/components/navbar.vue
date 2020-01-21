@@ -303,6 +303,9 @@ export default {
   border-width: 0px 0px 1px 0px;
   height:75px;
   box-sizing: border-box;
+  &:hover {
+    background-color:#89ffb2;
+  }
 }
 .MenuItems img {
   display: inline-block;
@@ -322,10 +325,6 @@ ul li {
   padding-bottom:10px;
   box-sizing: border-box;
   height:80px;
-  &:hover {
-    background-color: rgb(222, 227, 177);
-    background: -webkit-linear-gradient(-250deg, #f2b719, #ffdd46);
-  }
 }
 .clickbox p {
   margin: 0;

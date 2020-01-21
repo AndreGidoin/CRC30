@@ -583,7 +583,7 @@ li a {
 }
 
 li:hover {
-    background: #F6D6F2;
+    background: #89ffb2;
     cursor: pointer;
     color: white;
 }

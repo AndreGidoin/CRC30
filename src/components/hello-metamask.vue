@@ -30,7 +30,7 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Comfortaa|Libre+Baskerville|Space+Mono&display=swap');
 
 #has-metamask {
-  color: green;
+  color:#89ffb2;
 }
 #no-metamask {
   color:red;
@@ -54,7 +54,7 @@ export default {
   height: 10px;
   width: 10px;
   border-radius: 50%;
-  background-color: green;
+  background-color:#89ffb2;
   text-align: center;
   margin: auto;
   padding: 0;

@@ -78,7 +78,7 @@ p {
 
 
 a {
-  color: #FFB000;
+  color: #89ffb2;
   text-decoration: underline;
 }
 
