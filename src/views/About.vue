@@ -43,7 +43,7 @@
           Once you’ve adopted an article, you’ll permanently be listed as a donor and adopter of the CRC. 
           </p>
         <p>
-          <b>We’re currently working on the functionality, which lets people order printed copies of the artwork. Every person who’s adopted an article will be able to order one copy for free.</b>
+          <b>We’re currently working on the functionality, which lets people order printed copies of the artwork. Every person who’s adopted an article for more than 0.9 ether will be able to order one copy for free.</b>
           </p>
             <p class="howtoHeadline nextChapter">Here is an explanation about DApps and digital wallets from <a href="https://www.stateofthedapps.com/help/metamask" blank="_blank">State of the DApps</a></p>
             <p class="howtoHeadline">Digital wallets</p>

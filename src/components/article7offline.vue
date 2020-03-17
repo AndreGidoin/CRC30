@@ -48,10 +48,10 @@
           <div class="redeem">
             <h2>This article is illustrated by: <br /> {{artistName}}</h2>
             <p>
-              Adopt this article and order a free physical copy of the art piece. Stay loge in with the same wallet you used to adopt this article and this button will take you to the order site.
+              Adopt this article for over 1 ether and get a free physical copy of the art piece shipped to you. Stay logged in with the same wallet you used to adopt this article and this button will take you to the order site.
             </p>
             <button class="Button-Inactive Success">
-            Adopt first, then click for a free print
+            Adopt for over 0.9 ether, <br> then click to redeem a free print
             </button>
             </div>
         <span class="dot"></span>
@@ -130,14 +130,13 @@
 import { setTimeout } from "timers";
 
 export default {
-  name: "articl6offline",
+  name: "articl7offline",
   mounted() {
-    this.imageCarousel()
   },
   data() {
     return {
-      number: 6,
-      textnumber: 'six',
+      number: 7,
+      textnumber: 'seven',
       ArticleName: ' I have a right to a name and to belong to a country.',
       ArticleContent: "The child shall be registered immediately after birth and shall have the right from birth to a name, the right to acquire a nationality and as far as possible, the right to know and be cared for by his or her parents... ",
       artistName:'Emil Karlsson',

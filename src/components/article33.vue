@@ -47,7 +47,7 @@
         <span class="dot"></span>
         <!-- The artist who created the artwork for the article -->
           <div class="redeem">
-            <h2>This article is illustrated by {{artistName}}</h2>
+            <h2>This article is illustrated by <br>{{artistName}}</h2>
             <p>
               Adopt this article for over 1 ether and get a free physical copy of the art piece shipped to you. Stay logged in with the same wallet you used to adopt this article and this button will take you to the order site.
             </p>
@@ -141,12 +141,12 @@ import { setTimeout } from "timers";
 import {mapState} from 'vuex'
 
 export default {
-  name: "article8",
+  name: "article33",
   computed: mapState({
     isInjected: state => state.web3.isInjected,
   }),
   mounted() {
-    this.$store.dispatch("getArticle8Instance");
+    this.$store.dispatch("getArticle33Instance");
     setTimeout(this.ipfsNewEvent, 100);
     setTimeout(this.ArticleName, 100);
     setTimeout(this.crcArticleNumber, 100);
@@ -158,10 +158,10 @@ export default {
   },
   data() {
     return {
-      number: 8,
-      textnumber: 'eight',
-      numberID: 'IPFSImage8',
-      ownerHistoryNumber: 'ownerList8',
+      number: 33,
+      textnumber: 'thirtythree',
+      numberID: 'IPFSImage33',
+      ownerHistoryNumber: 'ownerList33',
       amount: null,
       yourName: null,
       pending: false,
@@ -202,7 +202,7 @@ export default {
       console.log(this.yourName, this.amount);
       this.failure = false;
       this.newOwnerEvent = null;
-      this.$store.state.article8Instance().buyCRC(
+      this.$store.state.article33Instance().buyCRC(
         this.yourName,
         {
           gas: 400000,
@@ -219,7 +219,7 @@ export default {
             setTimeout(this.buyButton = true, 2000);
           } else {
             this.pending = true;
-            let newOwner = this.$store.state.article8Instance().newOwner();
+            let newOwner = this.$store.state.article33Instance().newOwner();
             newOwner.watch((err, result) => {
               if (err) {
                 console.log("could not get event newOwner()");
@@ -238,7 +238,7 @@ export default {
     }
     },
     ArticleName(event) {
-      this.$store.state.article8Instance().conventionArticleName(
+      this.$store.state.article33Instance().conventionArticleName(
         {
           gas: 30000,
           from: this.$store.state.web3.coinbase
@@ -246,7 +246,7 @@ export default {
         (error, result) => {
           if (!error) {
             let theArticleName = this.$store.state
-              .article8Instance()
+              .article33Instance()
               .conventionArticleName((err, result) => {
                 if (err) {
                   console.log("cant get the convention name from the smart contract");
@@ -262,7 +262,7 @@ export default {
       );
     },
     crcArticleNumber(event) {
-      this.$store.state.article8Instance().conventionArticleNumber(
+      this.$store.state.article33Instance().conventionArticleNumber(
         {
           gas: 30000,
           from: this.$store.state.web3.coinbase
@@ -270,7 +270,7 @@ export default {
         (error, result) => {
           if (!error) {
             let theArticleNumber = this.$store.state
-              .article8Instance()
+              .article33Instance()
               .conventionArticleNumber((err, result) => {
                 if (err) {
                   console.log("cant get the convention number from the smart contract");
@@ -286,11 +286,11 @@ export default {
       );
     },
     crcArticleContentEvent(event) {
-      this.$store.state.article8Instance().conventionArticleContent(
+      this.$store.state.article33Instance().conventionArticleContent(
         (error, result) => {
           if (!error) {
             let theArticleContent = this.$store.state
-              .article8Instance()
+              .article33Instance()
               .conventionArticleContent((err, result) => {
                 if (err) {
                   console.log("cant get the article content from the smart contract");
@@ -307,7 +307,7 @@ export default {
     },
     currentWorthOfArticle(event) {
       const theCurrentWorth = new Promise((resolve, reject) => {
-        this.$store.state.article8Instance().currentWorth((error, result) => {
+        this.$store.state.article33Instance().currentWorth((error, result) => {
           if (error) {
             console.log("Cant get currentWorth()");
           } else {
@@ -328,7 +328,7 @@ export default {
     // GETTING THE ARTPIECE FROM THE CONTRACT
     ipfsNewEvent(event) {
       const theIPFSHash = new Promise((resolve, reject) => {
-        this.$store.state.article8Instance().ipfsImageHash((error, result) => {
+        this.$store.state.article33Instance().ipfsImageHash((error, result) => {
           if (error) {
             console.log("cant get the IPFS hash from the smart contract");
             reject(new Error("ipfsNewEvent function went wrong"));
@@ -344,7 +344,7 @@ export default {
     },
     ownerCount(event) {
       const promise1 = new Promise((resolve, reject) => {
-        this.$store.state.article8Instance().owners((error, result) => {
+        this.$store.state.article33Instance().owners((error, result) => {
           if (error) {
             reject(new Error("ownerCount function went wrong"));
           } else {
@@ -355,7 +355,7 @@ export default {
     },
     ownerPromise(event) {
       const _ownerCount = new Promise((resolve, reject) => {
-        this.$store.state.article8Instance().getUsersCount((error, result) => {
+        this.$store.state.article33Instance().getUsersCount((error, result) => {
           if (error) {
             console.log(error);
             reject( new Error('stopping here'))
@@ -370,7 +370,7 @@ export default {
                 let ownerVariable = result;
               for (let i = 0; i < result; i++) {
                   const ownernames = new Promise((resolve, reject) => {
-                      this.$store.state.article8Instance().getUser(i, (error, result) => {
+                      this.$store.state.article33Instance().getUser(i, (error, result) => {
                           if (error) {
                               reject(new Error('for loop stops here'))
                           } else {
@@ -444,7 +444,7 @@ export default {
     },
     getArtistName(event) {
       const theArtistName = new Promise((resolve, reject) => {
-        this.$store.state.article8Instance().artistName((error, result) => {
+        this.$store.state.article33Instance().artistName((error, result) => {
           if (error) {
             console.log("Cant get artistName()");
           } else {

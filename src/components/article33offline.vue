@@ -21,7 +21,7 @@
       <div class="ArtworkShape" v-bind:class="{ 'foldout' : flipped }">
       
       <div class="theArtwork">
-          <img src="https://gateway.pinata.cloud/ipfs/QmbuUkaXvKAD6S2DpfXmHoWGFDxmV4wBRH9qyjwE35gikL"/>
+          <img src="https://gateway.pinata.cloud/ipfs/QmdP14DQ5PLFz5g9cf9ztJnHC8v2WfXiTchzJjiQgvKHSc"/>
       </div>
       <div class="worthInfo">
           <p class="NoOwner smallSize">Please connect to the Ethereum blockchain<br />to see how much this artwork is worth.</p>
@@ -128,16 +128,16 @@
 import { setTimeout } from "timers";
 
 export default {
-  name: "articl9offline",
+  name: "articl33offline",
   mounted() {
   },
   data() {
     return {
-      number: 9,
-      textnumber: 'nine',
-      ArticleName: 'I have a right to live with a family who cares for me.',
-      ArticleContent: "Children must not be separated from their parents against their will unless it is in their best interests (for example, if a parent is hurting or neglecting a child)... ",
-      artistName:'Hanne Berkaak',
+      number: 33,
+      textnumber: 'thirtythree',
+      ArticleName: 'I should be protected from dangerous drugs.',
+      ArticleContent: "Children and young people have a right to be protected from all harmful drugs...",
+      artistName:'Catharina Caprino',
       flipped:false,
       tricked: false,
       visible: false,

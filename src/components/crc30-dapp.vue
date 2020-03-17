@@ -98,10 +98,12 @@ import Article9 from '@/components/article9'
 import Article10 from '@/components/article10'
 import Article12 from '@/components/article12'
 import Article16 from '@/components/article16'
+import Article19 from '@/components/article19'
 import Article24 from '@/components/article24'
 import Article25 from '@/components/article25'
 import Article29 from '@/components/article29'
 import Article31 from '@/components/article31'
+import Article33 from '@/components/article33'
 import Article35 from '@/components/article35'
 import Article37 from '@/components/article37'
 
@@ -114,11 +116,13 @@ import article9offline from '@/components/article9offline'
 import article12offline from '@/components/article12offline'
 import article15offline from '@/components/article15offline'
 import article16offline from '@/components/article16offline'
+import article19offline from '@/components/article19offline'
 import article24offline from '@/components/article24offline'
 import article25offline from '@/components/article25offline'
 import article28offline from '@/components/article28offline'
 import article29offline from '@/components/article29offline'
 import article31offline from '@/components/article31offline'
+import article33offline from '@/components/article33offline'
 import article35offline from '@/components/article35offline'
 import article36offline from '@/components/article36offline'
 import article37offline from '@/components/article37offline'
@@ -152,10 +156,12 @@ export default {
             article10value: null,
             article12value: null,
             article16value: null,
+            article19value: null,
             article24value: null,
             article25value: null,
             article29value: null,
             article31value: null,
+            article33value: null,
             article35value: null,
             article37value: null,
 
@@ -170,10 +176,12 @@ export default {
             artistName10: '',
             artistName12: '',
             artistName16: '',
+            artistName19: '',
             artistName24: '',
             artistName25: '',
             artistName29: '',
             artistName31: '',
+            artistName33: '',
             artistName35: '',
             artistName37: '',
 
@@ -229,6 +237,12 @@ export default {
                     artistName: 'Z',
                     articleNumber: '16'
                 },
+                {       
+                    name: 'article19',
+                    value: '',
+                    artistName: 'Z',
+                    articleNumber: '19'
+                },
                 {
                     name: 'article24',
                     value: '',
@@ -252,6 +266,12 @@ export default {
                     value: '',
                     artistName: 'Z',
                     articleNumber: '31'
+                },
+                {
+                    name: 'article33',
+                    value: '',
+                    artistName: 'Z',
+                    articleNumber: '33'
                 },
                 {
                     name: 'article35',
@@ -296,6 +316,9 @@ export default {
                         name: 'article16offline'
                     },
                     {
+                        name: 'article19offline'
+                    },
+                    {
                         name: 'article24offline'
                     },
                     {
@@ -309,6 +332,9 @@ export default {
                     },
                     {
                         name: 'article31offline'
+                    },
+                    {
+                        name: 'article33offline'
                     },
                     {
                         name: 'article35offline'
@@ -348,10 +374,12 @@ export default {
         'article9': Article9,
         'article12': Article12,
         'article16': Article16,
+        'article19': Article19,
         'article24': Article24,
         'article25': Article25,
         'article29': Article29,
         'article31': Article31,
+        'article33': Article33,
         'article35': Article35,
         'article37': Article37,
 
@@ -364,11 +392,13 @@ export default {
         'article12offline': article12offline,
         'article15offline': article15offline,
         'article16offline': article16offline,
+        'article19offline': article19offline,
         'article24offline': article24offline,
         'article25offline': article25offline,
         'article28offline': article28offline,
         'article29offline': article29offline,
         'article31offline': article31offline,
+        'article33offline': article33offline,
         'article35offline': article35offline,
         'article36offline': article36offline,
         'article37offline': article37offline
@@ -396,12 +426,14 @@ export default {
             console.log(this.ArticleComponents[5].value = (this.article9value));
             console.log(this.ArticleComponents[6].value = (this.article12value));
             console.log(this.ArticleComponents[7].value = (this.article16value));
-            console.log(this.ArticleComponents[8].value = (this.article24value));
-            console.log(this.ArticleComponents[9].value = (this.article25value));
-            console.log(this.ArticleComponents[10].value = (this.article29value));
-            console.log(this.ArticleComponents[11].value = (this.article31value));
-            console.log(this.ArticleComponents[12].value = (this.article35value));
-            console.log(this.ArticleComponents[13].value = (this.article37value));
+            console.log(this.ArticleComponents[8].value = (this.article19value));
+            console.log(this.ArticleComponents[9].value = (this.article24value));
+            console.log(this.ArticleComponents[10].value = (this.article25value));
+            console.log(this.ArticleComponents[11].value = (this.article29value));
+            console.log(this.ArticleComponents[12].value = (this.article31value));
+            console.log(this.ArticleComponents[13].value = (this.article33value));
+            console.log(this.ArticleComponents[14].value = (this.article35value));
+            console.log(this.ArticleComponents[15].value = (this.article37value));
         },
         sortName: function() {
             console.log(this.ArticleComponents.sort(this.compareArtistName) + ' ' + 'sort by Name');
@@ -420,12 +452,14 @@ export default {
             console.log(this.ArticleComponents[5].artistName = (this.artistName9));
             console.log(this.ArticleComponents[6].artistName = (this.artistName12));
             console.log(this.ArticleComponents[7].artistName = (this.artistName16));
-            console.log(this.ArticleComponents[8].artistName = (this.artistName24));
-            console.log(this.ArticleComponents[9].artistName = (this.artistName25));
-            console.log(this.ArticleComponents[10].artistName = (this.artistName29));
-            console.log(this.ArticleComponents[11].artistName = (this.artistName31));
-            console.log(this.ArticleComponents[12].artistName = (this.artistName35));
-            console.log(this.ArticleComponents[13].artistName = (this.artistName37));
+            console.log(this.ArticleComponents[8].artistName = (this.artistName19));
+            console.log(this.ArticleComponents[9].artistName = (this.artistName24));
+            console.log(this.ArticleComponents[10].artistName = (this.artistName25));
+            console.log(this.ArticleComponents[11].artistName = (this.artistName29));
+            console.log(this.ArticleComponents[12].artistName = (this.artistName31));
+            console.log(this.ArticleComponents[13].artistName = (this.artistName33));
+            console.log(this.ArticleComponents[14].artistName = (this.artistName35));
+            console.log(this.ArticleComponents[15].artistName = (this.artistName37));
         },
         
         handleClick: function(e) {
