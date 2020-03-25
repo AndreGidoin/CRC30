@@ -29,10 +29,13 @@
         v-on:current-worthnine="article9value = $event" 
         v-on:current-worthtvelve="article12value = $event" 
         v-on:current-worthsixteen="article16value = $event" 
+        v-on:current-worthseventeen="article17value = $event" 
+        v-on:current-worthnineteen="article19value = $event" 
         v-on:current-worthtwentyfour="article24value = $event" 
         v-on:current-worthtwentyfive="article25value = $event" 
         v-on:current-worthtwentynine="article29value = $event" 
         v-on:current-worththirtyone="article31value = $event" 
+        v-on:current-worththirtythree="article33value = $event" 
         v-on:current-worththirtyfive="article35value = $event" 
         v-on:current-worththirtyseven="article37value = $event" 
 
@@ -44,11 +47,14 @@
         v-on:artist-namenine="artistName9 = $event" 
         v-on:artist-nametvelve="artistName12 = $event" 
         v-on:artist-namesixteen="artistName16 = $event" 
+        v-on:artist-nameseventeen="artistName17 = $event" 
+        v-on:artist-namesnineteen="artistName19 = $event" 
         v-on:artist-nametwentyfour="artistName24 = $event" 
         v-on:artist-nametwentyfive="artistName25 = $event" 
         v-on:artist-nametwentysix="artistName26 = $event" 
         v-on:artist-nametwentynine="artistName29 = $event" 
         v-on:artist-namethirtyone="artistName31 = $event" 
+        v-on:artist-namethirtythree="artistName33 = $event" 
         v-on:artist-namethirtyfive="artistName35 = $event" 
         v-on:artist-namethirtyseven="artistName37 = $event" 
 
@@ -98,6 +104,7 @@ import Article9 from '@/components/article9'
 import Article10 from '@/components/article10'
 import Article12 from '@/components/article12'
 import Article16 from '@/components/article16'
+import Article17 from '@/components/article17'
 import Article19 from '@/components/article19'
 import Article24 from '@/components/article24'
 import Article25 from '@/components/article25'
@@ -116,6 +123,7 @@ import article9offline from '@/components/article9offline'
 import article12offline from '@/components/article12offline'
 import article15offline from '@/components/article15offline'
 import article16offline from '@/components/article16offline'
+import article17offline from '@/components/article17offline'
 import article19offline from '@/components/article19offline'
 import article24offline from '@/components/article24offline'
 import article25offline from '@/components/article25offline'
@@ -156,6 +164,7 @@ export default {
             article10value: null,
             article12value: null,
             article16value: null,
+            article17value: null,
             article19value: null,
             article24value: null,
             article25value: null,
@@ -176,6 +185,7 @@ export default {
             artistName10: '',
             artistName12: '',
             artistName16: '',
+            artistName17: '',
             artistName19: '',
             artistName24: '',
             artistName25: '',
@@ -236,6 +246,12 @@ export default {
                     value: '',
                     artistName: 'Z',
                     articleNumber: '16'
+                },
+                {       
+                    name: 'article17',
+                    value: '',
+                    artistName: 'Z',
+                    articleNumber: '17'
                 },
                 {       
                     name: 'article19',
@@ -316,6 +332,9 @@ export default {
                         name: 'article16offline'
                     },
                     {
+                        name: 'article17offline'
+                    },
+                    {
                         name: 'article19offline'
                     },
                     {
@@ -374,6 +393,7 @@ export default {
         'article9': Article9,
         'article12': Article12,
         'article16': Article16,
+        'article17': Article17,
         'article19': Article19,
         'article24': Article24,
         'article25': Article25,
@@ -391,6 +411,7 @@ export default {
         'article9offline': article9offline,
         'article12offline': article12offline,
         'article15offline': article15offline,
+        'article17offline': article17offline,
         'article16offline': article16offline,
         'article19offline': article19offline,
         'article24offline': article24offline,
@@ -426,14 +447,15 @@ export default {
             console.log(this.ArticleComponents[5].value = (this.article9value));
             console.log(this.ArticleComponents[6].value = (this.article12value));
             console.log(this.ArticleComponents[7].value = (this.article16value));
-            console.log(this.ArticleComponents[8].value = (this.article19value));
-            console.log(this.ArticleComponents[9].value = (this.article24value));
-            console.log(this.ArticleComponents[10].value = (this.article25value));
-            console.log(this.ArticleComponents[11].value = (this.article29value));
-            console.log(this.ArticleComponents[12].value = (this.article31value));
-            console.log(this.ArticleComponents[13].value = (this.article33value));
-            console.log(this.ArticleComponents[14].value = (this.article35value));
-            console.log(this.ArticleComponents[15].value = (this.article37value));
+            console.log(this.ArticleComponents[8].value = (this.article17value));
+            console.log(this.ArticleComponents[9].value = (this.article19value));
+            console.log(this.ArticleComponents[10].value = (this.article24value));
+            console.log(this.ArticleComponents[11].value = (this.article25value));
+            console.log(this.ArticleComponents[12].value = (this.article29value));
+            console.log(this.ArticleComponents[13].value = (this.article31value));
+            console.log(this.ArticleComponents[14].value = (this.article33value));
+            console.log(this.ArticleComponents[15].value = (this.article35value));
+            console.log(this.ArticleComponents[16].value = (this.article37value));
         },
         sortName: function() {
             console.log(this.ArticleComponents.sort(this.compareArtistName) + ' ' + 'sort by Name');
@@ -452,14 +474,15 @@ export default {
             console.log(this.ArticleComponents[5].artistName = (this.artistName9));
             console.log(this.ArticleComponents[6].artistName = (this.artistName12));
             console.log(this.ArticleComponents[7].artistName = (this.artistName16));
-            console.log(this.ArticleComponents[8].artistName = (this.artistName19));
-            console.log(this.ArticleComponents[9].artistName = (this.artistName24));
-            console.log(this.ArticleComponents[10].artistName = (this.artistName25));
-            console.log(this.ArticleComponents[11].artistName = (this.artistName29));
-            console.log(this.ArticleComponents[12].artistName = (this.artistName31));
-            console.log(this.ArticleComponents[13].artistName = (this.artistName33));
-            console.log(this.ArticleComponents[14].artistName = (this.artistName35));
-            console.log(this.ArticleComponents[15].artistName = (this.artistName37));
+            console.log(this.ArticleComponents[8].artistName = (this.artistName17));
+            console.log(this.ArticleComponents[9].artistName = (this.artistName19));
+            console.log(this.ArticleComponents[10].artistName = (this.artistName24));
+            console.log(this.ArticleComponents[11].artistName = (this.artistName25));
+            console.log(this.ArticleComponents[12].artistName = (this.artistName29));
+            console.log(this.ArticleComponents[13].artistName = (this.artistName31));
+            console.log(this.ArticleComponents[14].artistName = (this.artistName33));
+            console.log(this.ArticleComponents[15].artistName = (this.artistName35));
+            console.log(this.ArticleComponents[16].artistName = (this.artistName37));
         },
         
         handleClick: function(e) {

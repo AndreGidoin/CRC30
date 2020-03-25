@@ -14,7 +14,6 @@
           <a href="mailto:projects@blockchainclub.io?subject=Article11%20Artwork%20Submission"> <img src="../../public/Articles/Article11.png" class="freeArticle"></a>
           <a href="mailto:projects@blockchainclub.io?subject=Article13%20Artwork%20Submission"> <img src="../../public/Articles/Article13.png" class="freeArticle"></a>
           <a href="mailto:projects@blockchainclub.io?subject=Article14%20Artwork%20Submission"> <img src="../../public/Articles/Article14.png" class="freeArticle"></a>
-          <a href="mailto:projects@blockchainclub.io?subject=Article17%20Artwork%20Submission"> <img src="../../public/Articles/Article17.png" class="freeArticle"></a>
           <a href="mailto:projects@blockchainclub.io?subject=Article18%20Artwork%20Submission"> <img src="../../public/Articles/Article18.png" class="freeArticle"></a>
           <a href="mailto:projects@blockchainclub.io?subject=Article20%20Artwork%20Submission"> <img src="../../public/Articles/Article20.png" class="freeArticle"></a>
           <a href="mailto:projects@blockchainclub.io?subject=Article21%20Artwork%20Submission"> <img src="../../public/Articles/Article21.png" class="freeArticle"></a>
